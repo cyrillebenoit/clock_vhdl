@@ -52,9 +52,11 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1456318840" xil_pn:in_ck="8264049994900767282" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="5589970827813353683" xil_pn:start_ts="1456318840">
+    <transform xil_pn:end_ts="1456319599" xil_pn:in_ck="8264049994900767282" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="5589970827813353683" xil_pn:start_ts="1456319599">
       <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="InputChanged"/>
     </transform>
   </transforms>
 
