@@ -1,0 +1,9 @@
+vhdtdtfi -lib work principal.vhd -prj projetS4 -o principal.spl -module principal -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e principal.spl /home/cyrille/projetS4/clock_vhdl/principal.sym 
+xst -intstyle ise -ifn "/home/cyrille/projetS4/clock_vhdl/principal.xst" -ofn "/home/cyrille/projetS4/clock_vhdl/principal.syr" 
+xst -intstyle ise -ifn "/home/cyrille/projetS4/clock_vhdl/principal.xst" -ofn "/home/cyrille/projetS4/clock_vhdl/principal.syr" 
+ngdbuild -intstyle ise -dd _ngo -nt timestamp -i -p xc3s100e-cp132-4 principal.ngc principal.ngd  
+vhdtdtfi -lib work principal.vhd -prj projetS4 -o principal.spl -module principal -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e principal.spl /home/cyrille/projetS4/clock_vhdl/principal.sym 
+vhdtdtfi -lib work principal.vhd -prj projetS4 -o principal.spl -module principal -template /opt/Xilinx/14.7/ISE_DS/ISE//data/splfile.tft -deleteonerror 
+spl2sym -intstyle ise -family spartan3e -w principal.spl /home/cyrille/projetS4/clock_vhdl/principal.sym 
