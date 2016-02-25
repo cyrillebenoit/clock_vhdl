@@ -5,14 +5,14 @@ Parameter TMPDIR set to xst/projnav.tmp
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.08 secs
+Total CPU time to Xst completion: 0.10 secs
  
 --> 
 Reading design: principal.prj
@@ -109,18 +109,20 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 Compiling vhdl file "/home/cyrille/projetS4/clock_vhdl/principal.vhd" in Library work.
 Entity <principal> compiled.
-Entity <principal> (Architecture <Behavioral>) compiled.
+Entity <principal> (Architecture <behavioral>) compiled.
 
 =========================================================================
 *                     Design Hierarchy Analysis                         *
 =========================================================================
-Analyzing hierarchy for entity <principal> in library <work> (architecture <Behavioral>).
+Analyzing hierarchy for entity <principal> in library <work> (architecture <behavioral>).
 
 
 =========================================================================
 *                            HDL Analysis                               *
 =========================================================================
-Analyzing Entity <principal> in library <work> (Architecture <Behavioral>).
+Analyzing Entity <principal> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "/home/cyrille/projetS4/clock_vhdl/principal.vhd" line 155: One or more signals are missing in the process sensitivity list. To enable synthesis of FPGA/CPLD hardware, XST will assume that all necessary signals are present in the sensitivity list. Please note that the result of the synthesis may differ from the initial design specification. The missing signals are:
+   <clk>
 Entity <principal> analyzed. Unit <principal> generated.
 
 
@@ -226,10 +228,10 @@ Macro Statistics
 =========================================================================
 *                         Low Level Synthesis                           *
 =========================================================================
-WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: Mcompar_amount_cmp_ge0000_cy<2>, Mcompar_amount_cmp_ge0000_cy<30>, Mcompar_amount_cmp_ge0000_cy<14>, Mcompar_amount_cmp_ge0000_cy<0>, Mcompar_amount_cmp_ge0000_cy<11>, Mcompar_amount_cmp_ge0000_cy<18>, Mcompar_amount_cmp_ge0000_cy<29>, Mcompar_amount_cmp_ge0000_cy<20>, Mcompar_amount_cmp_ge0000_cy<7>, Mcompar_amount_cmp_ge0000_cy<13>, amount<0>, Mcompar_amount_cmp_ge0000_cy<9>, Mcompar_amount_cmp_ge0000_cy<27>, amount<0>_mand, Mcompar_amount_cmp_ge0000_cy<16>, Mcompar_amount_cmp_ge0000_cy<24>, Mcompar_amount_cmp_ge0000_cy<22>, Mcompar_amount_cmp_ge0000_cy<23>, Mcompar_amount_cmp_ge0000_cy<5>, Mcompar_amount_cmp_ge0000_cy<10>, amount_cmp_ge0000, led<6>, amount_mux0002, Mcompar_amount_cmp_ge0000_cy<26>, Mcompar_amount_cmp_ge0000_cy<3>, Mcompar_amount_cmp_ge0000_cy<6>, Mcompar_amount_cmp_ge0000_cy<28>, Mcompar_amount_cmp_ge0000_cy<12>, amount<0>_mand1, Mcompar_amount_cmp_ge0000_cy<25>, Mcompar_amount_cmp_ge0000_cy<1>, Mcompar_amount_cmp_ge0000_cy<21>, Mcompar_amount_cmp_ge0000_cy<15>, hex<0>, Mcompar_amount_cmp_ge0000_cy<8>, Mcompar_amount_cmp_ge0000_cy<4>, Mcompar_amount_cmp_ge0000_cy<19>, Mcompar_amount_cmp_ge0000_cy<17>.
-WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount_addsub0000<1>, led<5>, hex<1>, Madd_amount_addsub0000_lut<1>, amount<1>.
-WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: hex<2>, amount_addsub0000<2>, amount<2>, led<4>.
-WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount<3>, hex<3>, led<3>, Madd_amount_addsub0000_lut<3>, amount_addsub0000<3>.
+WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount_mux0002, Mcompar_amount_cmp_ge0000_cy<10>, Mcompar_amount_cmp_ge0000_cy<28>, Mcompar_amount_cmp_ge0000_cy<30>, Mcompar_amount_cmp_ge0000_cy<5>, Mcompar_amount_cmp_ge0000_cy<3>, Mcompar_amount_cmp_ge0000_cy<6>, Mcompar_amount_cmp_ge0000_cy<26>, Mcompar_amount_cmp_ge0000_cy<24>, Mcompar_amount_cmp_ge0000_cy<27>, Mcompar_amount_cmp_ge0000_cy<15>, Mcompar_amount_cmp_ge0000_cy<21>, amount<0>_mand, Mcompar_amount_cmp_ge0000_cy<9>, Mcompar_amount_cmp_ge0000_cy<7>, hex<0>, led<6>, Mcompar_amount_cmp_ge0000_cy<23>, Mcompar_amount_cmp_ge0000_cy<22>, Mcompar_amount_cmp_ge0000_cy<11>, Mcompar_amount_cmp_ge0000_cy<13>, Mcompar_amount_cmp_ge0000_cy<8>, Mcompar_amount_cmp_ge0000_cy<29>, Mcompar_amount_cmp_ge0000_cy<19>, Mcompar_amount_cmp_ge0000_cy<4>, Mcompar_amount_cmp_ge0000_cy<0>, Mcompar_amount_cmp_ge0000_cy<20>, Mcompar_amount_cmp_ge0000_cy<16>, Mcompar_amount_cmp_ge0000_cy<18>, Mcompar_amount_cmp_ge0000_cy<12>, Mcompar_amount_cmp_ge0000_cy<2>, amount<0>_mand1, Mcompar_amount_cmp_ge0000_cy<25>, Mcompar_amount_cmp_ge0000_cy<1>, Mcompar_amount_cmp_ge0000_cy<17>, amount<0>, Mcompar_amount_cmp_ge0000_cy<14>, amount_cmp_ge0000.
+WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount<1>, hex<1>, amount_addsub0000<1>, Madd_amount_addsub0000_lut<1>, led<5>.
+WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount_addsub0000<2>, amount<2>, led<4>, hex<2>.
+WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: led<3>, amount_addsub0000<3>, Madd_amount_addsub0000_lut<3>, hex<3>, amount<3>.
 WARNING:Xst:2170 - Unit principal : the following signal(s) form a combinatorial loop: amount<0>.
 
 Optimizing unit <principal> ...
@@ -620,15 +622,15 @@ Delay:               31.850ns (Levels of Logic = 53)
 =========================================================================
 
 
-Total REAL time to Xst completion: 16.00 secs
-Total CPU time to Xst completion: 16.14 secs
+Total REAL time to Xst completion: 13.00 secs
+Total CPU time to Xst completion: 12.74 secs
  
 --> 
 
 
-Total memory usage is 534628 kilobytes
+Total memory usage is 534636 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    5 (   0 filtered)
+Number of warnings :    6 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

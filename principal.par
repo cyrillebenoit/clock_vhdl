@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-cyrille-K42JY::  Thu Feb 25 18:46:02 2016
+cyrille-K42JY::  Thu Feb 25 19:12:48 2016
 
 par -w -intstyle ise -ol high -t 1 principal_map.ncd principal.ncd
 principal.pcf 
@@ -160,7 +160,7 @@ Phase  1  : 1263 unrouted;      REAL time: 8 secs
 
 Phase  2  : 1218 unrouted;      REAL time: 8 secs 
 
-Phase  3  : 256 unrouted;      REAL time: 8 secs 
+Phase  3  : 256 unrouted;      REAL time: 9 secs 
 
 Phase  4  : 336 unrouted; (Setup:873952, Hold:0, Component Switching Limit:481128)     REAL time: 9 secs 
 
@@ -168,17 +168,17 @@ Phase  5  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)
 
 Updating file: principal.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 9 secs 
+Phase  6  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 10 secs 
 
-Phase  7  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 11 secs 
+Phase  7  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 12 secs 
 
-Phase  8  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 11 secs 
+Phase  8  : 0 unrouted; (Setup:896414, Hold:0, Component Switching Limit:481128)     REAL time: 12 secs 
 
-Phase  9  : 0 unrouted; (Setup:870017, Hold:0, Component Switching Limit:481128)     REAL time: 11 secs 
+Phase  9  : 0 unrouted; (Setup:870017, Hold:0, Component Switching Limit:481128)     REAL time: 12 secs 
 WARNING:Route:455 - CLK Net:clk may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 11 secs 
+Total REAL time to Router completion: 12 secs 
 Total CPU time to Router completion: 11 secs 
 
 Partition Implementation Status
@@ -272,7 +272,7 @@ Generating Pad Report.
 All signals are completely routed.
 
 Total REAL time to PAR completion: 12 secs 
-Total CPU time to PAR completion: 11 secs 
+Total CPU time to PAR completion: 12 secs 
 
 Peak Memory Usage:  553 MB
 

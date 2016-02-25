@@ -62,7 +62,7 @@ begin
 			end if;
 	end process;
 
-	process(clk, button, mode)  --period of clk is 1 second.	
+	process(button, mode)  --period of clk is 1 second.	
 	begin
 		-- Selon le mode sélectionné, si un bouton est enfoncé, on incrémente le champ correspondant.
 		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
