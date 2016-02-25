@@ -5,13 +5,33 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <DeviceUsageSummary rev="1">
-<DesignStatistics TimeStamp="Thu Feb 25 09:33:28 2016"><group name="MiscellaneousStatistics">
+<DesignStatistics TimeStamp="Thu Feb 25 18:45:58 2016"><group name="MiscellaneousStatistics">
 <item name="AGG_BONDED_IO" rev="1">
-<attrib name="value" value="7"/></item>
+<attrib name="value" value="17"/></item>
 <item name="AGG_IO" rev="1">
-<attrib name="value" value="7"/></item>
+<attrib name="value" value="17"/></item>
+<item name="AGG_SLICE" rev="1">
+<attrib name="value" value="182"/></item>
+<item name="NUM_4_INPUT_LUT" rev="1">
+<attrib name="value" value="353"/></item>
+<item name="NUM_BONDED_IBUF" rev="1">
+<attrib name="value" value="6"/></item>
 <item name="NUM_BONDED_IOB" rev="1">
-<attrib name="value" value="7"/></item>
+<attrib name="value" value="11"/></item>
+<item name="NUM_BUFGMUX" rev="1">
+<attrib name="value" value="1"/></item>
+<item name="NUM_CYMUX" rev="1">
+<attrib name="value" value="145"/></item>
+<item name="NUM_LUT_RT" rev="1">
+<attrib name="value" value="32"/></item>
+<item name="NUM_MULTAND" rev="1">
+<attrib name="value" value="62"/></item>
+<item name="NUM_SLICEL" rev="1">
+<attrib name="value" value="182"/></item>
+<item name="NUM_SLICE_FF" rev="1">
+<attrib name="value" value="51"/></item>
+<item name="NUM_XOR" rev="1">
+<attrib name="value" value="77"/></item>
 </group>
 </DesignStatistics>
 <CmdHistory>

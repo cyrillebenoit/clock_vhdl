@@ -20,6 +20,7 @@
 library IEEE;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_arith.all;
+--use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
 
 -- Uncomment the following library declaration if using
@@ -43,13 +44,14 @@ architecture Behavioral of principal is
 	signal sec,min,hour : integer range 0 to 60 :=0;
 	signal tmp : integer range 0 to 60:=0; -- Aide pour les calculs d'unité et de dizaine
 	signal count : integer :=1;
+	signal amount : integer :=0;
 	signal clk : std_logic :='0';
 	signal hex : std_logic_vector (3 downto 0):="0000";
+
 	
 begin
 
-	 --clk generation. Génère une clock de 1Hz à partir d'une clock de 100MHz
-	process(clk1)
+	process(clk1) 			--clk generation. Génère une clock de 1Hz à partir d'une clock de 50MHz
 	begin
 			if(clk1'event and clk1='1') then
 				count <=count+1;
@@ -60,9 +62,103 @@ begin
 			end if;
 	end process;
 
-	process(clk)   --period of clk is 1 second.	
+	process(clk, button, mode)  --period of clk is 1 second.	
 	begin
-		if(clk'event and clk='1') then
+		-- Selon le mode sélectionné, si un bouton est enfoncé, on incrémente le champ correspondant.
+		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
+			if mode = '1' then -- Si on est en mode HH:MM
+				-- cadran 4 (hh:mM)
+				if button(0) = '1' then
+					min <= min + 1;
+					if(min > 59) then
+						hour <= hour + 1;
+						min <= 0;
+						if(hour > 23) then
+							hour <= 0;
+						end if;
+					end if;
+				end if;
+				-- cadran 3 (hh:Mm)
+				if button(1) = '1' then
+					min <= min + 10;
+					if(min > 59) then
+						hour <= hour + 1;
+						min <= min - 60;
+						if(hour > 23) then
+							hour <= 0;
+						end if;
+					end if;
+				end if;
+				-- cadran 2 (hH:mm)
+				if button(2) = '1' then
+					hour <= hour + 1;
+					if(hour > 23) then
+						hour <= 0;
+					end if;
+				end if;
+				-- cadran 1 (Hh:mm)
+				if button(3) = '1' then
+					hour <= hour + 10;
+					if(hour > 23) then
+						hour <= hour - 24;
+					end if;
+				end if;
+			else --Si on est en mode MM:SS
+				-- cadran 4 (mm:sS)
+				if button(0) = '1' then
+					sec <= sec +1;
+					if(sec > 59) then
+						sec<=0;
+						min <= min + 1;
+						if(min > 59) then
+							hour <= hour + 1;
+							min <= 0;
+							if(hour > 23) then
+								hour <= 0;
+							end if;
+						end if;
+					end if;
+				end if;
+				-- cadran 3 (mm:Ss)
+				if button(1) = '1' then
+					sec <= sec + 10;
+					if(sec > 59) then
+						sec<= sec - 60;
+						min <= min + 1;
+						if(min > 59) then
+							hour <= hour + 1;
+							min <= 0;
+							if(hour > 23) then
+								hour <= 0;
+							end if;
+						end if;
+					end if;
+				end if;
+				-- cadran 2 (mM:ss)
+				if button(2) = '1' then
+					min <= min +1;
+					if(min > 59) then
+						hour <= hour + 1;
+						min <= 0;
+						if(hour > 23) then
+							hour <= 0;
+						end if;
+					end if;
+				end if;
+				-- cadran 1 (Mm:ss)
+				if button(3) = '1' then
+					min <= min + 10;
+					if(min > 59) then
+						hour <= hour + 1;
+						min <= min - 60;
+						if(hour > 23) then
+							hour <= 0;
+						end if;
+					end if;
+				end if;
+			end if;
+		-- On incrémente le timestamp chaque seconde
+		elsif(clk'event and clk='1') then
 			sec <= sec+ 1;
 			if(sec = 59) then
 				sec<=0;
@@ -78,20 +174,7 @@ begin
 		end if;
 	end process;
 		
-	process(button, mode) 	--Incrémente les compteurs correspondant aux cadrans adjacents
-	begin
-		if mode = '1' then -- Si on est en mode HH:MM
-			-- cadran 1
---			if button(0) = 
---
---			end if;
-		else
-			
-		end if;
-	end process;
-
-
-	process(mode, sec, min, hour, tmp, hex)
+	process(mode, sec, min, hour) 	--Génère les valeurs binaires des chiffres à afficher et les envoie à la carte.(mux)
 	begin
 		if mode = '1' then -- Si on est en mode HH:MM
 			--Calcul de la valeur HEX à afficher sur le 4e cadran (unités de minutes)
@@ -127,11 +210,14 @@ begin
 				end case;
 
 			--Calcul de la valeur HEX à afficher sur le 3e cadran (dizaine de minutes)
-			
-				tmp <= (min - tmp)/10;
+				
+				amount <= 0;
+				while (amount < (min - tmp)) loop
+					amount <= amount + 10;
+				end loop;
 				
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(tmp,4);
+				hex <= conv_std_logic_vector(amount,4);
 				
 				an <= "1101";
 				-- On calcule la valeur des bits de sortie
@@ -187,10 +273,13 @@ begin
 				end case;
 			
 			--Calcul de la valeur HEX à afficher sur le 1er cadran (dizaines des heures)
-			
-				tmp <= (hour - tmp)/10;
 				
-				hex <= conv_std_logic_vector(tmp,4);
+				amount <= 0;
+				while (amount < (hour - tmp)) loop
+					amount <= amount + 10;
+				end loop;
+
+				hex <= conv_std_logic_vector(hour,4);
 
 				an <= "0111";
 				-- On calcule la valeur des bits de sortie
@@ -247,11 +336,14 @@ begin
 				end case;
 			
 			--Calcul de la valeur HEX à afficher sur le 3e cadran (dizaine de secondes)
-			
-				tmp <= (sec - tmp)/10;
 				
+				amount <= 0;
+				while (amount < (sec - tmp)) loop
+					amount <= amount + 10;
+				end loop;
+
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(tmp,4);
+				hex <= conv_std_logic_vector(amount,4);
 				
 				an <= "1101";
 				-- On calcule la valeur des bits de sortie
@@ -307,11 +399,14 @@ begin
 				end case;
 			
 			--Calcul de la valeur HEX à afficher sur le 1er cadran (dizaines des minutes)
-			
-				tmp <= (min - tmp)/10;
 				
+				amount <= 0;
+				while (amount < (min - tmp)) loop
+					amount <= amount + 10;
+				end loop;
+
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(tmp,4);
+				hex <= conv_std_logic_vector(amount,4);
 				
 				an <= "0111";
 				-- On calcule la valeur des bits de sortie

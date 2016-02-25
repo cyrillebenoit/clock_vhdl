@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=/home/cyrille/projetS4/clock_vhdl/principal.ncd
+OUTFILE=/home/cyrille/projetS4/clock_vhdl/principal.bit
+FAMILY=Spartan3E
+PART=xc3s100e-4cp132
+WORKINGDIR=/home/cyrille/projetS4/clock_vhdl
+LICENSE=WebPack
+USER_INFO=211154512_0_0_739

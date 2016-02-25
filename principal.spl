@@ -1,8 +1,0 @@
-[Inputs]
-clk1
-mode
-=button[3:0]=
-[Outputs]
-=an[3:0]=
-=led[6:0]=
-[BiDir]

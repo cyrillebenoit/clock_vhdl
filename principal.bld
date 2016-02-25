@@ -12,27 +12,6 @@ Done.
 Annotating constraints to design from ucf file "principal.ucf" ...
 Resolving constraint associations...
 Checking Constraint Associations...
-WARNING:ConstraintSystem:137 - Constraint <NET "clk1" TNM_NET = "clk1";>
-   [principal.ucf(3)]: No appropriate instances for the TNM constraint are
-   driven by "clk1".
-
-WARNING:ConstraintSystem:56 - Constraint <TIMESPEC TS_clk1 = PERIOD "clk1" 20 ps
-   HIGH 50 %;> [principal.ucf(4)]: Unable to find an active 'TNM' or 'TimeGrp'
-   constraint named 'clk1'.
-
-WARNING:ConstraintSystem:191 - The TNM 'clk1', does not directly or indirectly
-   drive any flip-flops, latches and/or RAMS and cannot be actively used by the
-   referencing Period constraint 'TS_clk1'. If clock manager blocks are directly
-   or indirectly driven, a new TNM constraint will not be derived even though
-   the referencing constraint is a PERIOD constraint unless an output of the
-   clock manager drives flip-flops, latches or RAMs. This TNM is used in the
-   following user PERIOD specification:
-   <TIMESPEC TS_clk1 = PERIOD "clk1" 20 ps HIGH 50 %;> [principal.ucf(4)]
-
-WARNING:ConstraintSystem:197 - The following specification is invalid because
-   the referenced TNM constraint was removed:
-   <TIMESPEC TS_clk1 = PERIOD "clk1" 20 ps HIGH 50 %;> [principal.ucf(4)]
-
 Done...
 
 Checking expanded design ...
@@ -46,12 +25,12 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   4
+  Number of warnings:   0
 
-Total memory usage is 394424 kilobytes
+Total memory usage is 395600 kilobytes
 
 Writing NGD file "principal.ngd" ...
-Total REAL time to NGDBUILD completion:  3 sec
-Total CPU time to NGDBUILD completion:   3 sec
+Total REAL time to NGDBUILD completion:  5 sec
+Total CPU time to NGDBUILD completion:   4 sec
 
 Writing NGDBUILD log file "principal.bld"...

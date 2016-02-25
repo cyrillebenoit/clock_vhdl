@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <symbol version="7" name="principal">
     <symboltype>BLOCK</symboltype>
-    <timestamp>2016-2-25T14:35:1</timestamp>
+    <timestamp>2016-2-25T16:48:29</timestamp>
     <pin polarity="Input" x="0" y="32" name="clk1" />
     <pin polarity="Input" x="0" y="96" name="mode" />
     <pin polarity="Input" x="0" y="160" name="button(3:0)" />

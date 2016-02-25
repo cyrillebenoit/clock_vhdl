@@ -1,4 +1,39 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Thu Feb 25 09:33:27 2016
+// Written by: Map P.20131013 on Thu Feb 25 18:45:57 2016
 //! **************************************************************************
+
+SCHEMATIC START;
+COMP "clk1" LOCATE = SITE "B8" LEVEL 1;
+COMP "mode" LOCATE = SITE "M5" LEVEL 1;
+COMP "an<0>" LOCATE = SITE "F12" LEVEL 1;
+COMP "an<1>" LOCATE = SITE "J12" LEVEL 1;
+COMP "an<2>" LOCATE = SITE "M13" LEVEL 1;
+COMP "an<3>" LOCATE = SITE "K14" LEVEL 1;
+COMP "button<0>" LOCATE = SITE "G12" LEVEL 1;
+COMP "button<1>" LOCATE = SITE "C11" LEVEL 1;
+COMP "button<2>" LOCATE = SITE "M4" LEVEL 1;
+COMP "button<3>" LOCATE = SITE "A7" LEVEL 1;
+COMP "led<0>" LOCATE = SITE "L14" LEVEL 1;
+COMP "led<1>" LOCATE = SITE "H12" LEVEL 1;
+COMP "led<2>" LOCATE = SITE "N14" LEVEL 1;
+COMP "led<3>" LOCATE = SITE "N11" LEVEL 1;
+COMP "led<4>" LOCATE = SITE "P12" LEVEL 1;
+COMP "led<5>" LOCATE = SITE "L13" LEVEL 1;
+COMP "led<6>" LOCATE = SITE "M12" LEVEL 1;
+NET "clk1_BUFGP/IBUFG" BEL "clk1_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
+TIMEGRP clk1 = BEL "clk" BEL "count_0" BEL "count_3" BEL "count_1" BEL
+        "count_2" BEL "count_4" BEL "count_5" BEL "count_6" BEL "count_7" BEL
+        "count_10" BEL "count_8" BEL "count_9" BEL "count_11" BEL "count_12"
+        BEL "count_13" BEL "count_14" BEL "count_17" BEL "count_15" BEL
+        "count_16" BEL "count_18" BEL "count_19" BEL "count_20" BEL "count_21"
+        BEL "count_24" BEL "count_22" BEL "count_23" BEL "count_25" BEL
+        "count_26" BEL "count_27" BEL "count_28" BEL "count_31" BEL "count_29"
+        BEL "count_30" BEL "clk1_BUFGP/BUFG.GCLKMUX" BEL "clk1_BUFGP/BUFG";
+TIMEGRP clk = BEL "clk" BEL "min_5" BEL "min_4" BEL "min_3" BEL "min_2" BEL
+        "min_1" BEL "min_0" BEL "hour_5" BEL "hour_4" BEL "hour_3" BEL
+        "hour_2" BEL "hour_1" BEL "hour_0" BEL "sec_5" BEL "sec_4" BEL "sec_3"
+        BEL "sec_2" BEL "sec_1" BEL "sec_0";
+TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns HIGH 50%;
+TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIGH 50%;
+SCHEMATIC END;
 
