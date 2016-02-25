@@ -23,22 +23,51 @@
 
   <files xmlns="http://www.xilinx.com/XMLSchema">
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="_ngo"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/map.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/par.xmsgs"/>
+    <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/trce.xmsgs"/>
     <file xil_pn:fileType="FILE_XMSGS" xil_pn:name="_xmsgs/xst.xmsgs"/>
     <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_1"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_2"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_3"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_4"/>
+    <file xil_pn:fileType="FILE_DIRECTORY" xil_pn:name="planAhead_run_5"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGDBUILD_LOG" xil_pn:name="principal.bld"/>
     <file xil_pn:fileType="FILE_CMD_LOG" xil_pn:name="principal.cmd_log"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_LSO" xil_pn:name="principal.lso"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="principal.ncd" xil_pn:subbranch="Par"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGC" xil_pn:name="principal.ngc"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGD" xil_pn:name="principal.ngd"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGR" xil_pn:name="principal.ngr"/>
+    <file xil_pn:fileType="FILE_PAD_MISC" xil_pn:name="principal.pad"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAR_REPORT" xil_pn:name="principal.par" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PCF" xil_pn:name="principal.pcf" xil_pn:subbranch="Map"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="principal.prj"/>
+    <file xil_pn:fileType="FILE_TRCE_MISC" xil_pn:name="principal.ptwx"/>
     <file xil_pn:fileType="FILE_SPL" xil_pn:name="principal.spl"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_STX" xil_pn:name="principal.stx"/>
     <file xil_pn:fileType="FILE_SYMBOL" xil_pn:name="principal.sym" xil_pn:origination="imported"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_REPORT" xil_pn:name="principal.syr"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_TXT_REPORT" xil_pn:name="principal.twr" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_TIMING_XML_REPORT" xil_pn:name="principal.twx" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_UNROUTES" xil_pn:name="principal.unroutes" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XPI" xil_pn:name="principal.xpi"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST" xil_pn:name="principal.xst"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="principal_envsettings.html"/>
+    <file xil_pn:fileType="FILE_NCD" xil_pn:name="principal_guide.ncd" xil_pn:origination="imported"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="principal_map.map" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_MAP_REPORT" xil_pn:name="principal_map.mrp" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NCD" xil_pn:name="principal_map.ncd" xil_pn:subbranch="Map"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_NGM" xil_pn:name="principal_map.ngm" xil_pn:subbranch="Map"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="principal_map.xrpt"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="principal_ngdbuild.xrpt"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_EXCEL_REPORT" xil_pn:name="principal_pad.csv" xil_pn:subbranch="Par"/>
+    <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_PAD_TXT_REPORT" xil_pn:name="principal_pad.txt" xil_pn:subbranch="Par"/>
+    <file xil_pn:fileType="FILE_XRPT" xil_pn:name="principal_par.xrpt"/>
+    <file xil_pn:fileType="FILE_HTML" xil_pn:name="principal_summary.html"/>
+    <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="principal_summary.xml"/>
+    <file xil_pn:fileType="FILE_WEBTALK" xil_pn:name="principal_usage.xml"/>
     <file xil_pn:branch="Implementation" xil_pn:fileType="FILE_XST_PROJECT" xil_pn:name="principal_vhdl.prj"/>
     <file xil_pn:fileType="FILE_XRPT" xil_pn:name="principal_xst.xrpt"/>
     <file xil_pn:fileType="FILE_FITTER_REPORT" xil_pn:name="webtalk_pn.xml"/>
@@ -75,37 +104,32 @@
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
     </transform>
-    <transform xil_pn:end_ts="1456331503" xil_pn:in_ck="8264049994900767282" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="4357310545140739029" xil_pn:start_ts="1456331494">
-      <status xil_pn:value="SuccessfullyRun"/>
-      <status xil_pn:value="WarningsGenerated"/>
+    <transform xil_pn:end_ts="1456410920" xil_pn:in_ck="8264049994900767282" xil_pn:name="TRANEXT_xstsynthesize_spartan3e" xil_pn:prop_ck="4357310545140739029" xil_pn:start_ts="1456410910">
+      <status xil_pn:value="FailedRun"/>
       <status xil_pn:value="ReadyToRun"/>
-      <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_xmsgs/xst.xmsgs"/>
       <outfile xil_pn:name="principal.lso"/>
       <outfile xil_pn:name="principal.ngc"/>
       <outfile xil_pn:name="principal.ngr"/>
       <outfile xil_pn:name="principal.prj"/>
-      <outfile xil_pn:name="principal.stx"/>
       <outfile xil_pn:name="principal.syr"/>
       <outfile xil_pn:name="principal.xst"/>
       <outfile xil_pn:name="principal_xst.xrpt"/>
       <outfile xil_pn:name="webtalk_pn.xml"/>
       <outfile xil_pn:name="xst"/>
     </transform>
-    <transform xil_pn:end_ts="1456331117" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="162516298077186" xil_pn:start_ts="1456331116">
+    <transform xil_pn:end_ts="1456389614" xil_pn:in_ck="8264049994900766030" xil_pn:name="TRAN_compileBCD2" xil_pn:prop_ck="162516298077186" xil_pn:start_ts="1456389614">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
     </transform>
-    <transform xil_pn:end_ts="1456331511" xil_pn:in_ck="8264049994900758536" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8283359599688353637" xil_pn:start_ts="1456331503">
+    <transform xil_pn:end_ts="1456389619" xil_pn:in_ck="-8460879241805845930" xil_pn:name="TRANEXT_ngdbuild_FPGA" xil_pn:prop_ck="8283359599688353637" xil_pn:start_ts="1456389614">
       <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="WarningsGenerated"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputAdded"/>
       <status xil_pn:value="InputChanged"/>
       <outfile xil_pn:name="_ngo"/>
       <outfile xil_pn:name="_xmsgs/ngdbuild.xmsgs"/>
@@ -113,12 +137,54 @@
       <outfile xil_pn:name="principal.ngd"/>
       <outfile xil_pn:name="principal_ngdbuild.xrpt"/>
     </transform>
-    <transform xil_pn:end_ts="1456331518" xil_pn:in_ck="8264049994900758537" xil_pn:name="TRAN_createTimingConstraints" xil_pn:start_ts="1456331511">
+    <transform xil_pn:end_ts="1456389209" xil_pn:in_ck="-8760757469485997065" xil_pn:name="TRANEXT_map_spartan3" xil_pn:prop_ck="-1303429204059397298" xil_pn:start_ts="1456389200">
       <status xil_pn:value="SuccessfullyRun"/>
       <status xil_pn:value="ReadyToRun"/>
       <status xil_pn:value="OutOfDateForInputs"/>
       <status xil_pn:value="OutOfDateForPredecessor"/>
-      <status xil_pn:value="InputAdded"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_xmsgs/map.xmsgs"/>
+      <outfile xil_pn:name="principal.pcf"/>
+      <outfile xil_pn:name="principal_map.map"/>
+      <outfile xil_pn:name="principal_map.mrp"/>
+      <outfile xil_pn:name="principal_map.ncd"/>
+      <outfile xil_pn:name="principal_map.ngm"/>
+      <outfile xil_pn:name="principal_map.xrpt"/>
+      <outfile xil_pn:name="principal_summary.xml"/>
+      <outfile xil_pn:name="principal_usage.xml"/>
+    </transform>
+    <transform xil_pn:end_ts="1456389220" xil_pn:in_ck="-1112694272041054544" xil_pn:name="TRANEXT_par_spartan3" xil_pn:prop_ck="1934304854298957634" xil_pn:start_ts="1456389209">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_xmsgs/par.xmsgs"/>
+      <outfile xil_pn:name="principal.ncd"/>
+      <outfile xil_pn:name="principal.pad"/>
+      <outfile xil_pn:name="principal.par"/>
+      <outfile xil_pn:name="principal.ptwx"/>
+      <outfile xil_pn:name="principal.unroutes"/>
+      <outfile xil_pn:name="principal.xpi"/>
+      <outfile xil_pn:name="principal_pad.csv"/>
+      <outfile xil_pn:name="principal_pad.txt"/>
+      <outfile xil_pn:name="principal_par.xrpt"/>
+    </transform>
+    <transform xil_pn:end_ts="1456389220" xil_pn:in_ck="-6070319563125150477" xil_pn:name="TRAN_postRouteTrce" xil_pn:prop_ck="445577401284416186" xil_pn:start_ts="1456389218">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
+      <status xil_pn:value="InputChanged"/>
+      <outfile xil_pn:name="_xmsgs/trce.xmsgs"/>
+      <outfile xil_pn:name="principal.twr"/>
+      <outfile xil_pn:name="principal.twx"/>
+    </transform>
+    <transform xil_pn:end_ts="1456389622" xil_pn:in_ck="-8760757469485997065" xil_pn:name="TRAN_createTimingConstraints" xil_pn:start_ts="1456389619">
+      <status xil_pn:value="SuccessfullyRun"/>
+      <status xil_pn:value="ReadyToRun"/>
+      <status xil_pn:value="OutOfDateForInputs"/>
+      <status xil_pn:value="OutOfDateForPredecessor"/>
       <status xil_pn:value="InputChanged"/>
     </transform>
   </transforms>

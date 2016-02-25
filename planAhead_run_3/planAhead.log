@@ -1,0 +1,42 @@
+#-----------------------------------------------------------
+# PlanAhead v14.7 (64-bit)
+# Build 321239 by xbuild on Fri Sep 27 19:24:36 MDT 2013
+# Start of session at: Thu Feb 25 09:26:01 2016
+# Process ID: 4185
+# Log file: /home/cyrille/projetS4/clock_vhdl/planAhead_run_3/planAhead.log
+# Journal file: /home/cyrille/projetS4/clock_vhdl/planAhead_run_3/planAhead.jou
+#-----------------------------------------------------------
+INFO: [Common 17-78] Attempting to get a license: PlanAhead
+INFO: [Common 17-290] Got license for PlanAhead
+INFO: [Device 21-36] Loading parts and site information from /opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/arch.xml
+Parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+Finished parsing RTL primitives file [/opt/Xilinx/14.7/ISE_DS/PlanAhead/data/parts/xilinx/rtl/prims/rtl_prims.xml]
+start_gui
+source /home/cyrille/projetS4/clock_vhdl/pa.fromHdl.tcl
+# create_project -name projetS4 -dir "/home/cyrille/projetS4/clock_vhdl/planAhead_run_3" -part xc3s100ecp132-4
+# set_param project.pinAheadLayout yes
+# set srcset [get_property srcset [current_run -impl]]
+# set_property target_constrs_file "principal.ucf" [current_fileset -constrset]
+Adding file '/home/cyrille/projetS4/clock_vhdl/principal.ucf' to fileset 'constrs_1'
+# set hdlfile [add_files [list {principal.vhd}]]
+# set_property file_type VHDL $hdlfile
+# set_property library work $hdlfile
+# set_property top principal $srcset
+# add_files [list {principal.ucf}] -fileset [get_property constrset [current_run]]
+# open_rtl_design -part xc3s100ecp132-4
+CRITICAL WARNING: [Designutils 20-742] The top module "principal" specified for this project can not be validated. The current project is using automatic hierarchy update mode, and hence a new suitable replacement top will be automatically selected. If this is not desired, please change the hierarchy update mode to one of the manual compile order modes first, and then set top to any desired value.
+ERROR: [Designutils 20-730] Could not find a top module in the fileset sources_1.
+
+    while executing
+"open_rtl_design -part xc3s100ecp132-4"
+    (file "/home/cyrille/projetS4/clock_vhdl/pa.fromHdl.tcl" line 13)
+exit
+ERROR: [#UNDEF] *** Exception: ui.h.b: Found deleted key in HTclEventBroker. Verify if the classes listed here call cleanup()
+HTclEvent: SIGNAL_BUS_MODIFY   Classes: ui.views.aR 
+HTclEvent: SIGNAL_MODIFY   Classes: ui.views.aR 
+HTclEvent: DEBUG_PORT_CONFIG_CHANGE   Classes: ui.views.aR 
+HTclEvent: DEBUG_CORE_CONFIG_CHANGE   Classes: ui.views.aR 
+ (See /home/cyrille/projetS4/clock_vhdl/planAhead_pid4185.debug)
+ERROR: [Common 17-39] 'stop_gui' failed due to earlier errors.
+INFO: [Common 17-206] Exiting PlanAhead at Thu Feb 25 09:26:40 2016...
+INFO: [Common 17-83] Releasing license: PlanAhead

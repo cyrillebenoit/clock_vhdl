@@ -5,16 +5,7 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">an</arg>&gt; is never assigned.
-</msg>
-
-<msg type="warning" file="Xst" num="1306" delta="new" >Output &lt;<arg fmt="%s" index="1">led</arg>&gt; is never assigned.
-</msg>
-
-<msg type="warning" file="Xst" num="1780" delta="new" >Signal &lt;<arg fmt="%s" index="1">hex_out</arg>&gt; is never used or assigned. This unconnected signal will be trimmed during the optimization process.
-</msg>
-
-<msg type="info" file="Xst" num="2169" delta="new" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+<msg type="error" file="Xst" num="769" delta="new" >&quot;<arg fmt="%s" index="1">/home/cyrille/projetS4/clock_vhdl/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">131</arg>: Operator &lt;<arg fmt="%s" index="3">DIVIDE</arg>&gt; must have constant operands or first operand must be power of 2
 </msg>
 
 </messages>
