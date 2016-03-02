@@ -1,0 +1,53 @@
+--------------------------------------------------------------------------------
+Release 9.2i Trace 
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+
+C:\Xilinx92i\bin\nt\trce.exe -ise
+C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise
+-intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+
+Design file:              tp2.ncd
+Physical constraint file: tp2.pcf
+Device,package,speed:     xc3s100e,cp132,-4 (PRODUCTION 1.26 2007-04-13)
+Report level:             error report
+
+Environment Variable      Effect 
+--------------------      ------ 
+NONE                      No environment variables were set
+--------------------------------------------------------------------------------
+
+INFO:Timing:2698 - No timing constraints found, doing default enumeration.
+INFO:Timing:2752 - To get complete path coverage, use the unconstrained paths 
+   option. All paths that are not constrained will be reported in the 
+   unconstrained paths section(s) of the report.
+INFO:Timing:3339 - The clock-to-out numbers in this timing report are based on 
+   a 50 Ohm transmission line loading model.  For the details of this model, 
+   and for more information on accounting for different loading conditions, 
+   please see the device datasheet.
+
+
+
+Data Sheet report:
+-----------------
+All values displayed in nanoseconds (ns)
+
+Clock to Setup on destination clock clk1
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+clk1           |    5.584|         |         |         |
+---------------+---------+---------+---------+---------+
+
+
+Analysis completed Wed Mar 02 19:40:13 2016 
+--------------------------------------------------------------------------------
+
+Trace Settings:
+-------------------------
+Trace Settings 
+
+Peak Memory Usage: 120 MB
+
+
+

@@ -1,0 +1,118 @@
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -ifn TP2.xst -ofn TP2.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -dd _ngo -nt timestamp -uc "TP2.ucf" -p xc3s100e-cp132-4 "TP2.ngc" TP2.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o TP2_map.ncd TP2.ngd TP2.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -w -intstyle ise -ol std -t 1 TP2_map.ncd TP2.ncd TP2.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -e 3 -s 4 -xml TP2 TP2.ncd -o TP2.twr TP2.pcf -ucf TP2.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/clock_vhdl/TP2/TP2.ise" -intstyle ise -f TP2.ut TP2.ncd
