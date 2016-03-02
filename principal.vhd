@@ -65,7 +65,7 @@ begin
 
 			--PARTIE CREATION DE LA CLOCK D'AFFICHAGE
 			count2 <=count2+1;
-			if(count2 = 50000) then
+			if(count2 = 250000) then
 				out_clk <= not out_clk;
 				count2 <=1;
 			end if;
@@ -78,7 +78,6 @@ begin
 		if(out_clk'event and out_clk='1') then
 			--PARTIE AFFICHAGE
 			if (an_in="0001") then -- xx:xX
-				an <= "0001";
 				if mode = '1' then 		-- si on est en mode HH:MM
 					hex <= conv_std_logic_vector(umin,4);
 					case hex is
@@ -120,9 +119,9 @@ begin
 						when others => led <= "1000000";   --0
 					end case;
 				end if ;
+				an <= "0001";
 				an_in <= "0010";
 			elsif (an_in="0010") then -- xx:Xx
-				an <= "0010";
 				if mode = '1' then 		-- si on est en mode HH:MM
 					hex <= conv_std_logic_vector(dmin,4);
 					case hex is
@@ -164,9 +163,9 @@ begin
 						when others => led <= "1000000";   --0
 					end case;
 				end if ;
+				an <= "0010";
 				an_in <= "0100";
 			elsif (an_in="0100") then -- xX:xx
-				an <= "0100";
 				if mode = '1' then 		-- si on est en mode HH:MM
 					hex <= conv_std_logic_vector(uhour,4);
 					case hex is
@@ -208,9 +207,9 @@ begin
 						when others => led <= "1000000";   --0
 					end case;
 				end if ;
+				an <= "0100";
 				an_in <= "1000";
 			elsif (an_in="1000") then -- Xx:xx
-				an <= "1000";
 				if mode = '1' then 		-- si on est en mode HH:MM
 					hex <= conv_std_logic_vector(dhour,4);
 					case hex is
@@ -252,6 +251,7 @@ begin
 						when others => led <= "1000000";   --0
 					end case;
 				end if ;
+				an <= "1000";
 				an_in <= "0001";
 			end if;
 		end if;
