@@ -44,7 +44,8 @@ architecture Behavioral of principal is
 	signal sec,min,hour : integer range 0 to 60 :=0;
 	signal tmp : integer range 0 to 60:=0; -- Aide pour les calculs d'unité et de dizaine
 	signal count : integer :=1;
-	signal amount : integer :=0;
+	signal amount : integer range 0 to 60:=0;
+	signal amount2 : integer range 0 to 6:=0;
 	signal clk : std_logic :='0';
 	signal hex : std_logic_vector (3 downto 0):="0000";
 
@@ -62,7 +63,7 @@ begin
 			end if;
 	end process;
 
-	process(button, mode)  --period of clk is 1 second.	
+	process(clk, button, mode)  --modification manuelle de l'heure
 	begin
 		-- Selon le mode sélectionné, si un bouton est enfoncé, on incrémente le champ correspondant.
 		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
@@ -212,12 +213,14 @@ begin
 			--Calcul de la valeur HEX à afficher sur le 3e cadran (dizaine de minutes)
 				
 				amount <= 0;
+				amount2 <= 0;
 				while (amount < (min - tmp)) loop
 					amount <= amount + 10;
+					amount2 <= amount2 + 1;
 				end loop;
 				
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(amount,4);
+				hex <= conv_std_logic_vector(amount2,4);
 				
 				an <= "1101";
 				-- On calcule la valeur des bits de sortie
@@ -275,11 +278,14 @@ begin
 			--Calcul de la valeur HEX à afficher sur le 1er cadran (dizaines des heures)
 				
 				amount <= 0;
+				amount2 <= 0;
 				while (amount < (hour - tmp)) loop
 					amount <= amount + 10;
+					amount2 <= amount2 + 1;
 				end loop;
-
-				hex <= conv_std_logic_vector(hour,4);
+				
+				-- On a ici les dizaines de minutes
+				hex <= conv_std_logic_vector(amount2,4);
 
 				an <= "0111";
 				-- On calcule la valeur des bits de sortie
@@ -338,12 +344,15 @@ begin
 			--Calcul de la valeur HEX à afficher sur le 3e cadran (dizaine de secondes)
 				
 				amount <= 0;
+				amount2 <= 0;
 				while (amount < (sec - tmp)) loop
 					amount <= amount + 10;
+					amount2 <= amount2 + 1;
 				end loop;
-
+				
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(amount,4);
+				hex <= conv_std_logic_vector(amount2,4);
+				
 				
 				an <= "1101";
 				-- On calcule la valeur des bits de sortie
@@ -401,12 +410,15 @@ begin
 			--Calcul de la valeur HEX à afficher sur le 1er cadran (dizaines des minutes)
 				
 				amount <= 0;
+				amount2 <= 0;
 				while (amount < (min - tmp)) loop
 					amount <= amount + 10;
+					amount2 <= amount2 + 1;
 				end loop;
-
+				
 				-- On a ici les dizaines de minutes
-				hex <= conv_std_logic_vector(amount,4);
+				hex <= conv_std_logic_vector(amount2,4);
+				
 				
 				an <= "0111";
 				-- On calcule la valeur des bits de sortie
