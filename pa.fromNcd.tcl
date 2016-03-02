@@ -1,7 +1,7 @@
 
 # PlanAhead Launch Script for Post PAR Floorplanning, created by Project Navigator
 
-create_project -name projetS4 -dir "/home/cyrille/projetS4/clock_vhdl/planAhead_run_1" -part xc3s100ecp132-4
+create_project -name projetS4 -dir "/home/cyrille/projetS4/clock_vhdl/planAhead_run_2" -part xc3s100ecp132-4
 set srcset [get_property srcset [current_run -impl]]
 set_property design_mode GateLvl $srcset
 set_property edif_top_file "/home/cyrille/projetS4/clock_vhdl/principal.ngc" [ get_property srcset [ current_run ] ]

@@ -1,5 +1,5 @@
 //! **************************************************************************
-// Written by: Map P.20131013 on Wed Mar 02 21:42:51 2016
+// Written by: Map P.20131013 on Wed Mar 02 23:13:26 2016
 //! **************************************************************************
 
 SCHEMATIC START;
@@ -21,18 +21,28 @@ COMP "button<2>" LOCATE = SITE "M4" LEVEL 1;
 COMP "button<3>" LOCATE = SITE "A7" LEVEL 1;
 COMP "clk1" LOCATE = SITE "B8" LEVEL 1;
 NET "clk1_BUFGP/IBUFG" BEL "clk1_BUFGP/BUFG.GCLKMUX" USELOCALCONNECT;
-TIMEGRP clk1 = BEL "clk" BEL "count_0" BEL "count_3" BEL "count_1" BEL
-        "count_2" BEL "count_4" BEL "count_5" BEL "count_6" BEL "count_7" BEL
-        "count_10" BEL "count_8" BEL "count_9" BEL "count_11" BEL "count_12"
-        BEL "count_13" BEL "count_14" BEL "count_17" BEL "count_15" BEL
-        "count_16" BEL "count_18" BEL "count_19" BEL "count_20" BEL "count_21"
-        BEL "count_24" BEL "count_22" BEL "count_23" BEL "count_25" BEL
-        "count_26" BEL "count_27" BEL "count_28" BEL "count_31" BEL "count_29"
-        BEL "count_30" BEL "clk1_BUFGP/BUFG.GCLKMUX" BEL "clk1_BUFGP/BUFG";
-TIMEGRP clk = BEL "clk" BEL "min_5" BEL "min_4" BEL "min_3" BEL "min_2" BEL
-        "min_1" BEL "min_0" BEL "hour_5" BEL "hour_4" BEL "hour_3" BEL
-        "hour_2" BEL "hour_1" BEL "hour_0" BEL "sec_5" BEL "sec_4" BEL "sec_3"
-        BEL "sec_2" BEL "sec_1" BEL "sec_0";
+TIMEGRP clk1 = BEL "clk" BEL "out_clk" BEL "count1_2" BEL "count1_0" BEL
+        "count1_1" BEL "count1_3" BEL "count1_4" BEL "count1_5" BEL "count1_6"
+        BEL "count1_7" BEL "count1_8" BEL "count1_11" BEL "count1_9" BEL
+        "count1_10" BEL "count1_12" BEL "count1_13" BEL "count1_16" BEL
+        "count1_14" BEL "count1_15" BEL "count1_17" BEL "count1_18" BEL
+        "count1_21" BEL "count1_19" BEL "count1_20" BEL "count1_22" BEL
+        "count1_23" BEL "count1_24" BEL "count1_25" BEL "count1_26" BEL
+        "count1_27" BEL "count1_30" BEL "count1_28" BEL "count1_29" BEL
+        "count1_31" BEL "count2_2" BEL "count2_0" BEL "count2_1" BEL
+        "count2_3" BEL "count2_4" BEL "count2_7" BEL "count2_5" BEL "count2_6"
+        BEL "count2_8" BEL "count2_9" BEL "count2_10" BEL "count2_11" BEL
+        "count2_12" BEL "count2_13" BEL "count2_16" BEL "count2_14" BEL
+        "count2_15" BEL "count2_17" BEL "count2_18" BEL "count2_19" BEL
+        "count2_20" BEL "count2_21" BEL "count2_22" BEL "count2_25" BEL
+        "count2_23" BEL "count2_24" BEL "count2_26" BEL "count2_27" BEL
+        "count2_28" BEL "count2_29" BEL "count2_30" BEL "count2_31" BEL
+        "clk1_BUFGP/BUFG.GCLKMUX" BEL "clk1_BUFGP/BUFG";
+TIMEGRP clk = BEL "dmin_2" BEL "dmin_1" BEL "dmin_0" BEL "umin_3" BEL "umin_2"
+        BEL "umin_1" BEL "umin_0" BEL "uhour_3" BEL "uhour_2" BEL "uhour_1"
+        BEL "uhour_0" BEL "usec_3" BEL "usec_2" BEL "usec_1" BEL "usec_0" BEL
+        "dsec_2" BEL "dsec_1" BEL "dsec_0" BEL "dhour_2" BEL "dhour_1" BEL
+        "dhour_0";
 TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns HIGH 50%;
 TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIGH 50%;
 SCHEMATIC END;

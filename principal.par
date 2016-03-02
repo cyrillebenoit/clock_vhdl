@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (lin64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-cyrille-K42JY::  Wed Mar 02 21:42:55 2016
+cyrille-K42JY::  Wed Mar 02 23:13:31 2016
 
 par -w -intstyle ise -ol high -t 1 principal_map.ncd principal.ncd
 principal.pcf 
@@ -37,8 +37,8 @@ Design Summary Report:
    Number of External Bidir IOBs                  0
 
 
-   Number of BUFGMUXs                        1 out of 24      4%
-   Number of Slices                        142 out of 960    14%
+   Number of BUFGMUXs                        2 out of 24      8%
+   Number of Slices                        134 out of 960    13%
       Number of SLICEMs                      0 out of 480     0%
 
 
@@ -48,8 +48,6 @@ Placer effort level (-pl):    High
 Placer cost table entry (-t): 1
 Router effort level (-rl):    High 
 
-INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more information, see the TSI report.  Please
-   consult the Xilinx Command Line Tools User Guide for information on generating a TSI report.
 Starting initial Timing Analysis.  REAL time: 1 secs 
 WARNING:Par:450 - At least one timing constraint is impossible to meet because component switching limit violations have
    been detected for a constrained component. A timing constraint summary below shows the failing constraints (preceded
@@ -59,9 +57,6 @@ WARNING:Par:450 - At least one timing constraint is impossible to meet because c
    constraint covering this component might need to be modified to satisfy the component switching limits specified in
    the datasheet.
 
-INFO:Timing:3386 - Intersecting Constraints found and resolved.  For more 
-   information, see the TSI report.  Please consult the Xilinx Command Line 
-   Tools User Guide for information on generating a TSI report.
 INFO:Timing:3284 - This timing report was generated using estimated delay 
    information.  For accurate numbers, please refer to the post Place and Route 
    timing report.
@@ -72,17 +67,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns H | SETUP       |    -5.987ns|     6.007ns|     110|      341069
-  IGH 50%                                   | HOLD        |     1.374ns|            |       0|           0
-                                            | MINPERIOD   |    -1.576ns|     1.596ns|      33|       52008
-                                            | MINLOWPULSE |    -1.576ns|     1.596ns|      33|       52008
-                                            | MINHIGHPULSE|    -1.576ns|     1.596ns|      33|       52008
+* TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns H | SETUP       |    -5.987ns|     6.007ns|     224|      690478
+  IGH 50%                                   | HOLD        |     0.705ns|            |       0|           0
+                                            | MINPERIOD   |    -1.576ns|     1.596ns|      66|      104016
+                                            | MINLOWPULSE |    -1.576ns|     1.596ns|      66|      104016
+                                            | MINHIGHPULSE|    -1.576ns|     1.596ns|      66|      104016
 ----------------------------------------------------------------------------------------------------------
-* TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIG | SETUP       |    -4.724ns|     4.744ns|      90|      286734
-  H 50%                                     | HOLD        |     0.705ns|            |       0|           0
-                                            | MINPERIOD   |    -1.576ns|     1.596ns|      19|       29944
-                                            | MINLOWPULSE |    -3.172ns|     3.192ns|      55|      144136
-                                            | MINHIGHPULSE|    -3.172ns|     3.192ns|      55|      144136
+* TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIG | SETUP       |    -5.528ns|     5.548ns|      85|      192074
+  H 50%                                     | HOLD        |     0.666ns|            |       0|           0
+                                            | MINPERIOD   |    -1.576ns|     1.596ns|      21|       33096
+                                            | MINLOWPULSE |    -3.172ns|     3.192ns|      63|      166320
+                                            | MINHIGHPULSE|    -3.172ns|     3.192ns|      63|      166320
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -96,8 +91,8 @@ Derived Constraints for TS_clk1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk1                        |      0.020ns|      6.007ns|      4.744ns|          209|          219|         1552|          794|
-| TS_clk                        |      0.020ns|      4.744ns|          N/A|          219|            0|          794|            0|
+|TS_clk1                        |      0.020ns|      6.007ns|      5.548ns|          422|          232|         3170|          821|
+| TS_clk                        |      0.020ns|      5.548ns|          N/A|          232|            0|          821|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 2 constraints not met.
@@ -111,41 +106,41 @@ Total REAL time at the beginning of Placer: 1 secs
 Total CPU  time at the beginning of Placer: 1 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:7721cccf) REAL time: 2 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:ebb9bdef) REAL time: 2 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:7721cccf) REAL time: 2 secs 
+Phase 2.7  Design Feasibility Check (Checksum:ebb9bdef) REAL time: 2 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:7721cccf) REAL time: 2 secs 
+Phase 3.31  Local Placement Optimization (Checksum:ebb9bdef) REAL time: 2 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:7981b3b7) REAL time: 2 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:f4397427) REAL time: 2 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:7981b3b7) REAL time: 2 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:f4397427) REAL time: 2 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:7981b3b7) REAL time: 2 secs 
+Phase 6.36  Local Placement Optimization (Checksum:f4397427) REAL time: 2 secs 
 
 Phase 7.8  Global Placement
-.............................
-.......................
-.......................................
-................................
-....................................................
-.......................
-Phase 7.8  Global Placement (Checksum:ade26695) REAL time: 4 secs 
+............
+...
+......................
+...................................................................
+..................................
+......................
+Phase 7.8  Global Placement (Checksum:211c6d52) REAL time: 4 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:ade26695) REAL time: 4 secs 
+Phase 8.5  Local Placement Optimization (Checksum:211c6d52) REAL time: 4 secs 
 
 Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:c64a2c67) REAL time: 4 secs 
+Phase 9.18  Placement Optimization (Checksum:27d5fe81) REAL time: 4 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:c64a2c67) REAL time: 4 secs 
+Phase 10.5  Local Placement Optimization (Checksum:27d5fe81) REAL time: 4 secs 
 
 Total REAL time to Placer completion: 4 secs 
 Total CPU  time to Placer completion: 4 secs 
@@ -156,30 +151,30 @@ Writing design to file principal.ncd
 Starting Router
 
 
-Phase  1  : 1000 unrouted;      REAL time: 5 secs 
+Phase  1  : 948 unrouted;      REAL time: 5 secs 
 
-Phase  2  : 955 unrouted;      REAL time: 5 secs 
+Phase  2  : 871 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 209 unrouted;      REAL time: 5 secs 
+Phase  3  : 198 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 297 unrouted; (Setup:846336, Hold:0, Component Switching Limit:480792)     REAL time: 5 secs 
+Phase  4  : 332 unrouted; (Setup:1083851, Hold:0, Component Switching Limit:679464)     REAL time: 6 secs 
 
-Phase  5  : 0 unrouted; (Setup:862775, Hold:0, Component Switching Limit:480792)     REAL time: 6 secs 
+Phase  5  : 0 unrouted; (Setup:1118232, Hold:0, Component Switching Limit:679464)     REAL time: 6 secs 
 
 Updating file: principal.ncd with current fully routed design.
 
-Phase  6  : 0 unrouted; (Setup:862775, Hold:0, Component Switching Limit:480792)     REAL time: 6 secs 
+Phase  6  : 0 unrouted; (Setup:1118232, Hold:0, Component Switching Limit:679464)     REAL time: 6 secs 
 
-Phase  7  : 0 unrouted; (Setup:862775, Hold:0, Component Switching Limit:480792)     REAL time: 7 secs 
+Phase  7  : 0 unrouted; (Setup:1118232, Hold:0, Component Switching Limit:679464)     REAL time: 9 secs 
 
-Phase  8  : 0 unrouted; (Setup:862775, Hold:0, Component Switching Limit:480792)     REAL time: 7 secs 
+Phase  8  : 0 unrouted; (Setup:1118232, Hold:0, Component Switching Limit:679464)     REAL time: 9 secs 
 
-Phase  9  : 0 unrouted; (Setup:837634, Hold:0, Component Switching Limit:480792)     REAL time: 7 secs 
-WARNING:Route:455 - CLK Net:clk may have excessive skew because 
+Phase  9  : 0 unrouted; (Setup:1117168, Hold:0, Component Switching Limit:679464)     REAL time: 9 secs 
+WARNING:Route:455 - CLK Net:out_clk may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 7 secs 
-Total CPU time to Router completion: 7 secs 
+Total REAL time to Router completion: 9 secs 
+Total CPU time to Router completion: 9 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -197,9 +192,11 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|          clk1_BUFGP | BUFGMUX_X2Y11| No   |   17 |  0.019     |  0.058      |
+|          clk1_BUFGP | BUFGMUX_X2Y11| No   |   34 |  0.022     |  0.059      |
 +---------------------+--------------+------+------+------------+-------------+
-|                 clk |         Local|      |   19 |  0.026     |  1.874      |
+|                 clk | BUFGMUX_X1Y10| No   |   21 |  0.005     |  0.061      |
++---------------------+--------------+------+------+------------+-------------+
+|             out_clk |         Local|      |   15 |  0.076     |  1.791      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -210,7 +207,7 @@ the minimum and maximum path delays which includes logic delays.
 * The fanout is the number of component pins not the individual BEL loads,
 for example SLICE loads not FF loads.
 
-Timing Score: 1318426 (Setup: 837634, Hold: 0, Component Switching Limit: 480792)
+Timing Score: 1796632 (Setup: 1117168, Hold: 0, Component Switching Limit: 679464)
 
 WARNING:Par:468 - Your design did not meet timing.  The following are some suggestions to assist you to meet timing in
    your design.
@@ -236,17 +233,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-* TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIG | SETUP       |    -6.504ns|     6.524ns|      90|      426735
-  H 50%                                     | HOLD        |     1.033ns|            |       0|           0
-                                            | MINPERIOD   |    -1.632ns|     1.652ns|      19|       30336
-                                            | MINLOWPULSE |    -3.172ns|     3.192ns|      55|      144528
-                                            | MINHIGHPULSE|    -3.172ns|     3.192ns|      55|      144528
+* TS_clk = PERIOD TIMEGRP "clk" TS_clk1 HIG | SETUP       |    -7.978ns|     7.998ns|      85|      291252
+  H 50%                                     | HOLD        |     1.007ns|            |       0|           0
+                                            | MINPERIOD   |    -1.632ns|     1.652ns|      21|       33544
+                                            | MINLOWPULSE |    -3.172ns|     3.192ns|      63|      166768
+                                            | MINHIGHPULSE|    -3.172ns|     3.192ns|      63|      166768
 ----------------------------------------------------------------------------------------------------------
-* TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns H | SETUP       |    -5.364ns|     5.384ns|     110|      410899
-  IGH 50%                                   | HOLD        |     1.654ns|            |       0|           0
-                                            | MINPERIOD   |    -1.632ns|     1.652ns|      33|       53800
-                                            | MINLOWPULSE |    -1.632ns|     1.652ns|      33|       53800
-                                            | MINHIGHPULSE|    -1.632ns|     1.652ns|      33|       53800
+* TS_clk1 = PERIOD TIMEGRP "clk1" 0.02 ns H | SETUP       |    -5.727ns|     5.747ns|     224|      825916
+  IGH 50%                                   | HOLD        |     1.102ns|            |       0|           0
+                                            | MINPERIOD   |    -1.632ns|     1.652ns|      66|      104128
+                                            | MINLOWPULSE |    -1.632ns|     1.652ns|      66|      104128
+                                            | MINHIGHPULSE|    -1.632ns|     1.652ns|      66|      104128
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -260,8 +257,8 @@ Derived Constraints for TS_clk1
 |           Constraint          | Requirement |-------------+-------------|-------------+-------------|-------------+-------------|
 |                               |             |   Direct    | Derivative  |   Direct    | Derivative  |   Direct    | Derivative  |
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
-|TS_clk1                        |      0.020ns|      5.384ns|      6.524ns|          209|          219|         1552|          794|
-| TS_clk                        |      0.020ns|      6.524ns|          N/A|          219|            0|          794|            0|
+|TS_clk1                        |      0.020ns|      5.747ns|      7.998ns|          422|          232|         3170|          821|
+| TS_clk                        |      0.020ns|      7.998ns|          N/A|          232|            0|          821|            0|
 +-------------------------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+
 
 2 constraints not met.
@@ -271,18 +268,18 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 7 secs 
-Total CPU time to PAR completion: 7 secs 
+Total REAL time to PAR completion: 9 secs 
+Total CPU time to PAR completion: 9 secs 
 
-Peak Memory Usage:  553 MB
+Peak Memory Usage:  552 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.
-Timing: Completed - 656 errors found.
+Timing: Completed - 999 errors found.
 
 Number of error messages: 0
 Number of warning messages: 3
-Number of info messages: 1
+Number of info messages: 0
 
 Writing design to file principal.ncd
 
