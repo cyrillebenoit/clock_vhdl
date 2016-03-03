@@ -43,13 +43,14 @@ end principal;
 
 architecture Behavioral of principal is
 	signal cadran : integer range 0 to 4 :=1;  		  -- selectionne le cadran a� utiliser (permet de changer de cadran et de savoir ou on en est)
-	signal usec, umin, uhour : integer range 0 to 10 :=0; 		  -- unites des secondes, minutes, et heures
+	signal usec, umin, uhour: integer range 0 to 10 :=0;-- unites des secondes, minutes, et heures
 	signal dsec, dmin, dhour : integer range 0 to 6 :=0;		  -- dizaines des secondes minutes et heures
 	signal count1, count2 : integer :=1;						  -- permet la reduction de frequence de la clock
 	signal clk : std_logic :='0';						  		  -- clock a 60Hz
 	signal out_clk : std_logic :='0';
 	signal hex : std_logic_vector (3 downto 0):="0000";	  		  -- valeur hexa du chiffre a afficher
 	signal test_led : std_logic_vector (7 downto 0):="00000000";
+	signal toggle : std_logic :='0';
 
 	
 begin
@@ -67,7 +68,7 @@ begin
 
 			--PARTIE CREATION DE LA CLOCK D'AFFICHAGE
 			count2 <=count2+1;
-			if(count2 = 25000000) then
+			if(count2 = 25000) then
 				out_clk <= not out_clk;
 				count2 <=1;
 			end if;
@@ -78,9 +79,10 @@ begin
 	process(out_clk, mode, usec, dsec, umin, dmin, uhour, dhour) -- affichage
 	begin
 		if(out_clk'event and out_clk='1') then
-			cadran<=cadran+1;
-			if(cadran=5) then
+			if(cadran=4) then
 				cadran<=1;
+			else
+				cadran<=cadran+1;
 			end if;
 		end if;
 		if(cadran=1) then-- xx:xX
@@ -266,145 +268,75 @@ begin
 		test_led <= conv_std_logic_vector(usec,8);
 		bin <= test_led;
 		-- Selon le mode sélectionné, si un bouton est enfoncé, on incrémente le champ correspondant.
-		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
+		if (button(0) = '0' and button(1) = '0' and button(2) = '0' and button(3) = '0') then
+			toggle <='0';
+		end if;
+		if ((toggle ='0') and (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1')) then
+			toggle<='1';
 			if mode = '1' then -- Si on est en mode HH:MM
-				-- cadran 4 (hh:mM)
-				if button(0) = '1' then
-					umin <= umin + 1;
-					if(umin = 10) then
-						umin <= 0;
-						dmin <= dmin + 1;
-						if(dmin = 6) then -- si on est à 60 minutes
-							dmin <= 0;
-							uhour <= uhour + 1;
-							if dhour=2 and uhour=4 then -- si on est à 24h
-								dhour <= 0;
-								uhour <= 0;
-							elsif uhour=10 then
-								dhour <= dhour + 1;
-								uhour <= 0;
-							end if ;
-						end if;
-					end if;
-				end if;
-				-- cadran 3 (hh:Mm)
-				if button(1) = '1' then
-					dmin <= dmin + 1;
-					if(dmin = 6) then -- si on est à 60 minutes
-						dmin <= 0;
-						uhour <= uhour + 1;
-						if dhour=2 and uhour=4 then -- si on est à 24h
-							dhour <= 0;
-							uhour <= 0;
-						elsif uhour=10 then
-							dhour <= dhour + 1;
-							uhour <= 0;
-						end if ;
-					end if;
-				end if;
-				-- cadran 2 (hH:mm)
-				if button(2) = '1' then
-					uhour <= uhour + 1;
-					if dhour=2 and uhour=4 then -- si on est à 24h
-						dhour <= 0;
-						uhour <= 0;
-					elsif uhour=10 then
-						dhour <= dhour + 1;
-						uhour <= 0;
-					end if ;
-				end if;
-				-- cadran 1 (Hh:mm)
-				if button(3) = '1' then
-					dhour <= dhour + 1;
-					if(dhour = 2 and uhour > 3) then
-						dhour <= 0;
-					elsif dhour = 3 then
-						dhour <= 0;
+				if(button(0)='1' and toggle ='0') then
+					if(umin=9) then
+						umin<=0;
 					else
-						dhour <= dhour + 1;
+						umin<=umin+1;
 					end if;
 				end if;
-			else --Si on est en mode MM:SS
-				-- cadran 4 (mm:sS)
-				if button(0) = '1' then
-					usec <= usec +1;
-					if(usec = 10) then
-						usec <= 0;
-						dsec <= dsec + 1;
-						if(dsec = 6) then -- si on est à 60 secondes
-							umin <= umin + 1;
-							if(umin = 10) then
-								umin <= 0;
-								dmin <= dmin + 1;
-								if(dmin = 6) then -- si on est à 60 minutes
-									dmin <= 0;
-									uhour <= uhour + 1;
-									if dhour=2 and uhour=4 then -- si on est à 24h
-										dhour <= 0;
-										uhour <= 0;
-									elsif uhour=10 then
-										dhour <= dhour + 1;
-										uhour <= 0;
-									end if ;
-								end if;
-							end if;
+				if(button(1)='1' and toggle ='0') then
+					if(dmin=5) then
+						dmin<=0;
+					else
+						dmin<=dmin+1;
+					end if;
+				end if;		
+				if(button(2)='1' and toggle ='0') then
+					if(dhour=2) then
+						if(uhour=3) then
+							uhour<=0;
+						else
+							uhour<=uhour+1;
+						end if;
+					else
+						if(uhour=9) then
+							uhour<=0;
+						else
+							uhour<=uhour+1;
 						end if;
 					end if;
 				end if;
-				-- cadran 3 (mm:Ss)
-				if button(1) = '1' then
-					dsec <= dsec + 1;
-					if(dsec = 6) then -- si on est à 60 secondes
-						umin <= umin + 1;
-						if(umin = 10) then
-							umin <= 0;
-							dmin <= dmin + 1;
-							if(dmin = 6) then -- si on est à 60 minutes
-								dmin <= 0;
-								uhour <= uhour + 1;
-								if dhour=2 and uhour=4 then -- si on est à 24h
-									dhour <= 0;
-									uhour <= 0;
-								elsif uhour=10 then
-									dhour <= dhour + 1;
-									uhour <= 0;
-								end if ;
-							end if;
-						end if;
+				if(button(3)='1' and toggle ='0') then
+					if(dhour=2) then
+						dhour<=0;
+					else
+						dhour<=dhour+1;
 					end if;
 				end if;
-				-- cadran 2 (mM:ss)
-				if button(2) = '1' then
-					umin <= umin + 1;
-					if(umin = 10) then
-						umin <= 0;
-						dmin <= dmin + 1;
-						if(dmin = 6) then -- si on est à 60 minutes
-							dmin <= 0;
-							uhour <= uhour + 1;
-							if dhour=2 and uhour=4 then -- si on est à 24h
-								dhour <= 0;
-								uhour <= 0;
-							elsif uhour=10 then
-								dhour <= dhour + 1;
-								uhour <= 0;
-							end if ;
-						end if;
+			else -- mode MM::SS
+				if(button(0)='1' and toggle ='0') then
+					if(usec=9) then
+						usec<=0;
+					else
+						usec<=usec+1;
 					end if;
 				end if;
-				-- cadran 1 (Mm:ss)
-				if button(3) = '1' then
-					dmin <= dmin + 1;
-					if(dmin = 6) then -- si on est à 60 minutes
-						dmin <= 0;
-						uhour <= uhour + 1;
-						if dhour=2 and uhour=4 then -- si on est à 24h
-							dhour <= 0;
-							uhour <= 0;
-						elsif uhour=10 then
-							dhour <= dhour + 1;
-							uhour <= 0;
-						end if ;
+				if(button(1)='1' and toggle ='0') then
+					if(dsec=5) then
+						dsec<=0;
+					else
+						dsec<=dsec+1;
+					end if;
+				end if;
+				if(button(2)='1' and toggle ='0') then
+					if(umin=9) then
+						umin<=0;
+					else
+						umin<=umin+1;
+					end if;
+				end if;
+				if(button(3)='1' and toggle ='0') then
+					if(dmin=5) then
+						dmin<=0;
+					else
+						dmin<=dmin+1;
 					end if;
 				end if;
 			end if;
@@ -425,6 +357,7 @@ begin
 									else
 										dhour<=dhour+1;
 									end if;
+									
 								else
 									uhour<=uhour+1;
 								end if;
