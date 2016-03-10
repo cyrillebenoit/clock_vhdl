@@ -1,7 +1,7 @@
 Release 9.2i par J.36
 Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
 
-LOUIS::  Thu Mar 10 16:34:20 2016
+LOUIS::  Thu Mar 10 18:11:44 2016
 
 par -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
  
@@ -43,7 +43,7 @@ Design Summary Report:
 
 
    Number of BUFGMUXs                        3 out of 24     12%
-   Number of Slices                        118 out of 960    12%
+   Number of Slices                        115 out of 960    11%
       Number of SLICEMs                      0 out of 480     0%
 
 
@@ -57,7 +57,7 @@ Router effort level (-rl):    Standard
 Starting Placer
 
 Phase 1.1
-Phase 1.1 (Checksum:989913) REAL time: 1 secs 
+Phase 1.1 (Checksum:989901) REAL time: 1 secs 
 
 Phase 2.7
 Phase 2.7 (Checksum:1312cfe) REAL time: 1 secs 
@@ -74,61 +74,59 @@ Phase 5.30 (Checksum:2faf07b) REAL time: 1 secs
 
 Phase 6.8
 ....
+.
+...
+..
 ..
 ...
-.
-.
-..
-Phase 6.8 (Checksum:9afdc1) REAL time: 2 secs 
+Phase 6.8 (Checksum:9b44b3) REAL time: 2 secs 
 
 Phase 7.5
 Phase 7.5 (Checksum:42c1d79) REAL time: 2 secs 
 
 Phase 8.18
-Phase 8.18 (Checksum:4c4b3f8) REAL time: 3 secs 
+Phase 8.18 (Checksum:4c4b3f8) REAL time: 2 secs 
 
 Phase 9.5
-Phase 9.5 (Checksum:55d4a77) REAL time: 3 secs 
+Phase 9.5 (Checksum:55d4a77) REAL time: 2 secs 
 
-REAL time consumed by placer: 3 secs 
-CPU  time consumed by placer: 3 secs 
+REAL time consumed by placer: 2 secs 
+CPU  time consumed by placer: 2 secs 
 Writing design to file principal.ncd
 
 
-Total REAL time to Placer completion: 3 secs 
-Total CPU time to Placer completion: 3 secs 
+Total REAL time to Placer completion: 2 secs 
+Total CPU time to Placer completion: 2 secs 
 
 Starting Router
 
-Phase 1: 894 unrouted;       REAL time: 3 secs 
+Phase 1: 868 unrouted;       REAL time: 2 secs 
 
-Phase 2: 811 unrouted;       REAL time: 3 secs 
+Phase 2: 782 unrouted;       REAL time: 3 secs 
 
-Phase 3: 177 unrouted;       REAL time: 3 secs 
+Phase 3: 162 unrouted;       REAL time: 3 secs 
 
-Phase 4: 177 unrouted; (17676)      REAL time: 3 secs 
+Phase 4: 162 unrouted; (18834)      REAL time: 3 secs 
 
-Phase 5: 186 unrouted; (0)      REAL time: 3 secs 
+Phase 5: 171 unrouted; (0)      REAL time: 3 secs 
 
-Phase 6: 0 unrouted; (1152)      REAL time: 3 secs 
+Phase 6: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 7: 0 unrouted; (1628)      REAL time: 4 secs 
+Phase 7: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 8: 0 unrouted; (1628)      REAL time: 4 secs 
+Phase 8: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 9: 0 unrouted; (0)      REAL time: 4 secs 
+Phase 9: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 10: 0 unrouted; (0)      REAL time: 4 secs 
-
-Phase 11: 0 unrouted; (0)      REAL time: 4 secs 
-
+WARNING:Route:455 - CLK Net:toggle_or0000 may have excessive skew because 
+      1 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:an_not0001 may have excessive skew because 
       0 CLK pins and 14 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:out_clk may have excessive skew because 
       0 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 4 secs 
-Total CPU time to Router completion: 4 secs 
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -146,15 +144,17 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|          clk1_BUFGP | BUFGMUX_X2Y11| No   |   34 |  0.033     |  0.073      |
+|                 clk | BUFGMUX_X1Y10| No   |   21 |  0.015     |  0.060      |
 +---------------------+--------------+------+------+------------+-------------+
-|                 clk | BUFGMUX_X1Y10| No   |   21 |  0.013     |  0.057      |
+|       button_3_IBUF | BUFGMUX_X1Y11| No   |    1 |  0.000     |  0.056      |
 +---------------------+--------------+------+------+------------+-------------+
-|       button_3_IBUF | BUFGMUX_X1Y11| No   |    1 |  0.000     |  0.057      |
+|          clk1_BUFGP | BUFGMUX_X2Y11| No   |   34 |  0.018     |  0.058      |
++---------------------+--------------+------+------+------------+-------------+
+|       toggle_or0000 |         Local|      |    5 |  0.653     |  2.390      |
++---------------------+--------------+------+------+------------+-------------+
+|          an_not0001 |         Local|      |   29 |  0.372     |  2.031      |
 +---------------------+--------------+------+------+------------+-------------+
 |             out_clk |         Local|      |    3 |  0.000     |  0.729      |
-+---------------------+--------------+------+------+------------+-------------+
-|          an_not0001 |         Local|      |   29 |  0.373     |  2.045      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -168,15 +168,15 @@ the minimum and maximum path delays which includes logic delays.
 
 The NUMBER OF SIGNALS NOT COMPLETELY ROUTED for this design is: 0
 
-   The AVERAGE CONNECTION DELAY for this design is:        0.843
-   The MAXIMUM PIN DELAY IS:                               3.066
-   The AVERAGE CONNECTION DELAY on the 10 WORST NETS is:   2.282
+   The AVERAGE CONNECTION DELAY for this design is:        0.854
+   The MAXIMUM PIN DELAY IS:                               2.990
+   The AVERAGE CONNECTION DELAY on the 10 WORST NETS is:   2.369
 
    Listing Pin Delays by value: (nsec)
 
     d < 1.00   < d < 2.00  < d < 3.00  < d < 4.00  < d < 5.00  d >= 5.00
    ---------   ---------   ---------   ---------   ---------   ---------
-         580         276          25           1           0           0
+         582         233          42           0           0           0
 
 Timing Score: 0
 
@@ -187,17 +187,17 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
                                             |         |    Slack   | Achievable | Errors |    Score   
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net out | SETUP   |         N/A|     4.350ns|     N/A|           0
-  _clk                                      | HOLD    |     1.170ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP   |         N/A|     6.810ns|     N/A|           0
+                                            | HOLD    |     1.000ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.225ns|     N/A|           0
-  1_BUFGP                                   | HOLD    |     1.094ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.730ns|     N/A|           0
+  1_BUFGP                                   | HOLD    |     1.025ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net an_ | SETUP   |         N/A|     5.120ns|     N/A|           0
-  not0001                                   | HOLD    |     1.852ns|            |       0|           0
+  Autotimespec constraint for clock net an_ | SETUP   |         N/A|     4.937ns|     N/A|           0
+  not0001                                   | HOLD    |     2.044ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP   |         N/A|     6.544ns|     N/A|           0
-                                            | HOLD    |     1.142ns|            |       0|           0
+  Autotimespec constraint for clock net out | SETUP   |         N/A|     3.648ns|     N/A|           0
+  _clk                                      | HOLD    |     1.332ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
 
 
@@ -210,8 +210,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 4 secs 
-Total CPU time to PAR completion: 4 secs 
+Total REAL time to PAR completion: 3 secs 
+Total CPU time to PAR completion: 3 secs 
 
 Peak Memory Usage:  140 MB
 
@@ -219,7 +219,7 @@ Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 2
+Number of warning messages: 3
 Number of info messages: 1
 
 Writing design to file principal.ncd

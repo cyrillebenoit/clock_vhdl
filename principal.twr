@@ -32,33 +32,75 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
-Setup/Hold to clock button<3>
-------------+------------+------------+------------------+--------+
-            |  Setup to  |  Hold to   |                  | Clock  |
-Source      | clk (edge) | clk (edge) |Internal Clock(s) | Phase  |
-------------+------------+------------+------------------+--------+
-button<0>   |    2.049(R)|   -0.236(R)|button_3_IBUF     |   0.000|
-button<1>   |    2.304(R)|   -0.439(R)|button_3_IBUF     |   0.000|
-button<2>   |    2.679(R)|   -0.740(R)|button_3_IBUF     |   0.000|
-------------+------------+------------+------------------+--------+
+Clock button<3> to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+bin<4>      |    9.024(R)|button_3_IBUF     |   0.000|
+------------+------------+------------------+--------+
+
+Clock to Setup on destination clock button<0>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+button<0>      |         |         |    2.268|    2.268|
+button<1>      |         |         |    2.233|    2.233|
+button<2>      |         |         |    1.746|    1.746|
+button<3>      |         |         |    2.267|    2.267|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock button<1>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+button<0>      |         |         |    1.149|    1.149|
+button<1>      |         |         |    1.114|    1.114|
+button<2>      |         |         |    0.627|    0.627|
+button<3>      |         |         |    1.148|    1.148|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock button<2>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+button<0>      |         |         |    1.498|    1.498|
+button<1>      |         |         |    1.463|    1.463|
+button<2>      |         |         |    0.976|    0.976|
+button<3>      |         |         |    1.497|    1.497|
+---------------+---------+---------+---------+---------+
+
+Clock to Setup on destination clock button<3>
+---------------+---------+---------+---------+---------+
+               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
+Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
+---------------+---------+---------+---------+---------+
+button<0>      |    1.551|    1.551|    2.025|    2.025|
+button<1>      |    2.911|    2.911|    1.990|    1.990|
+button<2>      |    2.541|    2.541|    1.503|    1.503|
+button<3>      |         |         |    2.024|    2.024|
+---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk1
 ---------------+---------+---------+---------+---------+
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk1           |    5.225|         |         |         |
+clk1           |    5.730|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 
-Analysis completed Thu Mar 10 16:34:27 2016 
+Analysis completed Thu Mar 10 18:11:52 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 119 MB
+Peak Memory Usage: 118 MB
 
 
 

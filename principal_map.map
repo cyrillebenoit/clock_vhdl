@@ -11,7 +11,7 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.36 $
-Mapped Date    : Thu Mar 10 16:34:16 2016
+Mapped Date    : Thu Mar 10 18:11:40 2016
 
 Mapping design into LUTs...
 Running directed packing...
@@ -23,27 +23,27 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:    1
+Number of warnings:    2
 Logic Utilization:
   Total Number Slice Registers:        95 out of   1,920    4%
     Number used as Flip Flops:                    90
     Number used as Latches:                        5
-  Number of 4 input LUTs:             158 out of   1,920    8%
+  Number of 4 input LUTs:             150 out of   1,920    7%
 Logic Distribution:
-  Number of occupied Slices:                          118 out of     960   12%
-    Number of Slices containing only related logic:     118 out of     118  100%
-    Number of Slices containing unrelated logic:          0 out of     118    0%
+  Number of occupied Slices:                          115 out of     960   11%
+    Number of Slices containing only related logic:     115 out of     115  100%
+    Number of Slices containing unrelated logic:          0 out of     115    0%
       *See NOTES below for an explanation of the effects of unrelated logic
-Total Number of 4 input LUTs:            220 out of   1,920   11%
-  Number used as logic:                158
+Total Number of 4 input LUTs:            212 out of   1,920   11%
+  Number used as logic:                150
   Number used as a route-thru:          62
   Number of bonded IOBs:               25 out of      83   30%
-    IOB Latches:                       11
+    IOB Latches:                       15
   Number of GCLKs:                     3 out of      24   12%
 
-Total equivalent gate count for design:  2,207
+Total equivalent gate count for design:  2,188
 Additional JTAG gate count for IOBs:  1,200
-Peak Memory Usage:  171 MB
+Peak Memory Usage:  172 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 

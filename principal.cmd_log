@@ -94,3 +94,43 @@ map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intsty
 par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
 trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
 bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+xst -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -ifn principal.xst -ofn principal.syr
+ngdbuild -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -dd _ngo -nt timestamp -uc "principal.ucf" -p xc3s100e-cp132-4 "principal.ngc" principal.ngd
+map -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -p xc3s100e-cp132-4 -cm area -pr b -k 4 -c 100 -o principal_map.ncd principal.ngd principal.pcf
+par -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
+trce -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -e 3 -s 4 -xml principal principal.ncd -o principal.twr principal.pcf -ucf principal.ucf
+bitgen -ise "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise" -intstyle ise -f principal.ut principal.ncd

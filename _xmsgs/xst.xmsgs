@@ -5,15 +5,18 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
-<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">79</arg>: The following signals are missing in the process sensitivity list:
+<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">80</arg>: The following signals are missing in the process sensitivity list:
 <arg fmt="%s" index="3">cadran</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">266</arg>: The following signals are missing in the process sensitivity list:
-<arg fmt="%s" index="3">toggle</arg>.
+<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">267</arg>: The following signals are missing in the process sensitivity list:
+<arg fmt="%s" index="3">toggle, modif</arg>.
 </msg>
 
 <msg type="warning" file="Xst" num="737" delta="unknown" >Found <arg fmt="%d" index="1">1</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">toggle</arg>&gt;.
+</msg>
+
+<msg type="warning" file="Xst" num="737" delta="unknown" >Found <arg fmt="%d" index="1">4</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">modif</arg>&gt;.
 </msg>
 
 <msg type="warning" file="Xst" num="2734" delta="unknown" >Property &quot;<arg fmt="%s" index="1">use_dsp48</arg>&quot; is not applicable for this technology.

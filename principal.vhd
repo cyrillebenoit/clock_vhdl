@@ -49,6 +49,7 @@ architecture Behavioral of principal is
 	signal clk : std_logic :='0';						  		  -- clock a 60Hz
 	signal out_clk : std_logic :='0';
 	signal hex : std_logic_vector (3 downto 0):="0000";	  		  -- valeur hexa du chiffre a afficher
+	signal modif : std_logic_vector (3 downto 0);
 	signal test_led : std_logic_vector (7 downto 0):="00000000";
 	signal toggle : std_logic :='0';
 
@@ -265,30 +266,37 @@ begin
 
 	process(clk, button, mode, usec, dsec, umin, dmin, uhour, dhour)  -- modification manuelle de l'heure
 	begin
+		-- TEST
 		test_led <= conv_std_logic_vector(usec,8);
+		test_led(4)<= not toggle;
 		bin <= test_led;
-		-- Selon le mode sélectionné, si un bouton est enfoncé, on incrémente le champ correspondant.
+		-- Selon le mode selectionne, si un bouton est enfonce, on incremente le champ correspondant.
 		if (button(0) = '0' and button(1) = '0' and button(2) = '0' and button(3) = '0') then
 			toggle <='0';
 		end if;
-		if ((toggle ='0') and (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1')) then
-			toggle<='1';
+		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
+			toggle <='1';
+			modif <= button;
+		end if;
+		
+		if (toggle='1')  then
+			toggle<='0';
 			if mode = '1' then -- Si on est en mode HH:MM
-				if(button(0)='1' and toggle ='0') then
+				if(modif(0)='1') then
 					if(umin=9) then
 						umin<=0;
 					else
 						umin<=umin+1;
 					end if;
 				end if;
-				if(button(1)='1' and toggle ='0') then
+				if(modif(1)='1') then
 					if(dmin=5) then
 						dmin<=0;
 					else
 						dmin<=dmin+1;
 					end if;
 				end if;		
-				if(button(2)='1' and toggle ='0') then
+				if(modif(2)='1') then
 					if(dhour=2) then
 						if(uhour=3) then
 							uhour<=0;
@@ -303,7 +311,7 @@ begin
 						end if;
 					end if;
 				end if;
-				if(button(3)='1' and toggle ='0') then
+				if(modif(3)='1') then
 					if(dhour=2) then
 						dhour<=0;
 					else
@@ -311,28 +319,28 @@ begin
 					end if;
 				end if;
 			else -- mode MM::SS
-				if(button(0)='1' and toggle ='0') then
+				if(modif(0)='1') then
 					if(usec=9) then
 						usec<=0;
 					else
 						usec<=usec+1;
 					end if;
 				end if;
-				if(button(1)='1' and toggle ='0') then
+				if(modif(1)='1') then
 					if(dsec=5) then
 						dsec<=0;
 					else
 						dsec<=dsec+1;
 					end if;
 				end if;
-				if(button(2)='1' and toggle ='0') then
+				if(modif(2)='1') then
 					if(umin=9) then
 						umin<=0;
 					else
 						umin<=umin+1;
 					end if;
 				end if;
-				if(button(3)='1' and toggle ='0') then
+				if(modif(3)='1') then
 					if(dmin=5) then
 						dmin<=0;
 					else
