@@ -1,21 +1,12 @@
-Release 14.7 - xst P.20131013 (lin64)
-Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
---> 
-Parameter TMPDIR set to xst/projnav.tmp
-
-
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+Release 9.2i - xst J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to ./xst/projnav.tmp
+CPU : 0.00 / 0.08 s | Elapsed : 0.00 / 0.00 s
  
---> 
-Parameter xsthdpdir set to xst
-
-
-Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.07 secs
+--> Parameter xsthdpdir set to ./xst
+CPU : 0.00 / 0.08 s | Elapsed : 0.00 / 0.00 s
  
---> 
-Reading design: principal.prj
+--> Reading design: principal.prj
 
 TABLE OF CONTENTS
   1) Synthesis Options Summary
@@ -29,9 +20,9 @@ TABLE OF CONTENTS
   7) Low Level Synthesis
   8) Partition Report
   9) Final Report
-	9.1) Device utilization summary
-	9.2) Partition Resource Summary
-	9.3) TIMING REPORT
+     9.1) Device utilization summary
+     9.2) Partition Resource Summary
+     9.3) TIMING REPORT
 
 
 =========================================================================
@@ -52,26 +43,26 @@ Top Module Name                    : principal
 Automatic FSM Extraction           : YES
 FSM Encoding Algorithm             : Auto
 Safe Implementation                : No
-FSM Style                          : LUT
+FSM Style                          : lut
 RAM Extraction                     : Yes
 RAM Style                          : Auto
 ROM Extraction                     : Yes
 Mux Style                          : Auto
 Decoder Extraction                 : YES
-Priority Encoder Extraction        : Yes
+Priority Encoder Extraction        : YES
 Shift Register Extraction          : YES
 Logical Shifter Extraction         : YES
 XOR Collapsing                     : YES
 ROM Style                          : Auto
-Mux Extraction                     : Yes
-Resource Sharing                   : NO
+Mux Extraction                     : YES
+Resource Sharing                   : YES
 Asynchronous To Synchronous        : NO
-Multiplier Style                   : Auto
+Multiplier Style                   : auto
 Automatic Register Balancing       : No
 
 ---- Target Options
 Add IO Buffers                     : YES
-Global Maximum Fanout              : 100000
+Global Maximum Fanout              : 500
 Add Generic Clock Buffer(BUFG)     : 24
 Register Duplication               : YES
 Slice Packing                      : YES
@@ -79,14 +70,14 @@ Optimize Instantiated Primitives   : NO
 Use Clock Enable                   : Yes
 Use Synchronous Set                : Yes
 Use Synchronous Reset              : Yes
-Pack IO Registers into IOBs        : Auto
+Pack IO Registers into IOBs        : auto
 Equivalent register Removal        : YES
 
 ---- General Options
 Optimization Goal                  : Speed
 Optimization Effort                : 1
-Keep Hierarchy                     : No
-Netlist Hierarchy                  : As_Optimized
+Library Search Order               : principal.lso
+Keep Hierarchy                     : NO
 RTL Output                         : Yes
 Global Optimization                : AllClockNets
 Read Cores                         : YES
@@ -94,7 +85,7 @@ Write Timing Constraints           : NO
 Cross Clock Analysis               : NO
 Hierarchy Separator                : /
 Bus Delimiter                      : <>
-Case Specifier                     : Maintain
+Case Specifier                     : maintain
 Slice Utilization Ratio            : 100
 BRAM Utilization Ratio             : 100
 Verilog 2001                       : YES
@@ -107,7 +98,7 @@ Slice Utilization Ratio Delta      : 5
 =========================================================================
 *                          HDL Compilation                              *
 =========================================================================
-Compiling vhdl file "/home/cyrille/projetS4/clock_vhdl/principal.vhd" in Library work.
+Compiling vhdl file "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" in Library work.
 Entity <principal> compiled.
 Entity <principal> (Architecture <behavioral>) compiled.
 
@@ -121,6 +112,10 @@ Analyzing hierarchy for entity <principal> in library <work> (architecture <beha
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <principal> in library <work> (Architecture <behavioral>).
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 79: The following signals are missing in the process sensitivity list:
+   cadran.
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 266: The following signals are missing in the process sensitivity list:
+   toggle.
 Entity <principal> analyzed. Unit <principal> generated.
 
 
@@ -131,48 +126,42 @@ Entity <principal> analyzed. Unit <principal> generated.
 Performing bidirectional port resolution...
 
 Synthesizing Unit <principal>.
-    Related source file is "/home/cyrille/projetS4/clock_vhdl/principal.vhd".
-    Found finite state machine <FSM_0> for signal <an_in>.
-    -----------------------------------------------------------------------
-    | States             | 4                                              |
-    | Transitions        | 4                                              |
-    | Inputs             | 0                                              |
-    | Outputs            | 4                                              |
-    | Clock              | out_clk                   (rising_edge)        |
-    | Power Up State     | 0001                                           |
-    | Encoding           | automatic                                      |
-    | Implementation     | LUT                                            |
-    -----------------------------------------------------------------------
-    Found 16x7-bit ROM for signal <led$mux0000> created at line 215.
-    Found 4-bit register for signal <an>.
-    Found 7-bit register for signal <led>.
-    Found 3-bit adder for signal <$mux0001>.
+    Related source file is "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd".
+WARNING:Xst:737 - Found 1-bit latch for signal <toggle>.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+    Found 16x7-bit ROM for signal <led$mux0000> created at line 92.
+WARNING:Xst:737 - Found 4-bit latch for signal <an>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 7-bit latch for signal <led>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+WARNING:Xst:737 - Found 4-bit latch for signal <hex>.
+INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 3-bit up counter for signal <cadran>.
     Found 1-bit register for signal <clk>.
     Found 32-bit up counter for signal <count1>.
     Found 32-bit up counter for signal <count2>.
-    Found 3-bit up counter for signal <dhour>.
+    Found 3-bit register for signal <dhour>.
+    Found 3-bit adder for signal <dhour$addsub0000> created at line 310.
     Found 3-bit register for signal <dmin>.
-    Found 3-bit adder for signal <dmin$addsub0000> created at line 270.
-    Found 3-bit up counter for signal <dsec>.
-    Found 4-bit register for signal <hex>.
-    Found 3-bit adder for signal <mux0000$add0000> created at line 318.
-    Found 4-bit comparator greater for signal <mux0000$cmp_gt0000> created at line 313.
+    Found 3-bit adder for signal <dmin$addsub0000> created at line 288.
+    Found 3-bit register for signal <dsec>.
+    Found 3-bit adder for signal <dsec$addsub0000> created at line 325.
+    Found 4-bit adder for signal <mux0000$share0000> created at line 292.
     Found 1-bit register for signal <out_clk>.
-    Found 4-bit register for signal <uhour>.
-    Found 4-bit adder for signal <uhour$addsub0000> created at line 273.
+    Found 4-bit up counter for signal <uhour>.
     Found 4-bit register for signal <umin>.
-    Found 4-bit adder for signal <umin$addsub0000> created at line 267.
+    Found 4-bit adder for signal <umin$addsub0000> created at line 281.
     Found 4-bit register for signal <usec>.
-    Found 4-bit adder for signal <usec$addsub0000> created at line 324.
+    Found 4-bit adder for signal <usec$addsub0000> created at line 318.
     Summary:
-	inferred   1 Finite State Machine(s).
 	inferred   1 ROM(s).
 	inferred   4 Counter(s).
-	inferred  32 D-type flip-flop(s).
+	inferred  19 D-type flip-flop(s).
 	inferred   6 Adder/Subtractor(s).
-	inferred   1 Comparator(s).
 Unit <principal> synthesized.
 
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
@@ -184,14 +173,15 @@ Macro Statistics
  3-bit adder                                           : 3
  4-bit adder                                           : 3
 # Counters                                             : 4
- 3-bit up counter                                      : 2
+ 3-bit up counter                                      : 1
  32-bit up counter                                     : 2
-# Registers                                            : 20
- 1-bit register                                        : 17
- 4-bit register                                        : 2
- 7-bit register                                        : 1
-# Comparators                                          : 1
- 4-bit comparator greater                              : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 19
+ 1-bit register                                        : 19
+# Latches                                              : 4
+ 1-bit latch                                           : 1
+ 4-bit latch                                           : 2
+ 7-bit latch                                           : 1
 
 =========================================================================
 
@@ -199,38 +189,27 @@ Macro Statistics
 *                       Advanced HDL Synthesis                          *
 =========================================================================
 
-Analyzing FSM <FSM_0> for best encoding.
-Optimizing FSM <an_in/FSM> on signal <an_in[1:4]> with user encoding.
--------------------
- State | Encoding
--------------------
- 0001  | 0001
- 0010  | 0010
- 0100  | 0100
- 1000  | 1000
--------------------
-
-Synthesizing (advanced) Unit <principal>.
-INFO:Xst:3034 - In order to maximize performance and save block RAM resources, the small ROM <Mrom_led_mux0000> will be implemented on LUT. If you want to force its implementation on block, use option/constraint rom_style.
-Unit <principal> synthesized (advanced).
+Loading device for application Rf_Device from file '3s100e.nph' in environment C:\Xilinx92i.
 
 =========================================================================
 Advanced HDL Synthesis Report
 
 Macro Statistics
-# FSMs                                                 : 1
 # ROMs                                                 : 1
  16x7-bit ROM                                          : 1
 # Adders/Subtractors                                   : 6
  3-bit adder                                           : 3
  4-bit adder                                           : 3
 # Counters                                             : 4
- 3-bit up counter                                      : 2
+ 3-bit up counter                                      : 1
  32-bit up counter                                     : 2
-# Registers                                            : 32
- Flip-Flops                                            : 32
-# Comparators                                          : 1
- 4-bit comparator greater                              : 1
+ 4-bit up counter                                      : 1
+# Registers                                            : 19
+ Flip-Flops                                            : 19
+# Latches                                              : 4
+ 1-bit latch                                           : 1
+ 4-bit latch                                           : 2
+ 7-bit latch                                           : 1
 
 =========================================================================
 
@@ -242,7 +221,7 @@ Optimizing unit <principal> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block principal, actual ratio is 14.
+Found area constraint ratio of 100 (+ 5) on block principal, actual ratio is 13.
 
 Final Macro Processing ...
 
@@ -250,13 +229,13 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 106
- Flip-Flops                                            : 106
+# Registers                                            : 90
+ Flip-Flops                                            : 90
 
 =========================================================================
 
 =========================================================================
-*                           Partition Report                            *
+*                          Partition Report                             *
 =========================================================================
 
 Partition Implementation Status
@@ -274,40 +253,40 @@ RTL Top Level Output File Name     : principal.ngr
 Top Level Output File Name         : principal
 Output Format                      : NGC
 Optimization Goal                  : Speed
-Keep Hierarchy                     : No
+Keep Hierarchy                     : NO
 
 Design Statistics
-# IOs                              : 17
+# IOs                              : 25
 
 Cell Usage :
-# BELS                             : 393
+# BELS                             : 379
 #      GND                         : 1
-#      INV                         : 5
+#      INV                         : 9
 #      LUT1                        : 62
-#      LUT2                        : 17
-#      LUT2_D                      : 1
-#      LUT3                        : 36
-#      LUT3_D                      : 4
-#      LUT4                        : 99
-#      LUT4_D                      : 12
-#      LUT4_L                      : 7
+#      LUT2                        : 11
+#      LUT3                        : 27
+#      LUT3_D                      : 1
+#      LUT3_L                      : 1
+#      LUT4                        : 110
+#      LUT4_D                      : 1
+#      LUT4_L                      : 5
 #      MUXCY                       : 78
-#      MUXF5                       : 6
+#      MUXF5                       : 10
 #      VCC                         : 1
-#      XORCY                       : 64
+#      XORCY                       : 62
 # FlipFlops/Latches                : 106
-#      FD                          : 4
 #      FDCPE                       : 21
-#      FDE                         : 9
-#      FDR                         : 62
-#      FDS                         : 5
-#      FDSE                        : 5
-# Clock Buffers                    : 2
-#      BUFG                        : 1
+#      FDE                         : 2
+#      FDR                         : 64
+#      FDS                         : 3
+#      LD                          : 15
+#      LDPE_1                      : 1
+# Clock Buffers                    : 3
+#      BUFG                        : 2
 #      BUFGP                       : 1
-# IO Buffers                       : 16
+# IO Buffers                       : 24
 #      IBUF                        : 5
-#      OBUF                        : 11
+#      OBUF                        : 19
 =========================================================================
 
 Device utilization summary:
@@ -315,12 +294,13 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-4 
 
- Number of Slices:                      132  out of    960    13%  
- Number of Slice Flip Flops:            106  out of   1920     5%  
- Number of 4 input LUTs:                243  out of   1920    12%  
- Number of IOs:                          17
- Number of bonded IOBs:                  17  out of     83    20%  
- Number of GCLKs:                         2  out of     24     8%  
+ Number of Slices:                     119  out of    960    12%  
+ Number of Slice Flip Flops:           102  out of   1920     5%  
+ Number of 4 input LUTs:               227  out of   1920    11%  
+ Number of IOs:                         25
+ Number of bonded IOBs:                 25  out of     83    30%  
+    IOB Flip Flops:                      4
+ Number of GCLKs:                        3  out of     24    12%  
 
 ---------------------------
 Partition Resource Summary:
@@ -345,8 +325,13 @@ Clock Signal                       | Clock buffer(FF name)  | Load  |
 -----------------------------------+------------------------+-------+
 clk1                               | BUFGP                  | 66    |
 clk2                               | BUFG                   | 21    |
-out_clk                            | NONE(an_in_FSM_FFd4)   | 19    |
+button<3>                          | IBUF+BUFG              | 1     |
+an_not0001(an_not00011:O)          | NONE(*)(led_3)         | 15    |
+out_clk                            | NONE(cadran_2)         | 3     |
 -----------------------------------+------------------------+-------+
+(*) This 1 clock signal(s) are generated by combinatorial logic,
+and XST is not able to identify which are the primary clock signals.
+Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
@@ -354,57 +339,58 @@ Asynchronous Control Signals Information:
 -------------------------------------+------------------------+-------+
 Control Signal                       | Buffer(FF name)        | Load  |
 -------------------------------------+------------------------+-------+
-dhour_0__and0001(dhour_0__and00011:O)| NONE(dhour_0)          | 1     |
-dhour_0__and0002(dhour_0__and00021:O)| NONE(dhour_0)          | 1     |
-dhour_1__and0001(dhour_1__and00011:O)| NONE(dhour_1)          | 1     |
-dhour_1__and0002(dhour_1__and00021:O)| NONE(dhour_1)          | 1     |
-dhour_2__and0001(dhour_2__and00011:O)| NONE(dhour_2)          | 1     |
-dhour_2__and0002(dhour_2__and00021:O)| NONE(dhour_2)          | 1     |
-dmin_0_and0000(dmin_0_and00001:O)    | NONE(dmin_0)           | 1     |
-dmin_0_and0001(dmin_0_and00011:O)    | NONE(dmin_0)           | 1     |
-dmin_1_and0000(dmin_1_and00001:O)    | NONE(dmin_1)           | 1     |
-dmin_1_and0001(dmin_1_and00011:O)    | NONE(dmin_1)           | 1     |
-dmin_2_and0000(dmin_2_and00001:O)    | NONE(dmin_2)           | 1     |
-dmin_2_and0001(dmin_2_and00011:O)    | NONE(dmin_2)           | 1     |
-dsec_0__and0000(dsec_0__and00001:O)  | NONE(dsec_0)           | 1     |
-dsec_0__and0001(dsec_0__and00011:O)  | NONE(dsec_0)           | 1     |
-dsec_1__and0000(dsec_1__and00001:O)  | NONE(dsec_1)           | 1     |
-dsec_1__and0001(dsec_1__and00011:O)  | NONE(dsec_1)           | 1     |
-dsec_2__and0000(dsec_2__and00001:O)  | NONE(dsec_2)           | 1     |
-dsec_2__and0001(dsec_2__and00011:O)  | NONE(dsec_2)           | 1     |
-uhour_0_and0000(uhour_0_and00001:O)  | NONE(uhour_0)          | 1     |
-uhour_0_and0001(uhour_0_and00011:O)  | NONE(uhour_0)          | 1     |
-uhour_1_and0000(uhour_1_and00001:O)  | NONE(uhour_1)          | 1     |
-uhour_1_and0001(uhour_1_and00011:O)  | NONE(uhour_1)          | 1     |
-uhour_2_and0000(uhour_2_and00001:O)  | NONE(uhour_2)          | 1     |
-uhour_2_and0001(uhour_2_and00011:O)  | NONE(uhour_2)          | 1     |
-uhour_3_and0000(uhour_3_and00001:O)  | NONE(uhour_3)          | 1     |
-uhour_3_and0001(uhour_3_and00011:O)  | NONE(uhour_3)          | 1     |
-umin_0_and0000(umin_0_and00001:O)    | NONE(umin_0)           | 1     |
-umin_0_and0001(umin_0_and00011:O)    | NONE(umin_0)           | 1     |
-umin_1_and0000(umin_1_and00001:O)    | NONE(umin_1)           | 1     |
-umin_1_and0001(umin_1_and00011:O)    | NONE(umin_1)           | 1     |
 umin_2_and0000(umin_2_and00001:O)    | NONE(umin_2)           | 1     |
 umin_2_and0001(umin_2_and00011:O)    | NONE(umin_2)           | 1     |
 umin_3_and0000(umin_3_and00001:O)    | NONE(umin_3)           | 1     |
 umin_3_and0001(umin_3_and00011:O)    | NONE(umin_3)           | 1     |
-usec_0_and0000(usec_0_and00001:O)    | NONE(usec_0)           | 1     |
+usec_2_and0000(usec_2_and00001:O)    | NONE(usec_2)           | 1     |
+usec_2_and0001(usec_2_and00011:O)    | NONE(usec_2)           | 1     |
+dmin_0_and0000(dmin_0_and00002:O)    | NONE(dmin_0)           | 1     |
+dmin_0_and0001(dmin_0_and00011:O)    | NONE(dmin_0)           | 1     |
+dmin_1_and0000(dmin_1_and00001:O)    | NONE(dmin_1)           | 1     |
+dmin_1_and0001(dmin_1_and00011:O)    | NONE(dmin_1)           | 1     |
+umin_0_and0000(umin_0_and00002:O)    | NONE(umin_0)           | 1     |
+umin_0_and0001(umin_0_and00011:O)    | NONE(umin_0)           | 1     |
+usec_3_and0000(usec_3_and00002:O)    | NONE(usec_3)           | 1     |
+usec_3_and0001(usec_3_and00011:O)    | NONE(usec_3)           | 1     |
+dhour_0_and0000(dhour_0_and00001:O)  | NONE(dhour_0)          | 1     |
+dhour_0_and0001(dhour_0_and00011:O)  | NONE(dhour_0)          | 1     |
+umin_1_and0000(umin_1_and00001:O)    | NONE(umin_1)           | 1     |
+umin_1_and0001(umin_1_and00011:O)    | NONE(umin_1)           | 1     |
+dhour_1_and0000(dhour_1_and00001:O)  | NONE(dhour_1)          | 1     |
+dhour_1_and0001(dhour_1_and00011:O)  | NONE(dhour_1)          | 1     |
+dhour_2_and0000(dhour_2_and00001:O)  | NONE(dhour_2)          | 1     |
+dhour_2_and0001(dhour_2_and00011:O)  | NONE(dhour_2)          | 1     |
+dsec_1_and0000(dsec_1_and00001:O)    | NONE(dsec_1)           | 1     |
+dsec_1_and0001(dsec_1_and00011:O)    | NONE(dsec_1)           | 1     |
+dmin_2_and0000(dmin_2_and00001:O)    | NONE(dmin_2)           | 1     |
+dmin_2_and0001(dmin_2_and00011:O)    | NONE(dmin_2)           | 1     |
+dsec_0_and0000(dsec_0_and00001:O)    | NONE(dsec_0)           | 1     |
+dsec_0_and0001(dsec_0_and00011:O)    | NONE(dsec_0)           | 1     |
+uhour_1__and0000(uhour_1__and0000:O) | NONE(uhour_1)          | 1     |
+uhour_1__and0001(uhour_1__and0001:O) | NONE(uhour_1)          | 1     |
+uhour_2__and0000(uhour_2__and00001:O)| NONE(uhour_2)          | 1     |
+uhour_2__and0001(uhour_2__and00011:O)| NONE(uhour_2)          | 1     |
+dsec_2_and0000(dsec_2_and00001:O)    | NONE(dsec_2)           | 1     |
+dsec_2_and0001(dsec_2_and00011:O)    | NONE(dsec_2)           | 1     |
+uhour_0__and0000(uhour_0__and00001:O)| NONE(uhour_0)          | 1     |
+uhour_0__and0001(uhour_0__and00011:O)| NONE(uhour_0)          | 1     |
+uhour_3__and0000(uhour_3__and00002:O)| NONE(uhour_3)          | 1     |
+uhour_3__and0001(uhour_3__and00011:O)| NONE(uhour_3)          | 1     |
+usec_0_and0000(usec_0_and00002:O)    | NONE(usec_0)           | 1     |
 usec_0_and0001(usec_0_and00011:O)    | NONE(usec_0)           | 1     |
 usec_1_and0000(usec_1_and00001:O)    | NONE(usec_1)           | 1     |
 usec_1_and0001(usec_1_and00011:O)    | NONE(usec_1)           | 1     |
-usec_2_and0000(usec_2_and00001:O)    | NONE(usec_2)           | 1     |
-usec_2_and0001(usec_2_and00011:O)    | NONE(usec_2)           | 1     |
-usec_3_and0000(usec_3_and00001:O)    | NONE(usec_3)           | 1     |
-usec_3_and0001(usec_3_and00011:O)    | NONE(usec_3)           | 1     |
+toggle_and0000(toggle_and0000_f5:O)  | NONE(toggle)           | 1     |
 -------------------------------------+------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
-   Minimum period: 8.556ns (Maximum Frequency: 116.877MHz)
-   Minimum input arrival time before clock: 9.718ns
-   Maximum output required time after clock: 4.283ns
+   Minimum period: 5.707ns (Maximum Frequency: 175.223MHz)
+   Minimum input arrival time before clock: 8.859ns
+   Maximum output required time after clock: 4.863ns
    Maximum combinational path delay: No path found
 
 Timing Detail:
@@ -417,159 +403,211 @@ Timing constraint: Default period analysis for Clock 'clk1'
   Total number of paths / destination ports: 3170 / 132
 -------------------------------------------------------------------------
 Delay:               5.240ns (Levels of Logic = 9)
-  Source:            count1_8 (FF)
-  Destination:       count1_2 (FF)
+  Source:            count2_7 (FF)
+  Destination:       count2_0 (FF)
   Source Clock:      clk1 rising
   Destination Clock: clk1 rising
 
-  Data Path: count1_8 to count1_2
+  Data Path: count2_7 to count2_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              2   0.591   0.622  count1_8 (count1_8)
-     LUT4:I0->O            1   0.704   0.000  clk_cmp_eq0000_wg_lut<0> (clk_cmp_eq0000_wg_lut<0>)
-     MUXCY:S->O            1   0.464   0.000  clk_cmp_eq0000_wg_cy<0> (clk_cmp_eq0000_wg_cy<0>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<1> (clk_cmp_eq0000_wg_cy<1>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<2> (clk_cmp_eq0000_wg_cy<2>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<3> (clk_cmp_eq0000_wg_cy<3>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<4> (clk_cmp_eq0000_wg_cy<4>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<5> (clk_cmp_eq0000_wg_cy<5>)
-     MUXCY:CI->O           1   0.059   0.000  clk_cmp_eq0000_wg_cy<6> (clk_cmp_eq0000_wg_cy<6>)
-     MUXCY:CI->O          33   0.331   1.263  clk_cmp_eq0000_wg_cy<7> (clk_cmp_eq0000)
-     FDR:R                     0.911          count1_2
+     FDR:C->Q              2   0.591   0.622  count2_7 (count2_7)
+     LUT4:I0->O            1   0.704   0.000  out_clk_cmp_eq0000_wg_lut<0> (N8)
+     MUXCY:S->O            1   0.464   0.000  out_clk_cmp_eq0000_wg_cy<0> (out_clk_cmp_eq0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<1> (out_clk_cmp_eq0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<2> (out_clk_cmp_eq0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<3> (out_clk_cmp_eq0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<4> (out_clk_cmp_eq0000_wg_cy<4>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<5> (out_clk_cmp_eq0000_wg_cy<5>)
+     MUXCY:CI->O           1   0.059   0.000  out_clk_cmp_eq0000_wg_cy<6> (out_clk_cmp_eq0000_wg_cy<6>)
+     MUXCY:CI->O          33   0.331   1.263  out_clk_cmp_eq0000_wg_cy<7> (out_clk_cmp_eq0000)
+     FDS:S                     0.911          count2_0
     ----------------------------------------
     Total                      5.240ns (3.355ns logic, 1.885ns route)
                                        (64.0% logic, 36.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk2'
-  Clock period: 8.556ns (frequency: 116.877MHz)
-  Total number of paths / destination ports: 821 / 38
+  Clock period: 5.707ns (frequency: 175.223MHz)
+  Total number of paths / destination ports: 268 / 38
 -------------------------------------------------------------------------
-Delay:               8.556ns (Levels of Logic = 6)
-  Source:            uhour_3 (FF)
-  Destination:       dhour_1 (FF)
+Delay:               5.707ns (Levels of Logic = 3)
+  Source:            usec_2 (FF)
+  Destination:       dhour_2 (FF)
   Source Clock:      clk2 rising
   Destination Clock: clk2 rising
 
-  Data Path: uhour_3 to dhour_1
+  Data Path: usec_2 to dhour_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCPE:C->Q            7   0.591   0.883  uhour_3 (uhour_3)
-     LUT4_D:I0->O          3   0.704   0.535  mux0000_cmp_eq00021 (mux0000_cmp_eq0002)
-     LUT4_D:I3->O         10   0.704   0.886  mux0000_and00011 (mux0000_and0001)
-     LUT4_D:I3->O          2   0.704   0.451  dhour_Q_mux0000<1>21 (N40)
-     LUT4:I3->O            1   0.704   0.499  dhour_Q_mux0000<1>0 (dhour_Q_mux0000<1>0)
-     LUT4_D:I1->LO         1   0.704   0.179  dhour_Q_mux0000<1>27 (N88)
-     LUT2:I1->O            1   0.704   0.000  dhour_1__and00001 (dhour_1__and0000)
-     FDCPE:D                   0.308          dhour_1
+     FDCPE:C->Q           11   0.591   1.012  usec_2 (usec_2)
+     LUT4:I1->O            1   0.704   0.424  dhour_2_and000231_SW1 (N535)
+     LUT4_D:I3->O          2   0.704   0.482  dhour_2_and00023 (N22)
+     LUT3:I2->O            3   0.704   0.531  dhour_2_and000245 (dhour_2_and0002)
+     FDCPE:CE                  0.555          dhour_2
     ----------------------------------------
-    Total                      8.556ns (5.123ns logic, 3.433ns route)
-                                       (59.9% logic, 40.1% route)
+    Total                      5.707ns (3.258ns logic, 2.449ns route)
+                                       (57.1% logic, 42.9% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'an_not0001'
+  Clock period: 3.184ns (frequency: 314.070MHz)
+  Total number of paths / destination ports: 48 / 7
+-------------------------------------------------------------------------
+Delay:               3.184ns (Levels of Logic = 2)
+  Source:            hex_3 (LATCH)
+  Destination:       led_0 (LATCH)
+  Source Clock:      an_not0001 falling
+  Destination Clock: an_not0001 falling
+
+  Data Path: hex_3 to led_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     LD:G->Q              14   0.676   1.175  hex_3 (hex_3)
+     LUT4:I0->O            1   0.704   0.000  led_mux0004<5>_G (N566)
+     MUXF5:I1->O           1   0.321   0.000  led_mux0004<5> (led_mux0004<5>)
+     LD:D                      0.308          led_5
+    ----------------------------------------
+    Total                      3.184ns (2.009ns logic, 1.175ns route)
+                                       (63.1% logic, 36.9% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'out_clk'
-  Clock period: 5.714ns (frequency: 175.009MHz)
-  Total number of paths / destination ports: 127 / 34
+  Clock period: 3.900ns (frequency: 256.410MHz)
+  Total number of paths / destination ports: 15 / 6
 -------------------------------------------------------------------------
-Delay:               5.714ns (Levels of Logic = 3)
-  Source:            an_in_FSM_FFd2 (FF)
-  Destination:       hex_2 (FF)
+Delay:               3.900ns (Levels of Logic = 1)
+  Source:            cadran_1 (FF)
+  Destination:       cadran_0 (FF)
   Source Clock:      out_clk rising
   Destination Clock: out_clk rising
 
-  Data Path: an_in_FSM_FFd2 to hex_2
+  Data Path: cadran_1 to cadran_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FD:C->Q              11   0.591   1.108  an_in_FSM_FFd2 (an_in_FSM_FFd2)
-     LUT4:I0->O           15   0.704   1.096  an_or00001 (an_or0000)
-     LUT4:I1->O            1   0.704   0.499  hex_mux0003<2>67 (hex_mux0003<2>67)
-     LUT4:I1->O            1   0.704   0.000  hex_mux0003<2>701 (hex_mux0003<2>70)
-     FDS:D                     0.308          hex_2
+     FDR:C->Q             21   0.591   1.163  cadran_1 (cadran_1)
+     LUT3:I2->O            3   0.704   0.531  cadran_cmp_eq00001 (cadran_cmp_eq0000)
+     FDS:S                     0.911          cadran_0
     ----------------------------------------
-    Total                      5.714ns (3.011ns logic, 2.703ns route)
-                                       (52.7% logic, 47.3% route)
+    Total                      3.900ns (2.206ns logic, 1.694ns route)
+                                       (56.6% logic, 43.4% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'clk2'
-  Total number of paths / destination ports: 194 / 21
+  Total number of paths / destination ports: 143 / 24
 -------------------------------------------------------------------------
-Offset:              9.718ns (Levels of Logic = 7)
-  Source:            button<2> (PAD)
+Offset:              8.859ns (Levels of Logic = 6)
+  Source:            button<0> (PAD)
   Destination:       dhour_2 (FF)
   Destination Clock: clk2 rising
 
-  Data Path: button<2> to dhour_2
+  Data Path: button<0> to dhour_2
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            22   1.218   1.339  button_2_IBUF (button_2_IBUF)
-     LUT4:I0->O           10   0.704   0.917  dhour_or00001 (dhour_or0000)
-     LUT3:I2->O            1   0.704   0.499  dhour_Q_mux0000<0>3_SW0 (N26)
-     LUT4:I1->O            3   0.704   0.610  dhour_Q_mux0000<0>3 (N15)
-     LUT4:I1->O            1   0.704   0.424  dhour_Q_mux0000<2>21 (dhour_Q_mux0000<2>21)
-     LUT4_D:I3->LO         1   0.704   0.179  dhour_Q_mux0000<2>27 (N87)
-     LUT2:I1->O            1   0.704   0.000  dhour_2__and00001 (dhour_2__and0000)
-     FDCPE:D                   0.308          dhour_2
+     IBUF:I->O            14   1.218   1.175  button_0_IBUF (button_0_IBUF)
+     LUT3:I0->O            3   0.704   0.566  dhour_2_and00021111 (toggle_0_not0000)
+     LUT3:I2->O            1   0.704   0.595  dhour_2_and000228_SW0 (N557)
+     LUT4_L:I0->LO         1   0.704   0.104  dhour_2_and000228 (dhour_2_and0002_map12)
+     LUT4:I3->O            1   0.704   0.595  dhour_2_and000242_SW0 (N531)
+     LUT3:I0->O            3   0.704   0.531  dhour_2_and000245 (dhour_2_and0002)
+     FDCPE:CE                  0.555          dhour_2
     ----------------------------------------
-    Total                      9.718ns (5.750ns logic, 3.968ns route)
-                                       (59.2% logic, 40.8% route)
+    Total                      8.859ns (5.293ns logic, 3.566ns route)
+                                       (59.7% logic, 40.3% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'out_clk'
-  Total number of paths / destination ports: 13 / 7
+Timing constraint: Default OFFSET IN BEFORE for Clock 'button<3>'
+  Total number of paths / destination ports: 3 / 1
 -------------------------------------------------------------------------
-Offset:              6.144ns (Levels of Logic = 4)
-  Source:            mode (PAD)
-  Destination:       hex_2 (FF)
-  Destination Clock: out_clk rising
+Offset:              4.183ns (Levels of Logic = 2)
+  Source:            button<0> (PAD)
+  Destination:       toggle (LATCH)
+  Destination Clock: button<3> rising
 
-  Data Path: mode to hex_2
+  Data Path: button<0> to toggle
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            45   1.218   1.441  mode_IBUF (mode_IBUF)
-     LUT2:I0->O            3   0.704   0.566  hex_mux0003<0>31 (N50)
-     LUT4:I2->O            1   0.704   0.499  hex_mux0003<2>67 (hex_mux0003<2>67)
-     LUT4:I1->O            1   0.704   0.000  hex_mux0003<2>701 (hex_mux0003<2>70)
-     FDS:D                     0.308          hex_2
+     IBUF:I->O            14   1.218   1.175  button_0_IBUF (button_0_IBUF)
+     LUT3:I0->O            3   0.704   0.531  dhour_2_and00021111 (toggle_0_not0000)
+     LDPE_1:GE                 0.555          toggle
     ----------------------------------------
-    Total                      6.144ns (3.638ns logic, 2.506ns route)
+    Total                      4.183ns (2.477ns logic, 1.706ns route)
                                        (59.2% logic, 40.8% route)
 
 =========================================================================
-Timing constraint: Default OFFSET OUT AFTER for Clock 'out_clk'
+Timing constraint: Default OFFSET IN BEFORE for Clock 'an_not0001'
+  Total number of paths / destination ports: 14 / 4
+-------------------------------------------------------------------------
+Offset:              5.909ns (Levels of Logic = 4)
+  Source:            mode (PAD)
+  Destination:       hex_0 (LATCH)
+  Destination Clock: an_not0001 falling
+
+  Data Path: mode to hex_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            52   1.218   1.348  mode_IBUF (mode_IBUF)
+     LUT4:I1->O            1   0.704   0.499  hex_mux0007<2>114 (hex_mux0007<2>1_map6)
+     LUT4:I1->O            1   0.704   0.424  hex_mux0007<2>1144_SW0 (N559)
+     LUT4:I3->O            1   0.704   0.000  hex_mux0007<2>1144 (hex_mux0007<2>)
+     LD:D                      0.308          hex_2
+    ----------------------------------------
+    Total                      5.909ns (3.638ns logic, 2.271ns route)
+                                       (61.6% logic, 38.4% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'an_not0001'
   Total number of paths / destination ports: 11 / 11
 -------------------------------------------------------------------------
-Offset:              4.283ns (Levels of Logic = 1)
-  Source:            an_3 (FF)
+Offset:              4.368ns (Levels of Logic = 1)
+  Source:            an_3 (LATCH)
   Destination:       an<3> (PAD)
-  Source Clock:      out_clk rising
+  Source Clock:      an_not0001 falling
 
   Data Path: an_3 to an<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDSE:C->Q             1   0.591   0.420  an_3 (an_3)
+     LD:G->Q               1   0.676   0.420  an_3 (an_3)
      OBUF:I->O                 3.272          an_3_OBUF (an<3>)
     ----------------------------------------
-    Total                      4.283ns (3.863ns logic, 0.420ns route)
-                                       (90.2% logic, 9.8% route)
+    Total                      4.368ns (3.948ns logic, 0.420ns route)
+                                       (90.4% logic, 9.6% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'clk2'
+  Total number of paths / destination ports: 4 / 4
+-------------------------------------------------------------------------
+Offset:              4.863ns (Levels of Logic = 1)
+  Source:            usec_0 (FF)
+  Destination:       bin<0> (PAD)
+  Source Clock:      clk2 rising
 
+  Data Path: usec_0 to bin<0>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCPE:C->Q           14   0.591   1.000  usec_0 (usec_0)
+     OBUF:I->O                 3.272          bin_0_OBUF (bin<0>)
+    ----------------------------------------
+    Total                      4.863ns (3.863ns logic, 1.000ns route)
+                                       (79.4% logic, 20.6% route)
 
-Total REAL time to Xst completion: 10.00 secs
-Total CPU time to Xst completion: 10.07 secs
+=========================================================================
+CPU : 5.23 / 5.32 s | Elapsed : 5.00 / 5.00 s
  
 --> 
 
-
-Total memory usage is 560768 kilobytes
+Total memory usage is 169932 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :    0 (   0 filtered)
-Number of infos    :    2 (   0 filtered)
+Number of warnings :    8 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

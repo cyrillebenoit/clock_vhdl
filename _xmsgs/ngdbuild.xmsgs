@@ -5,5 +5,8 @@
      behavior or data corruption.  It is strongly advised that
      users do not edit the contents of this file. -->
 <messages>
+<msg type="warning" file="NgdBuild" num="971" delta="unknown" >IO attribute &apos;<arg fmt="%s" index="1">LOC</arg>&apos; on <arg fmt="%s" index="2">net</arg> &apos;<arg fmt="%s" index="3">clk</arg>&apos; has been applied incorrectly. It should be placed on a port net, pad, or a buffer.
+</msg>
+
 </messages>
 

@@ -1,20 +1,21 @@
-Release 14.7 ngdbuild P.20131013 (lin64)
-Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+Release 9.2i ngdbuild J.36
+Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
 
-Command Line: /opt/Xilinx/14.7/ISE_DS/ISE/bin/lin64/unwrapped/ngdbuild -intstyle
-ise -dd _ngo -nt timestamp -uc principal.ucf -p xc3s100e-cp132-4 principal.ngc
+Command Line: C:\Xilinx92i\bin\nt\ngdbuild.exe -ise
+C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/git.ise -intstyle ise -dd
+_ngo -nt timestamp -uc principal.ucf -p xc3s100e-cp132-4 principal.ngc
 principal.ngd
 
-Reading NGO file "/home/cyrille/projetS4/clock_vhdl/principal.ngc" ...
-Gathering constraint information from source properties...
-Done.
+Reading NGO file
+"C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.ngc" ...
 
-Annotating constraints to design from ucf file "principal.ucf" ...
-Resolving constraint associations...
-Checking Constraint Associations...
-Done...
+Applying constraints in "principal.ucf" to the design...
 
+Checking timing specifications ...
+Checking Partitions ...
 Checking expanded design ...
+WARNING:NgdBuild:971 - IO attribute 'LOC' on net 'clk' has been applied
+   incorrectly. It should be placed on a port net, pad, or a buffer.
 
 Partition Implementation Status
 -------------------------------
@@ -25,12 +26,10 @@ Partition Implementation Status
 
 NGDBUILD Design Results Summary:
   Number of errors:     0
-  Number of warnings:   0
+  Number of warnings:   1
 
-Total memory usage is 395308 kilobytes
+Total memory usage is 107948 kilobytes
 
 Writing NGD file "principal.ngd" ...
-Total REAL time to NGDBUILD completion:  3 sec
-Total CPU time to NGDBUILD completion:   3 sec
 
 Writing NGDBUILD log file "principal.bld"...
