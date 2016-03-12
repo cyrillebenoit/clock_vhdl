@@ -43,43 +43,117 @@ end principal;
 
 architecture Behavioral of principal is
 	signal cadran : integer range 0 to 4 :=1;  		  -- selectionne le cadran a  utiliser (permet de changer de cadran et de savoir ou on en est)
-	signal usec, umin, uhour: integer range 0 to 10 :=0;-- unites des secondes, minutes, et heures
-	signal dsec, dmin, dhour : integer range 0 to 6 :=0;		  -- dizaines des secondes minutes et heures
-	signal count1, count2 : integer :=1;						  -- permet la reduction de frequence de la clock
-	signal clk : std_logic :='0';						  		  -- clock a 60Hz
-	signal out_clk : std_logic :='0';
+	
+	--Signaux du diviseur de frequence
+	signal count : std_logic_vector (25 downto 0):="00000000000000000000000000";
+	signal clk : std_logic :='0';	
+	
+	--Signaux des compteurs
+	signal usec, umin, uhour: integer range 0 to 10 :=0;
+	signal dsec, dmin, dhour : integer range 0 to 6 :=0;		  
+	signal sec_clk : std_logic :='0';
+	signal min_clk : std_logic :='0';
+	signal hour_clk : std_logic :='0';
+	signal Minute : std_logic :='0';
+	signal Hour : std_logic :='0';
+	
+	--Signaux de l'affichage
+	signal count2 : std_logic :='0';
+	signal display_clk : std_logic :='0';
 	signal hex : std_logic_vector (3 downto 0):="0000";	  		  -- valeur hexa du chiffre a afficher
-	signal modif : std_logic_vector (3 downto 0);
 	signal test_led : std_logic_vector (7 downto 0):="00000000";
-	signal toggle : std_logic :='0';
 
 	
 begin
-
-	process(clk1) 	--Genere une clock de 1Hz (clk) et une clock d'affichege a partir d'une clock de 50MHz (clk1) et affiche les nombres sur les cadrans au rythme de clk1
+	--FS1
+	--Genere une clock de 1Hz (clk) et une clock d'affichage a partir d'une clock de 50MHz (clk1) et affiche les nombres sur les cadrans au rythme de clk1
+	process(clk1) 	
 	begin
 		if(clk1'event and clk1='1') then
-			
-			--PARTIE CREATION DE LA CLOCK A 1HZ
-			count1 <=count1+1;
-			if(count1 = 25000000) then
+			count <=count+1;
+			if (count = 24999999) then 
 				clk <= not clk;
-				count1 <=1;
+				count <= "00000000000000000000000000"; 
 			end if;
-
-			--PARTIE CREATION DE LA CLOCK D'AFFICHAGE
-			count2 <=count2+1;
-			if(count2 = 25000) then
-				out_clk <= not out_clk;
-				count2 <=1;
-			end if;
-
 		end if;
 	end process;
-
-	process(out_clk, mode, usec, dsec, umin, dmin, uhour, dhour) -- affichage
+	
+	--FS7 : AVSEC
+	sec_clk <= count(22) when mode='0' and (button(0)='1' or button(1)='1')
+	else clk;
+	
+	--FS2 : Compteur de secondes
+	process(sec_clk)
 	begin
-		if(out_clk'event and out_clk='1') then
+		if(sec_clk'event and sec_clk='1') then
+			--Modification des unités
+			if(usec=9) then
+				usec<=0;
+				if(dsec=5) then
+					Minute<='1';
+					dsec<=0;
+				else
+					dsec<=dsec+1;
+				end if;
+			else
+				Minute<='0';
+				usec<=usec+1;
+			end if;
+		end if;
+	end process;
+	
+	--FS9 : AVMIN
+	min_clk <= count(22) when (mode='0' and (button(2)='1' or button(3)='1')) or (mode='1' and (button(0)='1' or button(1)='1'))
+	else Minute;
+	
+	--FS3 : Compteur de minutes
+	process(min_clk)
+	begin
+		if(min_clk'event and min_clk='1') then
+			
+			--Modification des unités
+			if(umin=9) then
+				umin<=0;
+				if(dmin=5) then
+					dmin<=0;
+					Hour<='1';
+				else
+					dmin<=dmin+1;
+				end if;
+			else
+				Hour<='0';
+				umin<=umin+1;
+			end if;
+		end if;
+	end process;
+	
+	--FS10 : AVHOUR
+	hour_clk <= count(22) when mode='1' and (button(2)='1' or button(3)='1')
+	else Hour;
+	
+	--FS4 : Compteur des heures
+	process(hour_clk)
+	begin
+		if(hour_clk'event and hour_clk='1') then
+			--Modification des unités
+			if(uhour=9) then
+				uhour<=0;
+				dhour<=dhour+1;
+			elsif(uhour=3 and dhour=2) then
+				uhour<=0;
+				dhour<=0;
+			else
+				uhour<=uhour+1;
+			end if;
+		end if;
+	end process;
+	
+	--FS5 et  FS6 : Affichage
+	count2<=count(15);
+	
+	process(count, mode, usec, dsec, umin, dmin, uhour, dhour)
+	begin
+		if(count2'event and count2='1') then
 			if(cadran=4) then
 				cadran<=1;
 			else
@@ -101,11 +175,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			else 					-- si on est en mode MM:SS
@@ -121,11 +190,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			end if ;
@@ -145,11 +209,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			else 					-- si on est en mode MM:SS
@@ -165,11 +224,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			end if ;
@@ -189,11 +243,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			else 					-- si on est en mode MM:SS
@@ -209,11 +258,6 @@ begin
 					when "1000" => led <= "0000000";   --8
 					when "1001" => led <= "0010000";   --9
 					when "1010" => led <= "0001000";   --A
-					when "1011" => led <= "0000011";   --b
-					when "1100" => led <= "1000110";   --C
-					when "1101" => led <= "0100001";   --d
-					when "1110" => led <= "0000110";   --E
-					when "1111" => led <= "0001110";   --F
 					when others => led <= "1000000";   --0
 				end case;
 			end if ;
@@ -233,11 +277,6 @@ begin
 						when "1000" => led <= "0000000";   --8
 						when "1001" => led <= "0010000";   --9
 						when "1010" => led <= "0001000";   --A
-						when "1011" => led <= "0000011";   --b
-						when "1100" => led <= "1000110";   --C
-						when "1101" => led <= "0100001";   --d
-						when "1110" => led <= "0000110";   --E
-						when "1111" => led <= "0001110";   --F
 						when others => led <= "1000000";   --0
 					end case;
 				else 					-- si on est en mode MM:SS
@@ -253,135 +292,18 @@ begin
 						when "1000" => led <= "0000000";   --8
 						when "1001" => led <= "0010000";   --9
 						when "1010" => led <= "0001000";   --A
-						when "1011" => led <= "0000011";   --b
-						when "1100" => led <= "1000110";   --C
-						when "1101" => led <= "0100001";   --d
-						when "1110" => led <= "0000110";   --E
-						when "1111" => led <= "0001110";   --F
 						when others => led <= "1000000";   --0
 					end case;
 				end if ;
 			end if;
 	end process;
-
-	process(clk, button, mode, usec, dsec, umin, dmin, uhour, dhour)  -- modification manuelle de l'heure
+	
+	--FSB1 Test
+	process(usec)
 	begin
 		-- TEST
 		test_led <= conv_std_logic_vector(usec,8);
-		test_led(4)<= not toggle;
 		bin <= test_led;
-		-- Selon le mode selectionne, si un bouton est enfonce, on incremente le champ correspondant.
-		if (button(0) = '0' and button(1) = '0' and button(2) = '0' and button(3) = '0') then
-			toggle <='0';
-		end if;
-		if (button(0) = '1' or button(1) = '1' or button(2) = '1' or button(3) = '1') then
-			toggle <='1';
-			modif <= button;
-		end if;
-		
-		if (toggle='1')  then
-			toggle<='0';
-			if mode = '1' then -- Si on est en mode HH:MM
-				if(modif(0)='1') then
-					if(umin=9) then
-						umin<=0;
-					else
-						umin<=umin+1;
-					end if;
-				end if;
-				if(modif(1)='1') then
-					if(dmin=5) then
-						dmin<=0;
-					else
-						dmin<=dmin+1;
-					end if;
-				end if;		
-				if(modif(2)='1') then
-					if(dhour=2) then
-						if(uhour=3) then
-							uhour<=0;
-						else
-							uhour<=uhour+1;
-						end if;
-					else
-						if(uhour=9) then
-							uhour<=0;
-						else
-							uhour<=uhour+1;
-						end if;
-					end if;
-				end if;
-				if(modif(3)='1') then
-					if(dhour=2) then
-						dhour<=0;
-					else
-						dhour<=dhour+1;
-					end if;
-				end if;
-			else -- mode MM::SS
-				if(modif(0)='1') then
-					if(usec=9) then
-						usec<=0;
-					else
-						usec<=usec+1;
-					end if;
-				end if;
-				if(modif(1)='1') then
-					if(dsec=5) then
-						dsec<=0;
-					else
-						dsec<=dsec+1;
-					end if;
-				end if;
-				if(modif(2)='1') then
-					if(umin=9) then
-						umin<=0;
-					else
-						umin<=umin+1;
-					end if;
-				end if;
-				if(modif(3)='1') then
-					if(dmin=5) then
-						dmin<=0;
-					else
-						dmin<=dmin+1;
-					end if;
-				end if;
-			end if;
-		-- On incremente le timestamp chaque seconde
-		elsif(clk'event and clk='1') then
-			if(usec = 9) then
-				usec<=0;
-				if(dsec = 5)then
-					dsec<=0;
-					if(umin=9) then
-							umin<=0;
-							if(dmin=5) then
-								dmin<=0;
-								if(uhour=0) or ((dhour = 2) and (uhour = 3)) then
-									uhour<=0;
-									if(dhour=2) then
-										dhour<=0;
-									else
-										dhour<=dhour+1;
-									end if;
-									
-								else
-									uhour<=uhour+1;
-								end if;
-							else
-								dmin<=dmin+1;
-							end if;
-					else
-						umin<=umin+1;
-					end if;
-				else
-					dsec<=dsec+1;
-				end if;
-			else
-				usec<=usec+1;
-			end if;
-		end if;
 	end process;
 	
 end Behavioral;

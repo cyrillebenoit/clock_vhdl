@@ -6,18 +6,35 @@
      users do not edit the contents of this file. -->
 <messages>
 <msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">156</arg>: The following signals are missing in the process sensitivity list:
-<arg fmt="%s" index="3">sec_modif</arg>.
+<arg fmt="%s" index="3">count2</arg>.
 </msg>
 
-<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">195</arg>: The following signals are missing in the process sensitivity list:
-<arg fmt="%s" index="3">hour_modif</arg>.
-</msg>
-
-<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">214</arg>: The following signals are missing in the process sensitivity list:
+<msg type="warning" file="Xst" num="819" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">154</arg>: The following signals are missing in the process sensitivity list:
 <arg fmt="%s" index="3">cadran</arg>.
 </msg>
 
-<msg type="error" file="Xst" num="827" delta="unknown" >&quot;<arg fmt="%s" index="1">C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd</arg>&quot; line <arg fmt="%d" index="2">156</arg>: Signal <arg fmt="%s" index="3">sec_modif</arg> cannot be synthesized, bad synchronous description.
+<msg type="warning" file="Xst" num="1780" delta="unknown" >Signal &lt;<arg fmt="%s" index="1">display_clk</arg>&gt; is never used or assigned.
+</msg>
+
+<msg type="warning" file="Xst" num="737" delta="unknown" >Found <arg fmt="%d" index="1">4</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">an</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2371" delta="unknown" >HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+</msg>
+
+<msg type="warning" file="Xst" num="737" delta="unknown" >Found <arg fmt="%d" index="1">7</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">led</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2371" delta="unknown" >HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+</msg>
+
+<msg type="warning" file="Xst" num="737" delta="unknown" >Found <arg fmt="%d" index="1">4</arg>-bit latch for signal &lt;<arg fmt="%s" index="2">hex</arg>&gt;.
+</msg>
+
+<msg type="info" file="Xst" num="2371" delta="unknown" >HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+</msg>
+
+<msg type="info" file="Xst" num="2169" delta="unknown" >HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 </msg>
 
 </messages>
