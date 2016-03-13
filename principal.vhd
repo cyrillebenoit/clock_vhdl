@@ -34,6 +34,7 @@ use ieee.std_logic_unsigned.all;
 
 entity principal is
     Port ( 	clk1 	: in  STD_LOGIC;					  -- clock a 50MHz
+			piezo 	: out  STD_LOGIC;					  -- buzzer
     		switch 	: in  STD_LOGIC_VECTOR (7 downto 0);  --leviers
 			button 	: in  STD_LOGIC_VECTOR (3 downto 0);  -- permet l'incrementation manuelle de l'heure
 			an 	 	: out STD_LOGIC_VECTOR (3 downto 0);  -- selectionne le cadran a  utiliser
@@ -66,9 +67,20 @@ architecture Behavioral of principal is
 	--CHRONOMETRE
 	signal chrono_usec,chrono_umin,chrono_dsec,chrono_dmin: integer range 0 to 10 :=0;
 	signal chrono_usec2,chrono_umin2,chrono_dsec2,chrono_dmin2: integer range 0 to 10 :=0;
-	signal chrono_usec3,chrono_umin3,chrono_dsec3,chrono_dmin3: integer range 0 to 10 :=0;
+	signal chrono_usec3,chrono_umin3,chrono_dsec3,chrono_dmin3: integer range 0 to 10 :=1;
 	signal chrono_sec_clk : std_logic :='0';
 	signal chrono_min_clk : std_logic :='0';
+	signal countdown_sec_clk : std_logic :='0';
+	signal countdown_min_clk : std_logic :='0';
+	signal countdown_hour_clk : std_logic :='0';
+	signal countdown_Minute : std_logic :='0';
+	signal countdown_Hour : std_logic :='0';
+	signal countdown_toggle_done : std_logic :='0';
+	signal chrono_permut, chrono_permut_receive : std_logic:='0';
+	signal buzzer_start,buzzer_toggle : std_logic :='0';
+	signal buzzer_end : integer range 0 to 4 :=0;
+
+	signal countdown_done : std_logic:='0';
 	signal chrono_toggle : std_logic :='0'; -- 0 lorsque le chronomètre est en mode set, 1 lorsqu'il est en décompte
 	
 begin
@@ -158,7 +170,7 @@ begin
 	--Affichage
 	count2<=count(15);
 	
-	--FS6 : Choix du cadran selon count2
+	--Choix du cadran selon count2
 	process(count2)
 	begin
 		if(count2'event and count2='1') then
@@ -169,20 +181,6 @@ begin
 			end if;
 		end if;
 	end process;
-	
-	-- Convertisseur 7 segments : traduit la valeur de value en segments à afficher	
-	led<="1000000"	when value=0
-	else "1111001" when value=1
-	else "0100100"	when value=2
-	else "0110000"	when value=3
-	else "0011001"	when value=4
-	else "0010010"	when value=5
-	else "0000010"	when value=6
-	else "1111000" when value=7
-	else "0000000" when value=8
-	else "0010000"	when value=9
-	else "0001000" when value=10	
-	else "1000000";
 	
 	--FS5 : Multiplexeur : Choix de la valeur de value à afficher en fonction des differents paramètres
 	
@@ -204,6 +202,20 @@ begin
 	else chrono_umin when cadran=3 and switch(1)='1'
 	else chrono_dmin when cadran=4 and switch(1)='1';
 	
+	-- Convertisseur 7 segments : traduit la valeur de value en segments à afficher	
+	led<="1000000"	when value=0
+	else "1111001" when value=1
+	else "0100100"	when value=2
+	else "0110000"	when value=3
+	else "0011001"	when value=4
+	else "0010010"	when value=5
+	else "0000010"	when value=6
+	else "1111000" when value=7
+	else "0000000" when value=8
+	else "0010000"	when value=9
+	else "0001000" when value=10	
+	else "1000000";
+	
 	--FS6 : Démultiplexeur : Choix du cadran
 	--Mode chrono set
 	an <="1111" when chrono_toggle='0' and clk='0' and switch(1)='1'
@@ -212,8 +224,6 @@ begin
 	else "1101" when cadran=2
 	else "1011" when cadran=3
 	else "0111" when cadran=4;
-
-	
 			
 	--BONUS
 	-- Chronomètre
@@ -235,16 +245,16 @@ begin
 	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
 	
 	chrono_dsec <= 0 when switch(1)='1' and button(3)='1' --RESET
-	else chrono_usec2 when chrono_toggle='0' --SET
-	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	else chrono_dsec2 when chrono_toggle='0' --SET
+	else chrono_dsec3 when chrono_toggle='1'; --DECOMPTE
 	
 	chrono_umin <= 0 when switch(1)='1' and button(3)='1' --RESET
-	else chrono_usec2 when chrono_toggle='0' --SET
-	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	else chrono_umin2 when chrono_toggle='0' --SET
+	else chrono_umin3 when chrono_toggle='1'; --DECOMPTE
 	
 	chrono_dmin <= 0 when switch(1)='1' and button(3)='1' --RESET
-	else chrono_usec2 when chrono_toggle='0' --SET
-	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	else chrono_dmin2 when chrono_toggle='0' --SET
+	else chrono_dmin3 when chrono_toggle='1'; --DECOMPTE
 	
 	
 	--FSB2 : AVSEC CHRONO
@@ -267,14 +277,17 @@ begin
 				chrono_usec2<=chrono_usec2+1;
 			end if;
 		end if;
+		if(button(3)='1') then
+			chrono_usec2<=0;
+			chrono_dsec2<=0;
+		end if;
 	end process;
 	
-	--FSB4 : AVMIN CHRONO
+	--FSB2 : AVMIN CHRONO
 	chrono_min_clk <= count(22) when switch(1)='1' and button(1)='1' and chrono_toggle='0'
 	else '0';
 	
-	
-	--FSB5 : Compteur de minutes du chrono
+	--FSB3 : Compteur de minutes du chrono
 	process(chrono_min_clk)
 	begin
 		if(chrono_min_clk'event and chrono_min_clk='1') then
@@ -290,17 +303,129 @@ begin
 				chrono_umin2<=chrono_umin2+1;
 			end if;
 		end if;
+		if(button(3)='1') then
+			chrono_umin2<=0;
+			chrono_dmin2<=0;
+		end if;
+	end process;
+	
+	--Variable d'incrémentation des valeurs lorsque basculement en decompte
+	process(chrono_toggle)
+	begin
+		if(chrono_toggle'event and chrono_toggle='1') then
+			chrono_permut<='1';
+		end if;
+		if(chrono_permut_receive='1') then
+			chrono_permut<='0';
+		end if;
 	end process;
 	
 	--FSB6 : Changement d'état du chrono
 	
-	process(chrono_toggle,button,switch)
+	process(chrono_toggle,button,switch,countdown_done)
 	begin
-		if(button(2)='1' and chrono_toggle='0' and switch(1)='1') then
+		if(button(2)='1' and switch(1)='1') then
 			chrono_toggle<='1';
-		elsif(button(3)='1' and switch(1)='1') then
+		elsif((button(3)='1' and switch(1)='1') or countdown_done='1') then
 			chrono_toggle<='0';
+			countdown_toggle_done<='1';
+			--AJOUTER PIEZO
+		else
+			countdown_toggle_done<='0';
 		end if;
 	end process;
-
+	
+	--FSB7 : AVSEC DECOMPT
+	countdown_sec_clk <= clk when chrono_toggle<='1'
+	else '0';
+	
+	
+	--FSB8 : Décompteur de secondes du chrono
+	process(countdown_sec_clk,chrono_permut)
+	begin
+		if(countdown_sec_clk'event and countdown_sec_clk='1') then
+			if(chrono_usec3=0) then
+				chrono_usec3<=9;
+				if(chrono_dsec3=0) then
+					countdown_Minute <='1';
+					chrono_dsec3<=5;
+				else
+					chrono_dsec3<=chrono_dsec3-1;
+					countdown_Minute <='0';
+				end if;
+			else
+				countdown_Minute <='0';
+				chrono_usec3<=chrono_usec3-1;
+			end if;
+		end if;
+		if(chrono_permut='1') then
+			chrono_permut_receive<='1';
+			chrono_usec3<=chrono_usec2;
+			chrono_dsec3<=chrono_dsec2;
+		else
+			chrono_permut_receive<='0';
+		end if;
+		if(button(3)='1') then
+			chrono_usec3<=0;
+			chrono_dsec3<=0;
+		end if;
+	end process;
+	
+	--FSB5 : Décompteur de minutes du chrono
+	process(countdown_Minute,chrono_permut,countdown_toggle_done)
+	begin
+		if(countdown_Minute'event and countdown_Minute='1') then
+			if(chrono_umin3=0) then
+				chrono_umin3<=9;
+				if(chrono_dmin3=0) then
+					chrono_dmin3<=0;
+					chrono_umin3<=0;
+					countdown_done<='1';
+				else
+					chrono_dmin3<=chrono_dmin3-1;
+				end if;
+			else
+				chrono_umin3<=chrono_umin3-1;
+			end if;
+		end if;
+		if(chrono_permut='1') then
+			chrono_permut_receive<='1';
+			chrono_umin3<=chrono_umin2;
+			chrono_dmin3<=chrono_dmin2;
+		else
+			chrono_permut_receive<='0';
+		end if;
+		if(countdown_toggle_done='1') then
+			countdown_done<='0';
+		end if;
+		if(button(3)='1') then
+			chrono_umin3<=0;
+			chrono_dmin3<=0;
+		end if;
+	end process;
+	
+	--Activation et desactivation du buzzer
+	piezo <= clk when countdown_done='1'
+	else '0' when buzzer_end =0;
+	
+	--Compteur du buzzer
+	buzzer_start <= '1' when countdown_done='1'
+	else '0' when buzzer_end=0;
+	
+	process(clk,buzzer_start, buzzer_end)
+	begin
+		if(clk'event and clk='1') then
+			if(buzzer_end>0) then
+				buzzer_end<=buzzer_end-1;
+			end if;
+		end if;
+		if(buzzer_start='1' and buzzer_toggle='0') then
+				buzzer_toggle<='1';
+				buzzer_end<=4;
+		end if;
+		if(buzzer_end=0) then
+		 buzzer_toggle<='0';
+		end if;
+	end process;
+	
 end Behavioral;

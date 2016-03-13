@@ -1,7 +1,7 @@
 Release 9.2i - par J.36
 Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
 
-Sun Mar 13 15:04:29 2016
+Sun Mar 13 20:24:56 2016
 
 
 # NOTE: This file is designed to be imported into a spreadsheet program
@@ -21,7 +21,7 @@ Pinout by Pin Number:
 Pin Number|Signal Name|Pin Usage|Pin Name|Direction|IO Standard|IO Bank Number|Drive (mA)|Slew Rate|Termination|IOB Delay|Voltage|Constraint|DCI Value|IO Register|Signal Integrity|
 A1|||PROG_B|||||||||||||
 A2|||TDI|||||||||||||
-A3||DIFFM|IO_L11P_0|UNUSED||0||||||||||
+A3|piezo|IOB|IO_L11P_0|OUTPUT|LVCMOS25|0|12|SLOW|NONE**|||LOCATED||YES|NONE|
 A4|||NC|||||||||||||
 A5|||VCCAUX||||||||2.5|||||
 A6|||VCCO_0|||0|||||2.50|||||

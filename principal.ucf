@@ -27,6 +27,7 @@ NET "led<3>"  LOC = "N11"  ;
 NET "led<4>"  LOC = "P12"  ; 
 NET "led<5>"  LOC = "L13"  ; 
 NET "led<6>"  LOC = "M12"  ; 
+NET "piezo"  LOC = "A3"  ; 
 NET "switch<0>"  LOC = "P11"  ; 
 NET "switch<1>"  LOC = "L3"  ; 
 NET "switch<2>"  LOC = "K3"  ; 
