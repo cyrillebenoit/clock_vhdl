@@ -1,13 +1,19 @@
-WARNING:PhysDesignRules:372 - Gated clock. Clock net an_not0001 is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net min_clk is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net hour_clk is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net sec_clk is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
-DRC detected 0 errors and 4 warnings.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net value_not0001 is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net min_clk is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net an_not0001 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net chrono_sec_clk is sourced
+   by a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+DRC detected 0 errors and 6 warnings.

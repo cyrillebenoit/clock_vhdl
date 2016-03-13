@@ -33,16 +33,16 @@ use ieee.std_logic_unsigned.all;
 --use UNISIM.VComponents.all;
 
 entity principal is
-    Port ( 	clk1 	: in  STD_LOGIC;					  -- clock Ã  50MHz
-    		mode 	: in  STD_LOGIC;					  -- differencie les modes HH:MM et MM:SS
+    Port ( 	clk1 	: in  STD_LOGIC;					  -- clock a 50MHz
+    		switch 	: in  STD_LOGIC_VECTOR (7 downto 0);  --leviers
 			button 	: in  STD_LOGIC_VECTOR (3 downto 0);  -- permet l'incrementation manuelle de l'heure
 			an 	 	: out STD_LOGIC_VECTOR (3 downto 0);  -- selectionne le cadran a  utiliser
 			led  	: out STD_LOGIC_VECTOR (6 downto 0); -- selectionne les segments de l'afficheur
-			bin 	: out STD_LOGIC_VECTOR (7 downto 0)); --test
+			bin 	: out STD_LOGIC_VECTOR (7 downto 0)); -- leds
 end principal;
 
 architecture Behavioral of principal is
-	signal cadran : integer range 0 to 4 :=1;  		  -- selectionne le cadran a  utiliser (permet de changer de cadran et de savoir ou on en est)
+	
 	
 	--Signaux du diviseur de frequence
 	signal count : std_logic_vector (25 downto 0):="00000000000000000000000000";
@@ -58,15 +58,22 @@ architecture Behavioral of principal is
 	signal Hour : std_logic :='0';
 	
 	--Signaux de l'affichage
-	signal count2 : std_logic :='0';
-	signal display_clk : std_logic :='0';
-	signal hex : std_logic_vector (3 downto 0):="0000";	  		  -- valeur hexa du chiffre a afficher
+	signal value : integer range 0 to 10 :=0;
+	signal cadran : integer range 0 to 4 :=1;  		  -- selectionne le cadran a  utiliser (permet de changer de cadran et de savoir ou on en est)
+	signal count2 : std_logic :='0';	  
 	signal test_led : std_logic_vector (7 downto 0):="00000000";
-
+	
+	--CHRONOMETRE
+	signal chrono_usec,chrono_umin,chrono_dsec,chrono_dmin: integer range 0 to 10 :=0;
+	signal chrono_usec2,chrono_umin2,chrono_dsec2,chrono_dmin2: integer range 0 to 10 :=0;
+	signal chrono_usec3,chrono_umin3,chrono_dsec3,chrono_dmin3: integer range 0 to 10 :=0;
+	signal chrono_sec_clk : std_logic :='0';
+	signal chrono_min_clk : std_logic :='0';
+	signal chrono_toggle : std_logic :='0'; -- 0 lorsque le chronomètre est en mode set, 1 lorsqu'il est en décompte
 	
 begin
 	--FS1
-	--Genere une clock de 1Hz (clk) et une clock d'affichage a partir d'une clock de 50MHz (clk1) et affiche les nombres sur les cadrans au rythme de clk1
+	--Genere une clock de 1Hz (clk) et une clock d'affichage a partir d'une clock de 50MHz (clk1)
 	process(clk1) 	
 	begin
 		if(clk1'event and clk1='1') then
@@ -79,7 +86,7 @@ begin
 	end process;
 	
 	--FS7 : AVSEC
-	sec_clk <= count(22) when mode='0' and (button(0)='1' or button(1)='1')
+	sec_clk <= count(22) when switch(0)='0' and switch(1)='0' and (button(0)='1' or button(1)='1')
 	else clk;
 	
 	--FS2 : Compteur de secondes
@@ -103,7 +110,7 @@ begin
 	end process;
 	
 	--FS9 : AVMIN
-	min_clk <= count(22) when (mode='0' and (button(2)='1' or button(3)='1')) or (mode='1' and (button(0)='1' or button(1)='1'))
+	min_clk <= count(22) when (switch(0)='0' and switch(1)='0' and (button(2)='1' or button(3)='1')) or (switch(0)='1' and switch(1)='0' and (button(0)='1' or button(1)='1'))
 	else Minute;
 	
 	--FS3 : Compteur de minutes
@@ -128,7 +135,7 @@ begin
 	end process;
 	
 	--FS10 : AVHOUR
-	hour_clk <= count(22) when mode='1' and (button(2)='1' or button(3)='1')
+	hour_clk <= count(22) when switch(0)='1' and switch(1)='0' and (button(2)='1' or button(3)='1')
 	else Hour;
 	
 	--FS4 : Compteur des heures
@@ -148,10 +155,11 @@ begin
 		end if;
 	end process;
 	
-	--FS5 et  FS6 : Affichage
+	--Affichage
 	count2<=count(15);
 	
-	process(count, mode, usec, dsec, umin, dmin, uhour, dhour)
+	--FS6 : Choix du cadran selon count2
+	process(count2)
 	begin
 		if(count2'event and count2='1') then
 			if(cadran=4) then
@@ -160,150 +168,139 @@ begin
 				cadran<=cadran+1;
 			end if;
 		end if;
-		if(cadran=1) then-- xx:xX
-			an<="1110";
-			if mode = '1' then 		-- si on est en mode HH:MM
-				hex <= conv_std_logic_vector(umin,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			else 					-- si on est en mode MM:SS
-				hex <= conv_std_logic_vector(usec,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			end if ;
-		end if;
-		if(cadran=2) then-- xx:Xx
-			an<="1101";
-			if mode = '1' then 		-- si on est en mode HH:MM
-				hex <= conv_std_logic_vector(dmin,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			else 					-- si on est en mode MM:SS
-				hex <= conv_std_logic_vector(dsec,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			end if ;
-		end if;
-		if(cadran=3) then-- xX:xx
-			an<="1011";
-			if mode = '1' then 		-- si on est en mode HH:MM
-				hex <= conv_std_logic_vector(uhour,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			else 					-- si on est en mode MM:SS
-				hex <= conv_std_logic_vector(umin,4);
-				case hex is
-					when "0001" => led <= "1111001";   --1
-					when "0010" => led <= "0100100";   --2
-					when "0011" => led <= "0110000";   --3
-					when "0100" => led <= "0011001";   --4
-					when "0101" => led <= "0010010";   --5
-					when "0110" => led <= "0000010";   --6
-					when "0111" => led <= "1111000";   --7
-					when "1000" => led <= "0000000";   --8
-					when "1001" => led <= "0010000";   --9
-					when "1010" => led <= "0001000";   --A
-					when others => led <= "1000000";   --0
-				end case;
-			end if ;
-		end if;
-		if(cadran=4) then-- Xx:xx
-			an<="0111";
-				if mode = '1' then 		-- si on est en mode HH:MM
-					hex <= conv_std_logic_vector(dhour,4);
-					case hex is
-						when "0001" => led <= "1111001";   --1
-						when "0010" => led <= "0100100";   --2
-						when "0011" => led <= "0110000";   --3
-						when "0100" => led <= "0011001";   --4
-						when "0101" => led <= "0010010";   --5
-						when "0110" => led <= "0000010";   --6
-						when "0111" => led <= "1111000";   --7
-						when "1000" => led <= "0000000";   --8
-						when "1001" => led <= "0010000";   --9
-						when "1010" => led <= "0001000";   --A
-						when others => led <= "1000000";   --0
-					end case;
-				else 					-- si on est en mode MM:SS
-					hex <= conv_std_logic_vector(dmin,4);
-					case hex is
-						when "0001" => led <= "1111001";   --1
-						when "0010" => led <= "0100100";   --2
-						when "0011" => led <= "0110000";   --3
-						when "0100" => led <= "0011001";   --4
-						when "0101" => led <= "0010010";   --5
-						when "0110" => led <= "0000010";   --6
-						when "0111" => led <= "1111000";   --7
-						when "1000" => led <= "0000000";   --8
-						when "1001" => led <= "0010000";   --9
-						when "1010" => led <= "0001000";   --A
-						when others => led <= "1000000";   --0
-					end case;
-				end if ;
-			end if;
 	end process;
+	
+	-- Convertisseur 7 segments : traduit la valeur de value en segments à afficher	
+	led<="1000000"	when value=0
+	else "1111001" when value=1
+	else "0100100"	when value=2
+	else "0110000"	when value=3
+	else "0011001"	when value=4
+	else "0010010"	when value=5
+	else "0000010"	when value=6
+	else "1111000" when value=7
+	else "0000000" when value=8
+	else "0010000"	when value=9
+	else "0001000" when value=10	
+	else "1000000";
+	
+	--FS5 : Multiplexeur : Choix de la valeur de value à afficher en fonction des differents paramètres
+	
+	-- Mode MM:SS
+	value <= usec when cadran=1 and switch(0)='0' and switch(1)='0' 
+	else dsec when  cadran=2 and switch(0)='0' and switch(1)='0' 
+	else umin when  cadran=3 and switch(0)='0' and switch(1)='0' 
+	else dmin when  cadran=4 and switch(0)='0' and switch(1)='0' 
+
+	-- Mode HH:MM
+	else umin when cadran=1 and switch(0)='1' and switch(1)='0' 
+	else dmin when  cadran=2 and switch(0)='1' and switch(1)='0' 
+	else uhour when  cadran=3 and switch(0)='1' and switch(1)='0' 
+	else dhour when  cadran=4 and switch(0)='1' and switch(1)='0' 
+	
+	-- Mode chrono
+	else chrono_usec when cadran=1 and switch(1)='1' 
+	else chrono_dsec when cadran=2 and switch(1)='1'
+	else chrono_umin when cadran=3 and switch(1)='1'
+	else chrono_dmin when cadran=4 and switch(1)='1';
+	
+	--FS6 : Démultiplexeur : Choix du cadran
+	--Mode chrono set
+	an <="1111" when chrono_toggle='0' and clk='0' and switch(1)='1'
+	--Mode normal et chrono décompte
+	else "1110" when cadran=1
+	else "1101" when cadran=2
+	else "1011" when cadran=3
+	else "0111" when cadran=4;
+
+	
+			
+	--BONUS
+	-- Chronomètre
+	-- Alarme
+	-- Mode am/pm
 	
 	--FSB1 Test
 	process(usec)
 	begin
 		-- TEST
-		test_led <= conv_std_logic_vector(usec,8);
-		bin <= test_led;
+		bin <= switch;
 	end process;
 	
+	--Chronomètre
+	
+	--FSB1
+	chrono_usec <= 0 when switch(1)='1' and button(3)='1' --RESET
+	else chrono_usec2 when chrono_toggle='0' --SET
+	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	
+	chrono_dsec <= 0 when switch(1)='1' and button(3)='1' --RESET
+	else chrono_usec2 when chrono_toggle='0' --SET
+	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	
+	chrono_umin <= 0 when switch(1)='1' and button(3)='1' --RESET
+	else chrono_usec2 when chrono_toggle='0' --SET
+	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	
+	chrono_dmin <= 0 when switch(1)='1' and button(3)='1' --RESET
+	else chrono_usec2 when chrono_toggle='0' --SET
+	else chrono_usec3 when chrono_toggle='1'; --DECOMPTE
+	
+	
+	--FSB2 : AVSEC CHRONO
+	chrono_sec_clk <= count(22) when switch(1)='1' and button(0)='1' and chrono_toggle='0'
+	else '0';
+	
+	--FSB3 : Compteur de secondes du chrono
+	process(chrono_sec_clk)
+	begin
+		if(chrono_sec_clk'event and chrono_sec_clk='1') then
+			--Modification des unités
+			if(chrono_usec2=9) then
+				chrono_usec2<=0;
+				if(chrono_dsec2=5) then
+					chrono_dsec2<=0;
+				else
+					chrono_dsec2<=chrono_dsec2+1;
+				end if;
+			else
+				chrono_usec2<=chrono_usec2+1;
+			end if;
+		end if;
+	end process;
+	
+	--FSB4 : AVMIN CHRONO
+	chrono_min_clk <= count(22) when switch(1)='1' and button(1)='1' and chrono_toggle='0'
+	else '0';
+	
+	
+	--FSB5 : Compteur de minutes du chrono
+	process(chrono_min_clk)
+	begin
+		if(chrono_min_clk'event and chrono_min_clk='1') then
+			--Modification des unités
+			if(chrono_umin2=9) then
+				chrono_umin2<=0;
+				if(chrono_dmin2=5) then
+					chrono_dmin2<=0;
+				else
+					chrono_dmin2<=chrono_dmin2+1;
+				end if;
+			else
+				chrono_umin2<=chrono_umin2+1;
+			end if;
+		end if;
+	end process;
+	
+	--FSB6 : Changement d'état du chrono
+	
+	process(chrono_toggle,button,switch)
+	begin
+		if(button(2)='1' and chrono_toggle='0' and switch(1)='1') then
+			chrono_toggle<='1';
+		elsif(button(3)='1' and switch(1)='1') then
+			chrono_toggle<='0';
+		end if;
+	end process;
+
 end Behavioral;

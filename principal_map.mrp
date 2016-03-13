@@ -11,33 +11,33 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.36 $
-Mapped Date    : Sat Mar 12 15:20:29 2016
+Mapped Date    : Sun Mar 13 15:04:12 2016
 
 Design Summary
 --------------
 Number of errors:      0
-Number of warnings:    4
+Number of warnings:    6
 Logic Utilization:
-  Total Number Slice Registers:        57 out of   1,920    2%
-    Number used as Flip Flops:                    53
-    Number used as Latches:                        4
-  Number of 4 input LUTs:              84 out of   1,920    4%
+  Total Number Slice Registers:        62 out of   1,920    3%
+    Number used as Flip Flops:                    57
+    Number used as Latches:                        5
+  Number of 4 input LUTs:              94 out of   1,920    4%
 Logic Distribution:
-  Number of occupied Slices:                           61 out of     960    6%
-    Number of Slices containing only related logic:      61 out of      61  100%
-    Number of Slices containing unrelated logic:          0 out of      61    0%
+  Number of occupied Slices:                           68 out of     960    7%
+    Number of Slices containing only related logic:      68 out of      68  100%
+    Number of Slices containing unrelated logic:          0 out of      68    0%
       *See NOTES below for an explanation of the effects of unrelated logic
-Total Number of 4 input LUTs:            110 out of   1,920    5%
-  Number used as logic:                 84
-  Number used as a route-thru:          26
-  Number of bonded IOBs:               25 out of      83   30%
-    IOB Latches:                       11
-  Number of GCLKs:                     1 out of      24    4%
+Total Number of 4 input LUTs:            119 out of   1,920    6%
+  Number used as logic:                 94
+  Number used as a route-thru:          25
+  Number of bonded IOBs:               32 out of      83   38%
+    IOB Latches:                        4
+  Number of GCLKs:                     2 out of      24    8%
 
-Total equivalent gate count for design:  1,210
-Additional JTAG gate count for IOBs:  1,200
-Peak Memory Usage:  175 MB
-Total REAL time to MAP completion:  1 secs 
+Total equivalent gate count for design:  1,257
+Additional JTAG gate count for IOBs:  1,536
+Peak Memory Usage:  174 MB
+Total REAL time to MAP completion:  4 secs 
 Total CPU time to MAP completion:   1 secs 
 
 NOTES:
@@ -79,17 +79,23 @@ Section 1 - Errors
 
 Section 2 - Warnings
 --------------------
-WARNING:PhysDesignRules:372 - Gated clock. Clock net an_not0001 is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
-WARNING:PhysDesignRules:372 - Gated clock. Clock net min_clk is sourced by a
-   combinatorial pin. This is not good design practice. Use the CE pin to
-   control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net hour_clk is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 WARNING:PhysDesignRules:372 - Gated clock. Clock net sec_clk is sourced by a
    combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net value_not0001 is sourced by
+   a combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net min_clk is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net an_not0001 is sourced by a
+   combinatorial pin. This is not good design practice. Use the CE pin to
+   control the loading of data into the flip-flop.
+WARNING:PhysDesignRules:372 - Gated clock. Clock net chrono_sec_clk is sourced
+   by a combinatorial pin. This is not good design practice. Use the CE pin to
    control the loading of data into the flip-flop.
 
 Section 3 - Informational
@@ -98,6 +104,7 @@ INFO:MapLib:564 - The following environment variables are currently set:
 INFO:MapLib:591 - XIL_MAP_NOCLIP_ON_ALL_SIGS_U 	Value: 1 
 INFO:MapLib:863 - The following Virtex BUFG(s) is/are being retargeted to
    Virtex2 BUFGMUX(s) with input tied to I0 and Select pin tied to constant 0:
+   BUFG symbol "bin_1_OBUF_BUFG" (output signal=bin_1_OBUF),
    BUFGP symbol "clk1_BUFGP" (output signal=clk1_BUFGP)
 INFO:LIT:244 - All of the single ended outputs in this design are using slew
    rate limited output drivers. The delay on speed critical single ended outputs
@@ -143,14 +150,21 @@ Section 6 - IOB Properties
 | button<2>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
 | button<3>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
 | clk1                               | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
-| led<0>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<1>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<2>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<3>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<4>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<5>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| led<6>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW | OFF1         |          | 0 / 0     |
-| mode                               | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| led<0>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<1>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<2>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<3>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<4>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<5>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| led<6>                             | IOB              | OUTPUT    | LVCMOS25    | 12       | SLOW |              |          | 0 / 0     |
+| switch<0>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<1>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<2>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<3>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<4>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<5>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<6>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
+| switch<7>                          | IBUF             | INPUT     | LVCMOS25    |          |      |              |          | 0 / 0     |
 +-----------------------------------------------------------------------------------------------------------------------------------------+
 
 Section 7 - RPMs
