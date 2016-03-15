@@ -32,15 +32,69 @@ Data Sheet report:
 -----------------
 All values displayed in nanoseconds (ns)
 
+Setup/Hold to clock button<2>
+------------+------------+------------+-----------------------------+--------+
+            |  Setup to  |  Hold to   |                             | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s)            | Phase  |
+------------+------------+------------+-----------------------------+--------+
+button<3>   |    0.767(R)|    1.091(R)|countdown_toggle_done_and0000|   0.000|
+------------+------------+------------+-----------------------------+--------+
+
+Setup/Hold to clock switch<1>
+------------+------------+------------+-----------------------------+--------+
+            |  Setup to  |  Hold to   |                             | Clock  |
+Source      | clk (edge) | clk (edge) |Internal Clock(s)            | Phase  |
+------------+------------+------------+-----------------------------+--------+
+button<3>   |   -0.209(R)|    2.311(R)|countdown_toggle_done_and0000|   0.000|
+------------+------------+------------+-----------------------------+--------+
+
+Clock button<2> to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+bin<0>      |   15.452(R)|hour_clk          |   0.000|
+bin<1>      |   14.313(R)|hour_clk          |   0.000|
+bin<2>      |   17.159(R)|hour_clk          |   0.000|
+bin<3>      |   14.696(R)|hour_clk          |   0.000|
+bin<4>      |   15.913(R)|hour_clk          |   0.000|
+bin<5>      |   16.388(R)|hour_clk          |   0.000|
+bin<6>      |   16.232(R)|hour_clk          |   0.000|
+bin<7>      |   16.372(R)|hour_clk          |   0.000|
+------------+------------+------------------+--------+
+
+Clock switch<0> to Pad
+------------+------------+------------------+--------+
+            | clk (edge) |                  | Clock  |
+Destination |   to PAD   |Internal Clock(s) | Phase  |
+------------+------------+------------------+--------+
+bin<0>      |   15.839(R)|hour_clk          |   0.000|
+bin<1>      |   14.700(R)|hour_clk          |   0.000|
+bin<2>      |   17.546(R)|hour_clk          |   0.000|
+bin<3>      |   15.083(R)|hour_clk          |   0.000|
+bin<4>      |   16.300(R)|hour_clk          |   0.000|
+bin<5>      |   16.775(R)|hour_clk          |   0.000|
+bin<6>      |   16.619(R)|hour_clk          |   0.000|
+bin<7>      |   16.759(R)|hour_clk          |   0.000|
+------------+------------+------------------+--------+
+
 Clock switch<1> to Pad
 ------------+------------+------------------+--------+
             | clk (edge) |                  | Clock  |
 Destination |   to PAD   |Internal Clock(s) | Phase  |
 ------------+------------+------------------+--------+
-an<0>       |    9.980(F)|an_not0001        |   0.000|
-an<1>       |    9.901(F)|an_not0001        |   0.000|
-an<2>       |    9.912(F)|an_not0001        |   0.000|
-an<3>       |    9.901(F)|an_not0001        |   0.000|
+an<0>       |   11.580(F)|an_not0001        |   0.000|
+an<1>       |   11.502(F)|an_not0001        |   0.000|
+an<2>       |   11.853(F)|an_not0001        |   0.000|
+an<3>       |   11.502(F)|an_not0001        |   0.000|
+bin<0>      |   15.742(R)|hour_clk          |   0.000|
+bin<1>      |   14.603(R)|hour_clk          |   0.000|
+bin<2>      |   17.449(R)|hour_clk          |   0.000|
+bin<3>      |   14.986(R)|hour_clk          |   0.000|
+bin<4>      |   16.203(R)|hour_clk          |   0.000|
+bin<5>      |   16.678(R)|hour_clk          |   0.000|
+bin<6>      |   16.522(R)|hour_clk          |   0.000|
+bin<7>      |   16.662(R)|hour_clk          |   0.000|
 ------------+------------+------------------+--------+
 
 Clock to Setup on destination clock button<0>
@@ -48,12 +102,10 @@ Clock to Setup on destination clock button<0>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-button<0>      |    5.071|         |         |         |
-button<1>      |    5.071|         |         |         |
-button<2>      |    4.729|         |         |         |
-button<3>      |    4.729|         |         |         |
-switch<0>      |    5.071|         |         |         |
-switch<1>      |    5.071|         |         |         |
+button<0>      |    4.495|         |         |         |
+button<2>      |    3.989|         |         |         |
+switch<0>      |    4.495|         |         |         |
+switch<1>      |    4.495|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock button<1>
@@ -61,12 +113,8 @@ Clock to Setup on destination clock button<1>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-button<0>      |    5.071|         |         |         |
-button<1>      |    5.071|         |         |         |
-button<2>      |    4.729|         |         |         |
-button<3>      |    4.729|         |         |         |
-switch<0>      |    5.071|         |         |         |
-switch<1>      |    5.071|         |         |         |
+button<1>      |    3.435|         |         |         |
+switch<1>      |    3.435|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock button<2>
@@ -74,25 +122,10 @@ Clock to Setup on destination clock button<2>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-button<0>      |    4.729|         |         |         |
-button<1>      |    4.729|         |         |         |
-button<2>      |    4.845|         |         |         |
-button<3>      |    4.845|    0.765|         |         |
-switch<0>      |    4.845|         |         |         |
-switch<1>      |    4.845|   -0.468|         |         |
----------------+---------+---------+---------+---------+
-
-Clock to Setup on destination clock button<3>
----------------+---------+---------+---------+---------+
-               | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
-Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
----------------+---------+---------+---------+---------+
-button<0>      |    4.729|         |         |         |
-button<1>      |    4.729|         |         |         |
-button<2>      |    4.845|         |         |         |
-button<3>      |    4.845|         |         |         |
-switch<0>      |    4.845|         |         |         |
-switch<1>      |    4.845|         |         |         |
+button<0>      |    3.989|         |         |         |
+button<2>      |    5.848|         |         |         |
+switch<0>      |    5.848|         |         |         |
+switch<1>      |    5.848|    0.217|         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock clk1
@@ -100,7 +133,7 @@ Clock to Setup on destination clock clk1
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-clk1           |    5.534|         |         |         |
+clk1           |    5.807|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock switch<0>
@@ -108,12 +141,10 @@ Clock to Setup on destination clock switch<0>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-button<0>      |    5.071|         |         |         |
-button<1>      |    5.071|         |         |         |
-button<2>      |    4.845|         |         |         |
-button<3>      |    4.845|         |         |         |
-switch<0>      |    5.071|         |         |         |
-switch<1>      |    5.071|         |         |         |
+button<0>      |    4.495|         |         |         |
+button<2>      |    5.848|         |         |         |
+switch<0>      |    5.848|         |         |         |
+switch<1>      |    5.848|         |         |         |
 ---------------+---------+---------+---------+---------+
 
 Clock to Setup on destination clock switch<1>
@@ -121,38 +152,51 @@ Clock to Setup on destination clock switch<1>
                | Src:Rise| Src:Fall| Src:Rise| Src:Fall|
 Source Clock   |Dest:Rise|Dest:Rise|Dest:Fall|Dest:Fall|
 ---------------+---------+---------+---------+---------+
-button<0>      |    5.071|         |         |         |
-button<1>      |    5.071|         |         |         |
-button<2>      |    4.845|         |         |         |
-button<3>      |    4.845|    1.156|         |    8.628|
-clk1           |         |         |    6.649|         |
-switch<0>      |    5.071|         |         |         |
-switch<1>      |    5.071|   -0.077|    1.849|    8.628|
+button<0>      |    4.495|         |         |         |
+button<1>      |    3.435|         |         |         |
+button<2>      |    5.848|         |         |         |
+clk1           |         |         |    6.428|         |
+switch<0>      |    5.848|         |         |         |
+switch<1>      |    5.848|   -0.759|    1.581|    8.405|
 ---------------+---------+---------+---------+---------+
 
 Pad to Pad
 ---------------+---------------+---------+
 Source Pad     |Destination Pad|  Delay  |
 ---------------+---------------+---------+
-switch<0>      |bin<0>         |    5.221|
-switch<1>      |bin<1>         |    6.966|
-switch<2>      |bin<2>         |    5.656|
-switch<3>      |bin<3>         |    7.253|
-switch<4>      |bin<4>         |    6.208|
-switch<5>      |bin<5>         |    6.143|
-switch<6>      |bin<6>         |    6.574|
-switch<7>      |bin<7>         |    6.410|
+switch<0>      |bin<0>         |    7.185|
+switch<1>      |bin<0>         |    7.437|
+switch<1>      |bin<1>         |    7.374|
+switch<1>      |bin<2>         |    8.267|
+switch<1>      |bin<3>         |    7.575|
+switch<1>      |bin<4>         |    7.318|
+switch<1>      |bin<5>         |    7.416|
+switch<1>      |bin<6>         |    7.948|
+switch<1>      |bin<7>         |    7.328|
+switch<2>      |bin<2>         |    7.865|
+switch<3>      |bin<0>         |    9.831|
+switch<3>      |bin<1>         |    8.493|
+switch<3>      |bin<2>         |   12.250|
+switch<3>      |bin<3>         |    8.749|
+switch<3>      |bin<4>         |   10.961|
+switch<3>      |bin<5>         |   10.848|
+switch<3>      |bin<6>         |   11.058|
+switch<3>      |bin<7>         |   11.166|
+switch<4>      |bin<4>         |    7.447|
+switch<5>      |bin<5>         |    7.586|
+switch<6>      |bin<6>         |    7.653|
+switch<7>      |bin<7>         |    7.456|
 ---------------+---------------+---------+
 
 
-Analysis completed Sun Mar 13 20:24:59 2016 
+Analysis completed Tue Mar 15 22:00:37 2016 
 --------------------------------------------------------------------------------
 
 Trace Settings:
 -------------------------
 Trace Settings 
 
-Peak Memory Usage: 123 MB
+Peak Memory Usage: 124 MB
 
 
 

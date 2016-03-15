@@ -112,19 +112,17 @@ Analyzing hierarchy for entity <principal> in library <work> (architecture <beha
 *                            HDL Analysis                               *
 =========================================================================
 Analyzing Entity <principal> in library <work> (Architecture <behavioral>).
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 234: The following signals are missing in the process sensitivity list:
-   switch.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 265: The following signals are missing in the process sensitivity list:
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 284: The following signals are missing in the process sensitivity list:
    button.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 291: The following signals are missing in the process sensitivity list:
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 310: The following signals are missing in the process sensitivity list:
    button.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 313: The following signals are missing in the process sensitivity list:
-   chrono_permut_receive.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 344: The following signals are missing in the process sensitivity list:
-   chrono_usec2, chrono_dsec2, button.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 375: The following signals are missing in the process sensitivity list:
-   chrono_umin2, chrono_dmin2, button.
-WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 415: The following signals are missing in the process sensitivity list:
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 332: The following signals are missing in the process sensitivity list:
+   countdown_permut_state_receive.
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 362: The following signals are missing in the process sensitivity list:
+   countdown_usec_set, countdown_dsec_set.
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 395: The following signals are missing in the process sensitivity list:
+   countdown_umin_set, countdown_dmin_set.
+WARNING:Xst:819 - "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd" line 439: The following signals are missing in the process sensitivity list:
    buzzer_toggle.
 Entity <principal> analyzed. Unit <principal> generated.
 
@@ -137,52 +135,62 @@ Performing bidirectional port resolution...
 
 Synthesizing Unit <principal>.
     Related source file is "C:/Users/alain/Desktop/ECE/ING2/Electronique/vhdl/git/principal.vhd".
-WARNING:Xst:1780 - Signal <countdown_min_clk> is never used or assigned.
-WARNING:Xst:1780 - Signal <countdown_Hour> is never used or assigned.
-WARNING:Xst:1780 - Signal <test_led> is never used or assigned.
-WARNING:Xst:1780 - Signal <countdown_hour_clk> is never used or assigned.
-WARNING:Xst:737 - Found 1-bit latch for signal <chrono_toggle>.
+INFO:Xst:1608 - Relative priorities of control signals on register <AP_dhour> differ from those commonly found in the selected device family. This will result in additional logic around the register.
 WARNING:Xst:737 - Found 1-bit latch for signal <buzzer_toggle>.
 WARNING:Xst:737 - Found 1-bit latch for signal <countdown_toggle_done>.
+WARNING:Xst:737 - Found 1-bit latch for signal <countdown_state>.
 WARNING:Xst:737 - Found 1-bit latch for signal <piezo>.
+WARNING:Xst:737 - Found 3-bit latch for signal <AP_dhour>.
+WARNING:Xst:737 - Found 4-bit latch for signal <AP_uhour>.
 WARNING:Xst:737 - Found 1-bit latch for signal <buzzer_start>.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
     Found 16x7-bit ROM for signal <led>.
 WARNING:Xst:737 - Found 4-bit latch for signal <an>.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
 WARNING:Xst:737 - Found 4-bit latch for signal <value>.
 INFO:Xst:2371 - HDL ADVISOR - Logic functions respectively driving the data and gate enable inputs of this latch share common terms. This situation will potentially lead to setup/hold violations and, as a result, to simulation problems. This situation may come from an incomplete case statement (all selector values are not covered). You should carefully review if it was in your intentions to describe such a latch.
+    Found 4-bit comparator lessequal for signal <AP_dhour$cmp_le0000> created at line 463.
+    Found 4-bit comparator lessequal for signal <AP_dhour$cmp_le0001> created at line 465.
+    Found 4-bit comparator lessequal for signal <AP_dhour$cmp_le0002> created at line 468.
+    Found 4-bit comparator greatequal for signal <AP_led$cmp_ge0000> created at line 460.
+    Found 4-bit comparator less for signal <AP_uhour$cmp_lt0000> created at line 460.
     Found 3-bit down counter for signal <buzzer_end>.
-    Found 3-bit comparator greater for signal <buzzer_end$cmp_gt0000> created at line 418.
+    Found 3-bit comparator greater for signal <buzzer_end$cmp_gt0000> created at line 442.
     Found 3-bit up counter for signal <cadran>.
-    Found 4-bit up counter for signal <chrono_dmin2>.
-    Found 4-bit down counter for signal <chrono_dmin3>.
-    Found 4-bit up counter for signal <chrono_dsec2>.
-    Found 4-bit down counter for signal <chrono_dsec3>.
-    Found 1-bit register for signal <chrono_permut>.
-    Found 4-bit up counter for signal <chrono_umin2>.
-    Found 4-bit down counter for signal <chrono_umin3>.
-    Found 4-bit up counter for signal <chrono_usec2>.
-    Found 4-bit down counter for signal <chrono_usec3>.
     Found 1-bit register for signal <clk>.
     Found 26-bit up counter for signal <count>.
+    Found 4-bit down counter for signal <countdown_dmin_cd>.
+    Found 4-bit up counter for signal <countdown_dmin_set>.
     Found 1-bit register for signal <countdown_done>.
-    Found 1-bit register for signal <countdown_Minute>.
+    Found 4-bit down counter for signal <countdown_dsec_cd>.
+    Found 4-bit up counter for signal <countdown_dsec_set>.
+    Found 1-bit register for signal <countdown_min_clk>.
+    Found 1-bit register for signal <countdown_permut_state>.
+    Found 4-bit down counter for signal <countdown_umin_cd>.
+    Found 4-bit up counter for signal <countdown_umin_set>.
+    Found 4-bit down counter for signal <countdown_usec_cd>.
+    Found 4-bit up counter for signal <countdown_usec_set>.
     Found 3-bit up counter for signal <dhour>.
     Found 3-bit up counter for signal <dmin>.
     Found 3-bit up counter for signal <dsec>.
     Found 1-bit register for signal <Hour>.
     Found 1-bit register for signal <Minute>.
-    Found 4-bit up counter for signal <uhour>.
+    Found 4-bit addsub for signal <mux0001$addsub0000>.
+    Found 4-bit register for signal <uhour>.
+    Found 4-bit adder for signal <uhour$addsub0000> created at line 182.
     Found 4-bit up counter for signal <umin>.
     Found 4-bit up counter for signal <usec>.
     Summary:
 	inferred   1 ROM(s).
-	inferred  17 Counter(s).
-	inferred   6 D-type flip-flop(s).
-	inferred   1 Comparator(s).
+	inferred  16 Counter(s).
+	inferred  10 D-type flip-flop(s).
+	inferred   2 Adder/Subtractor(s).
+	inferred   6 Comparator(s).
 Unit <principal> synthesized.
 
 WARNING:Xst:2734 - Property "use_dsp48" is not applicable for this technology.
+INFO:Xst:1767 - HDL ADVISOR - Resource sharing has identified that some arithmetic operations in this design can share the same physical resources for reduced device utilization. For improved clock frequency you may try to disable resource sharing.
 
 =========================================================================
 HDL Synthesis Report
@@ -190,19 +198,27 @@ HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x7-bit ROM                                          : 1
-# Counters                                             : 17
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 1
+ 4-bit addsub                                          : 1
+# Counters                                             : 16
  26-bit up counter                                     : 1
  3-bit down counter                                    : 1
  3-bit up counter                                      : 4
  4-bit down counter                                    : 4
- 4-bit up counter                                      : 7
-# Registers                                            : 6
+ 4-bit up counter                                      : 6
+# Registers                                            : 7
  1-bit register                                        : 6
-# Latches                                              : 7
+ 4-bit register                                        : 1
+# Latches                                              : 9
  1-bit latch                                           : 5
- 4-bit latch                                           : 2
-# Comparators                                          : 1
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 3
+# Comparators                                          : 6
  3-bit comparator greater                              : 1
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator less                                 : 1
+ 4-bit comparator lessequal                            : 3
 
 =========================================================================
 
@@ -218,19 +234,26 @@ Advanced HDL Synthesis Report
 Macro Statistics
 # ROMs                                                 : 1
  16x7-bit ROM                                          : 1
-# Counters                                             : 17
+# Adders/Subtractors                                   : 2
+ 4-bit adder                                           : 1
+ 4-bit addsub                                          : 1
+# Counters                                             : 16
  26-bit up counter                                     : 1
  3-bit down counter                                    : 1
  3-bit up counter                                      : 4
  4-bit down counter                                    : 4
- 4-bit up counter                                      : 7
-# Registers                                            : 6
- Flip-Flops                                            : 6
-# Latches                                              : 7
+ 4-bit up counter                                      : 6
+# Registers                                            : 10
+ Flip-Flops                                            : 10
+# Latches                                              : 9
  1-bit latch                                           : 5
- 4-bit latch                                           : 2
-# Comparators                                          : 1
+ 3-bit latch                                           : 1
+ 4-bit latch                                           : 3
+# Comparators                                          : 6
  3-bit comparator greater                              : 1
+ 4-bit comparator greatequal                           : 1
+ 4-bit comparator less                                 : 1
+ 4-bit comparator lessequal                            : 3
 
 =========================================================================
 
@@ -242,7 +265,7 @@ Optimizing unit <principal> ...
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block principal, actual ratio is 15.
+Found area constraint ratio of 100 (+ 5) on block principal, actual ratio is 19.
 
 Final Macro Processing ...
 
@@ -280,34 +303,35 @@ Design Statistics
 # IOs                              : 33
 
 Cell Usage :
-# BELS                             : 314
+# BELS                             : 371
 #      GND                         : 1
-#      INV                         : 14
+#      INV                         : 13
 #      LUT1                        : 25
-#      LUT2                        : 31
+#      LUT2                        : 34
 #      LUT2_D                      : 1
-#      LUT3                        : 52
-#      LUT3_L                      : 3
-#      LUT4                        : 113
-#      LUT4_D                      : 1
+#      LUT3                        : 44
+#      LUT3_L                      : 4
+#      LUT4                        : 164
+#      LUT4_D                      : 2
 #      MUXCY                       : 32
-#      MUXF5                       : 15
+#      MUXF5                       : 25
 #      VCC                         : 1
 #      XORCY                       : 25
-# FlipFlops/Latches                : 104
-#      FDC                         : 9
-#      FDCE                        : 11
+# FlipFlops/Latches                : 111
+#      FDC                         : 21
+#      FDCE                        : 20
 #      FDCP                        : 8
 #      FDCPE                       : 8
 #      FDE                         : 1
 #      FDPE                        : 1
-#      FDR                         : 41
-#      FDRE                        : 11
+#      FDR                         : 29
+#      FDRE                        : 2
 #      FDS                         : 1
 #      LD                          : 8
 #      LD_1                        : 1
 #      LDCE_1                      : 1
 #      LDCP_1                      : 1
+#      LDCPE                       : 7
 #      LDP                         : 1
 #      LDP_1                       : 1
 # Clock Buffers                    : 1
@@ -322,12 +346,12 @@ Device utilization summary:
 
 Selected Device : 3s100ecp132-4 
 
- Number of Slices:                     138  out of    960    14%  
- Number of Slice Flip Flops:            99  out of   1920     5%  
- Number of 4 input LUTs:               240  out of   1920    12%  
+ Number of Slices:                     163  out of    960    16%  
+ Number of Slice Flip Flops:           107  out of   1920     5%  
+ Number of 4 input LUTs:               287  out of   1920    14%  
  Number of IOs:                         33
  Number of bonded IOBs:                 33  out of     83    39%  
-    IOB Flip Flops:                      5
+    IOB Flip Flops:                      4
  Number of GCLKs:                        1  out of     24     4%  
 
 ---------------------------
@@ -348,87 +372,105 @@ NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
 
 Clock Information:
 ------------------
------------------------------------------------+-------------------------------+-------+
-Clock Signal                                   | Clock buffer(FF name)         | Load  |
------------------------------------------------+-------------------------------+-------+
-clk1                                           | BUFGP                         | 27    |
-min_clk(min_clk1:O)                            | NONE(*)(dmin_0)               | 8     |
-sec_clk(sec_clk:O)                             | NONE(*)(dsec_2)               | 8     |
-chrono_toggle                                  | NONE(chrono_permut)           | 1     |
-clk                                            | NONE(buzzer_end_0)            | 12    |
-countdown_Minute                               | NONE(chrono_umin3_3)          | 9     |
-buzzer_end_cmp_gt0000(buzzer_end_cmp_gt00001:O)| NONE(*)(piezo)                | 2     |
-chrono_toggle_and0000(chrono_toggle_and00001:O)| NONE(*)(countdown_toggle_done)| 1     |
-buzzer_toggle                                  | NONE(buzzer_toggle)           | 1     |
-chrono_toggle_or0000(chrono_toggle_or00001:O)  | NONE(*)(chrono_toggle)        | 1     |
-value_not0001(value_not0001:O)                 | NONE(*)(value_2)              | 4     |
-an_not0001(an_not00012:O)                      | NONE(*)(an_2)                 | 4     |
-hour_clk(hour_clk1:O)                          | NONE(*)(dhour_0)              | 7     |
-chrono_min_clk(chrono_min_clk1:O)              | NONE(*)(chrono_dmin2_2)       | 8     |
-chrono_sec_clk(chrono_sec_clk1:O)              | NONE(*)(chrono_dsec2_3)       | 8     |
-count_15                                       | NONE(cadran_0)                | 3     |
------------------------------------------------+-------------------------------+-------+
-(*) These 10 clock signal(s) are generated by combinatorial logic,
+---------------------------------------------------------------+-------------------------------+-------+
+Clock Signal                                                   | Clock buffer(FF name)         | Load  |
+---------------------------------------------------------------+-------------------------------+-------+
+clk1                                                           | BUFGP                         | 27    |
+hour_clk(hour_clk_f5:O)                                        | NONE(*)(uhour_2)              | 7     |
+min_clk(min_clk_f5:O)                                          | NONE(*)(umin_1)               | 8     |
+sec_clk(sec_clk1_f5:O)                                         | NONE(*)(usec_3)               | 8     |
+countdown_state                                                | NONE(countdown_permut_state)  | 1     |
+clk                                                            | NONE(buzzer_end_1)            | 12    |
+countdown_min_clk                                              | NONE(countdown_umin_cd_1)     | 9     |
+buzzer_end_cmp_gt0000(buzzer_end_cmp_gt00001:O)                | NONE(*)(piezo)                | 2     |
+countdown_state_or0000(countdown_state_or00001:O)              | NONE(*)(countdown_state)      | 1     |
+countdown_toggle_done_and0000(countdown_toggle_done_and00001:O)| NONE(*)(countdown_toggle_done)| 1     |
+buzzer_toggle                                                  | NONE(buzzer_toggle)           | 1     |
+value_not0001(value_not000121:O)                               | NONE(*)(value_2)              | 4     |
+an_not0001(an_not0001138:O)                                    | NONE(*)(an_0)                 | 4     |
+AP_dhour_cmp_eq0001(AP_dhour_cmp_eq00011:O)                    | NONE(*)(AP_uhour_1)           | 7     |
+countdown_set_min_clk(countdown_set_min_clk1:O)                | NONE(*)(countdown_dmin_set_3) | 8     |
+countdown_set_sec_clk(countdown_set_sec_clk1:O)                | NONE(*)(countdown_dsec_set_1) | 8     |
+count_15                                                       | NONE(cadran_0)                | 3     |
+---------------------------------------------------------------+-------------------------------+-------+
+(*) These 11 clock signal(s) are generated by combinatorial logic,
 and XST is not able to identify which are the primary clock signals.
 Please use the CLOCK_SIGNAL constraint to specify the clock signal(s) generated by combinatorial logic.
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
 
 Asynchronous Control Signals Information:
 ----------------------------------------
----------------------------------------------------+------------------------+-------+
-Control Signal                                     | Buffer(FF name)        | Load  |
----------------------------------------------------+------------------------+-------+
-chrono_permut(chrono_permut:Q)                     | NONE(chrono_permut)    | 1     |
-buzzer_end_and0000(buzzer_end_and00001:O)          | NONE(buzzer_end_0)     | 3     |
-chrono_dsec3_0__or0000(chrono_dsec3_0__or00001:O)  | NONE(chrono_dsec3_0)   | 1     |
-chrono_dsec3_0__and0000(chrono_dsec3_0__and00001:O)| NONE(chrono_dsec3_0)   | 1     |
-chrono_usec3_3__or0000(chrono_usec3_3__or00001:O)  | NONE(chrono_usec3_3)   | 1     |
-chrono_usec3_3__and0000(chrono_usec3_3__and00001:O)| NONE(chrono_usec3_3)   | 1     |
-chrono_dsec3_1__or0000(chrono_dsec3_1__or00001:O)  | NONE(chrono_dsec3_1)   | 1     |
-chrono_dsec3_1__and0000(chrono_dsec3_1__and00001:O)| NONE(chrono_dsec3_1)   | 1     |
-chrono_usec3_2__or0000(chrono_usec3_2__or00001:O)  | NONE(chrono_usec3_2)   | 1     |
-chrono_usec3_2__and0000(chrono_usec3_2__and00001:O)| NONE(chrono_usec3_2)   | 1     |
-chrono_usec3_0__or0000(chrono_usec3_0__or00001:O)  | NONE(chrono_usec3_0)   | 1     |
-chrono_usec3_0__and0000(chrono_usec3_0__and00001:O)| NONE(chrono_usec3_0)   | 1     |
-chrono_usec3_1__or0000(chrono_usec3_1__or00001:O)  | NONE(chrono_usec3_1)   | 1     |
-chrono_usec3_1__and0000(chrono_usec3_1__and00001:O)| NONE(chrono_usec3_1)   | 1     |
-chrono_dsec3_3__or0000(chrono_dsec3_3__or00001:O)  | NONE(chrono_dsec3_3)   | 1     |
-chrono_dsec3_3__and0000(chrono_dsec3_3__and00001:O)| NONE(chrono_dsec3_3)   | 1     |
-chrono_dsec3_2__or0000(chrono_dsec3_2__or00001:O)  | NONE(chrono_dsec3_2)   | 1     |
-chrono_dsec3_2__and0000(chrono_dsec3_2__and00001:O)| NONE(chrono_dsec3_2)   | 1     |
-chrono_umin3_3__or0000(chrono_umin3_3__or00001:O)  | NONE(chrono_umin3_3)   | 1     |
-chrono_umin3_3__and0000(chrono_umin3_3__and00001:O)| NONE(chrono_umin3_3)   | 1     |
-chrono_dmin3_2__or0000(chrono_dmin3_2__or00001:O)  | NONE(chrono_dmin3_2)   | 1     |
-chrono_dmin3_2__and0000(chrono_dmin3_2__and00001:O)| NONE(chrono_dmin3_2)   | 1     |
-chrono_umin3_2__or0000(chrono_umin3_2__or00001:O)  | NONE(chrono_umin3_2)   | 1     |
-chrono_umin3_2__and0000(chrono_umin3_2__and00001:O)| NONE(chrono_umin3_2)   | 1     |
-chrono_dmin3_0__or0000(chrono_dmin3_0__or00001:O)  | NONE(chrono_dmin3_0)   | 1     |
-chrono_dmin3_0__and0000(chrono_dmin3_0__and00001:O)| NONE(chrono_dmin3_0)   | 1     |
-chrono_dmin3_1__or0000(chrono_dmin3_1__or00001:O)  | NONE(chrono_dmin3_1)   | 1     |
-chrono_dmin3_1__and0000(chrono_dmin3_1__and00001:O)| NONE(chrono_dmin3_1)   | 1     |
-chrono_dmin3_3__or0000(chrono_dmin3_3__or00001:O)  | NONE(chrono_dmin3_3)   | 1     |
-chrono_dmin3_3__and0000(chrono_dmin3_3__and00001:O)| NONE(chrono_dmin3_3)   | 1     |
-chrono_umin3_1__or0000(chrono_umin3_1__or00001:O)  | NONE(chrono_umin3_1)   | 1     |
-chrono_umin3_1__and0000(chrono_umin3_1__and00001:O)| NONE(chrono_umin3_1)   | 1     |
-countdown_toggle_done(countdown_toggle_done:Q)     | NONE(countdown_done)   | 1     |
-chrono_umin3_0__or0000(chrono_umin3_0__or00001:O)  | NONE(chrono_umin3_0)   | 1     |
-chrono_umin3_0__and0000(chrono_umin3_0__and00001:O)| NONE(chrono_umin3_0)   | 1     |
-piezo__and0000(piezo__and00001:O)                  | NONE(piezo)            | 1     |
-piezo__and0001(piezo__and00011:O)                  | NONE(piezo)            | 1     |
-countdown_done(countdown_done:Q)                   | NONE(buzzer_start)     | 1     |
-buzzer_toggle_0_not0000(buzzer_toggle_0_not00001:O)| NONE(buzzer_toggle)    | 1     |
-chrono_toggle_and0000(chrono_toggle_and00001:O)    | NONE(chrono_toggle)    | 1     |
-button<3>                                          | IBUF                   | 16    |
----------------------------------------------------+------------------------+-------+
+---------------------------------------------------------------+-----------------------------+-------+
+Control Signal                                                 | Buffer(FF name)             | Load  |
+---------------------------------------------------------------+-----------------------------+-------+
+uhour_and0000(uhour_and00001:O)                                | NONE(uhour_2)               | 7     |
+dmin_or0000(dmin_or00001:O)                                    | NONE(umin_1)                | 7     |
+dsec_and0000(dsec_and000011:O)                                 | NONE(usec_3)                | 7     |
+countdown_permut_state(countdown_permut_state:Q)               | NONE(countdown_permut_state)| 1     |
+buzzer_end_and0000(buzzer_end_and00001:O)                      | NONE(buzzer_end_1)          | 3     |
+countdown_usec_cd_1__or0000(countdown_usec_cd_1__or00001:O)    | NONE(countdown_usec_cd_1)   | 1     |
+countdown_usec_cd_1__and0000(countdown_usec_cd_1__and00001:O)  | NONE(countdown_usec_cd_1)   | 1     |
+countdown_usec_cd_0__or0000(countdown_usec_cd_0__or00001:O)    | NONE(countdown_usec_cd_0)   | 1     |
+countdown_usec_cd_0__and0000(countdown_usec_cd_0__and00001:O)  | NONE(countdown_usec_cd_0)   | 1     |
+countdown_dsec_cd_1__or0000(countdown_dsec_cd_1__or00001:O)    | NONE(countdown_dsec_cd_1)   | 1     |
+countdown_dsec_cd_1__and0000(countdown_dsec_cd_1__and00001:O)  | NONE(countdown_dsec_cd_1)   | 1     |
+countdown_usec_cd_2__or0000(countdown_usec_cd_2__or00001:O)    | NONE(countdown_usec_cd_2)   | 1     |
+countdown_usec_cd_2__and0000(countdown_usec_cd_2__and00001:O)  | NONE(countdown_usec_cd_2)   | 1     |
+countdown_dsec_cd_3__or0000(countdown_dsec_cd_3__or00001:O)    | NONE(countdown_dsec_cd_3)   | 1     |
+countdown_dsec_cd_3__and0000(countdown_dsec_cd_3__and00001:O)  | NONE(countdown_dsec_cd_3)   | 1     |
+countdown_dsec_cd_0__or0000(countdown_dsec_cd_0__or00001:O)    | NONE(countdown_dsec_cd_0)   | 1     |
+countdown_dsec_cd_0__and0000(countdown_dsec_cd_0__and00001:O)  | NONE(countdown_dsec_cd_0)   | 1     |
+countdown_dsec_cd_2__or0000(countdown_dsec_cd_2__or00001:O)    | NONE(countdown_dsec_cd_2)   | 1     |
+countdown_dsec_cd_2__and0000(countdown_dsec_cd_2__and00001:O)  | NONE(countdown_dsec_cd_2)   | 1     |
+countdown_usec_cd_3__or0000(countdown_usec_cd_3__or00001:O)    | NONE(countdown_usec_cd_3)   | 1     |
+countdown_usec_cd_3__and0000(countdown_usec_cd_3__and00001:O)  | NONE(countdown_usec_cd_3)   | 1     |
+countdown_umin_cd_1__or0000(countdown_umin_cd_1__or00001:O)    | NONE(countdown_umin_cd_1)   | 1     |
+countdown_umin_cd_1__and0000(countdown_umin_cd_1__and00001:O)  | NONE(countdown_umin_cd_1)   | 1     |
+countdown_umin_cd_2__or0000(countdown_umin_cd_2__or00001:O)    | NONE(countdown_umin_cd_2)   | 1     |
+countdown_umin_cd_2__and0000(countdown_umin_cd_2__and00001:O)  | NONE(countdown_umin_cd_2)   | 1     |
+countdown_dmin_cd_0__or0000(countdown_dmin_cd_0__or00001:O)    | NONE(countdown_dmin_cd_0)   | 1     |
+countdown_dmin_cd_0__and0000(countdown_dmin_cd_0__and00001:O)  | NONE(countdown_dmin_cd_0)   | 1     |
+countdown_dmin_cd_1__or0000(countdown_dmin_cd_1__or00001:O)    | NONE(countdown_dmin_cd_1)   | 1     |
+countdown_dmin_cd_1__and0000(countdown_dmin_cd_1__and00001:O)  | NONE(countdown_dmin_cd_1)   | 1     |
+countdown_toggle_done(countdown_toggle_done:Q)                 | NONE(countdown_done)        | 1     |
+countdown_umin_cd_3__or0000(countdown_umin_cd_3__or00001:O)    | NONE(countdown_umin_cd_3)   | 1     |
+countdown_umin_cd_3__and0000(countdown_umin_cd_3__and00001:O)  | NONE(countdown_umin_cd_3)   | 1     |
+countdown_umin_cd_0__or0000(countdown_umin_cd_0__or00001:O)    | NONE(countdown_umin_cd_0)   | 1     |
+countdown_umin_cd_0__and0000(countdown_umin_cd_0__and00001:O)  | NONE(countdown_umin_cd_0)   | 1     |
+countdown_dmin_cd_2__or0000(countdown_dmin_cd_2__or00001:O)    | NONE(countdown_dmin_cd_2)   | 1     |
+countdown_dmin_cd_2__and0000(countdown_dmin_cd_2__and00001:O)  | NONE(countdown_dmin_cd_2)   | 1     |
+countdown_dmin_cd_3__or0000(countdown_dmin_cd_3__or00001:O)    | NONE(countdown_dmin_cd_3)   | 1     |
+countdown_dmin_cd_3__and0000(countdown_dmin_cd_3__and00001:O)  | NONE(countdown_dmin_cd_3)   | 1     |
+piezo__and0000(piezo__and00001:O)                              | NONE(piezo)                 | 1     |
+piezo__and0001(piezo_mux00001:O)                               | NONE(piezo)                 | 1     |
+buzzer_start_and0000(buzzer_start_and00001:O)                  | NONE(buzzer_start)          | 1     |
+countdown_toggle_done_and0000(countdown_toggle_done_and00001:O)| NONE(countdown_state)       | 1     |
+buzzer_toggle_0_not0000(buzzer_toggle_0_not00001:O)            | NONE(buzzer_toggle)         | 1     |
+AP_uhour_1__and0000(AP_uhour_1__and00001:O)                    | NONE(AP_uhour_1)            | 1     |
+AP_uhour_1__and0001(AP_uhour_1__and00011:O)                    | NONE(AP_uhour_1)            | 1     |
+AP_uhour_3__and0000(AP_uhour_3__and00001:O)                    | NONE(AP_uhour_3)            | 1     |
+AP_uhour_3__and0001(AP_uhour_3__and00011:O)                    | NONE(AP_uhour_3)            | 1     |
+AP_dhour_0__or0000(AP_dhour_0__or00001:O)                      | NONE(AP_dhour_0)            | 1     |
+AP_dhour_0__or0001(AP_dhour_0__or00011:O)                      | NONE(AP_dhour_0)            | 1     |
+AP_uhour_0__and0000(AP_uhour_0__and000011:O)                   | NONE(AP_uhour_0)            | 1     |
+AP_uhour_0__and0001(AP_uhour_0__and000111:O)                   | NONE(AP_uhour_0)            | 1     |
+AP_dhour_1__or0000(AP_dhour_1__or00001:O)                      | NONE(AP_dhour_1)            | 1     |
+AP_dhour_1__and0000(AP_dhour_1__and00001:O)                    | NONE(AP_dhour_1)            | 1     |
+AP_dhour_2__or0000(AP_dhour_2__or00001:O)                      | NONE(AP_dhour_2)            | 1     |
+AP_dhour_2__and0000(AP_dhour_2__and00001:O)                    | NONE(AP_dhour_2)            | 1     |
+AP_uhour_2__and0000(AP_uhour_2__and00001:O)                    | NONE(AP_uhour_2)            | 1     |
+AP_uhour_2__and0001(AP_uhour_2__and00011:O)                    | NONE(AP_uhour_2)            | 1     |
+button<3>                                                      | IBUF                        | 16    |
+---------------------------------------------------------------+-----------------------------+-------+
 
 Timing Summary:
 ---------------
 Speed Grade: -4
 
    Minimum period: 5.179ns (Maximum Frequency: 193.101MHz)
-   Minimum input arrival time before clock: 11.804ns
-   Maximum output required time after clock: 5.955ns
-   Maximum combinational path delay: 5.575ns
+   Minimum input arrival time before clock: 7.873ns
+   Maximum output required time after clock: 10.587ns
+   Maximum combinational path delay: 6.958ns
 
 Timing Detail:
 --------------
@@ -450,7 +492,7 @@ Delay:               5.179ns (Levels of Logic = 8)
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
      FDR:C->Q              2   0.591   0.622  count_5 (count_5)
-     LUT2:I0->O            1   0.704   0.000  count_cmp_eq0000_wg_lut<0> (N63)
+     LUT2:I0->O            1   0.704   0.000  count_cmp_eq0000_wg_lut<0> (N01)
      MUXCY:S->O            1   0.464   0.000  count_cmp_eq0000_wg_cy<0> (count_cmp_eq0000_wg_cy<0>)
      MUXCY:CI->O           1   0.059   0.000  count_cmp_eq0000_wg_cy<1> (count_cmp_eq0000_wg_cy<1>)
      MUXCY:CI->O           1   0.059   0.000  count_cmp_eq0000_wg_cy<2> (count_cmp_eq0000_wg_cy<2>)
@@ -464,91 +506,113 @@ Delay:               5.179ns (Levels of Logic = 8)
                                        (63.6% logic, 36.4% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'min_clk'
-  Clock period: 4.964ns (frequency: 201.450MHz)
-  Total number of paths / destination ports: 72 / 19
+Timing constraint: Default period analysis for Clock 'hour_clk'
+  Clock period: 5.162ns (frequency: 193.723MHz)
+  Total number of paths / destination ports: 79 / 10
 -------------------------------------------------------------------------
-Delay:               4.964ns (Levels of Logic = 2)
-  Source:            umin_3 (FF)
-  Destination:       dmin_0 (FF)
+Delay:               5.162ns (Levels of Logic = 3)
+  Source:            uhour_0 (FF)
+  Destination:       uhour_2 (FF)
+  Source Clock:      hour_clk rising
+  Destination Clock: hour_clk rising
+
+  Data Path: uhour_0 to uhour_2
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDC:C->Q             12   0.591   1.136  uhour_0 (uhour_0)
+     LUT2:I0->O            1   0.704   0.424  dhour_and0000_SW1 (N1215)
+     LUT4:I3->O            4   0.704   0.591  dhour_not00011 (dhour_not0001)
+     LUT4:I3->O            1   0.704   0.000  uhour_mux0002<1>1 (uhour_mux0002<1>)
+     FDC:D                     0.308          uhour_2
+    ----------------------------------------
+    Total                      5.162ns (3.011ns logic, 2.151ns route)
+                                       (58.3% logic, 41.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'min_clk'
+  Clock period: 3.558ns (frequency: 281.057MHz)
+  Total number of paths / destination ports: 38 / 12
+-------------------------------------------------------------------------
+Delay:               3.558ns (Levels of Logic = 1)
+  Source:            umin_0 (FF)
+  Destination:       Hour (FF)
   Source Clock:      min_clk rising
   Destination Clock: min_clk rising
 
-  Data Path: umin_3 to dmin_0
+  Data Path: umin_0 to Hour
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              4   0.591   0.762  umin_3 (umin_3)
-     LUT4:I0->O            8   0.704   0.761  dmin_cmp_eq00001 (dmin_cmp_eq0000)
-     LUT4:I3->O            3   0.704   0.531  dmin_and00001 (dmin_and0000)
-     FDRE:R                    0.911          dmin_0
+     FDC:C->Q              8   0.591   0.932  umin_0 (umin_0)
+     LUT4:I0->O            1   0.704   0.420  Hour_not000111 (Hour_not0001)
+     FDRE:R                    0.911          Hour
     ----------------------------------------
-    Total                      4.964ns (2.910ns logic, 2.054ns route)
-                                       (58.6% logic, 41.4% route)
+    Total                      3.558ns (2.206ns logic, 1.352ns route)
+                                       (62.0% logic, 38.0% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'sec_clk'
-  Clock period: 4.964ns (frequency: 201.450MHz)
-  Total number of paths / destination ports: 72 / 19
+  Clock period: 3.509ns (frequency: 284.981MHz)
+  Total number of paths / destination ports: 38 / 12
 -------------------------------------------------------------------------
-Delay:               4.964ns (Levels of Logic = 2)
-  Source:            usec_3 (FF)
-  Destination:       dsec_0 (FF)
+Delay:               3.509ns (Levels of Logic = 1)
+  Source:            usec_0 (FF)
+  Destination:       Minute (FF)
   Source Clock:      sec_clk rising
   Destination Clock: sec_clk rising
 
-  Data Path: usec_3 to dsec_0
+  Data Path: usec_0 to Minute
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              4   0.591   0.762  usec_3 (usec_3)
-     LUT4:I0->O            8   0.704   0.761  dsec_cmp_eq00001 (dsec_cmp_eq0000)
-     LUT4:I3->O            3   0.704   0.531  dsec_and00001 (dsec_and0000)
-     FDRE:R                    0.911          dsec_0
+     FDC:C->Q              7   0.591   0.883  usec_0 (usec_0)
+     LUT4:I0->O            1   0.704   0.420  Minute_not000111 (Minute_not0001)
+     FDRE:R                    0.911          Minute
     ----------------------------------------
-    Total                      4.964ns (2.910ns logic, 2.054ns route)
-                                       (58.6% logic, 41.4% route)
+    Total                      3.509ns (2.206ns logic, 1.303ns route)
+                                       (62.9% logic, 37.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'clk'
-  Clock period: 4.806ns (frequency: 208.073MHz)
+  Clock period: 4.775ns (frequency: 209.424MHz)
   Total number of paths / destination ports: 64 / 19
 -------------------------------------------------------------------------
-Delay:               4.806ns (Levels of Logic = 2)
-  Source:            chrono_usec3_3 (FF)
-  Destination:       countdown_Minute (FF)
+Delay:               4.775ns (Levels of Logic = 2)
+  Source:            countdown_usec_cd_3 (FF)
+  Destination:       countdown_min_clk (FF)
   Source Clock:      clk rising
   Destination Clock: clk rising
 
-  Data Path: chrono_usec3_3 to countdown_Minute
+  Data Path: countdown_usec_cd_3 to countdown_min_clk
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCP:C->Q             5   0.591   0.808  chrono_usec3_3 (chrono_usec3_3)
-     LUT4:I0->O            5   0.704   0.668  chrono_dsec3_cmp_eq00011 (chrono_dsec3_0_0_not0000)
-     LUT4:I2->O            1   0.704   0.420  countdown_Minute_or0000 (countdown_Minute_or0000)
-     FDR:R                     0.911          countdown_Minute
+     FDCP:C->Q             5   0.591   0.808  countdown_usec_cd_3 (countdown_usec_cd_3)
+     LUT4:I0->O            5   0.704   0.637  countdown_usec_cd_cmp_eq00001 (countdown_dsec_cd_0_0_not0000)
+     LUT4:I3->O            1   0.704   0.420  countdown_min_clk_or0000 (countdown_min_clk_or0000)
+     FDR:R                     0.911          countdown_min_clk
     ----------------------------------------
-    Total                      4.806ns (2.910ns logic, 1.896ns route)
-                                       (60.5% logic, 39.5% route)
+    Total                      4.775ns (2.910ns logic, 1.865ns route)
+                                       (60.9% logic, 39.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'countdown_Minute'
+Timing constraint: Default period analysis for Clock 'countdown_min_clk'
   Clock period: 4.569ns (frequency: 218.866MHz)
-  Total number of paths / destination ports: 67 / 13
+  Total number of paths / destination ports: 74 / 13
 -------------------------------------------------------------------------
 Delay:               4.569ns (Levels of Logic = 2)
-  Source:            chrono_umin3_3 (FF)
+  Source:            countdown_umin_cd_3 (FF)
   Destination:       countdown_done (FF)
-  Source Clock:      countdown_Minute rising
-  Destination Clock: countdown_Minute rising
+  Source Clock:      countdown_min_clk rising
+  Destination Clock: countdown_min_clk rising
 
-  Data Path: chrono_umin3_3 to countdown_done
+  Data Path: countdown_umin_cd_3 to countdown_done
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDCP:C->Q             7   0.591   0.883  chrono_umin3_3 (chrono_umin3_3)
-     LUT4:I0->O            5   0.704   0.712  chrono_dmin3_cmp_eq00011 (chrono_dmin3_0_0_not0000)
+     FDCP:C->Q             7   0.591   0.883  countdown_umin_cd_3 (countdown_umin_cd_3)
+     LUT4:I0->O            5   0.704   0.712  countdown_umin_cd_cmp_eq00001 (countdown_dmin_cd_0_0_not0000)
      LUT2:I1->O            1   0.704   0.420  countdown_done_or0000_inv1 (countdown_done_or0000_inv)
      FDCE:CE                   0.555          countdown_done
     ----------------------------------------
@@ -556,78 +620,77 @@ Delay:               4.569ns (Levels of Logic = 2)
                                        (55.9% logic, 44.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'hour_clk'
-  Clock period: 4.722ns (frequency: 211.775MHz)
-  Total number of paths / destination ports: 97 / 17
+Timing constraint: Default period analysis for Clock 'buzzer_end_cmp_gt0000'
+  Clock period: 2.450ns (frequency: 408.163MHz)
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Delay:               4.722ns (Levels of Logic = 2)
-  Source:            uhour_2 (FF)
-  Destination:       uhour_0 (FF)
-  Source Clock:      hour_clk rising
-  Destination Clock: hour_clk rising
+Delay:               2.450ns (Levels of Logic = 1)
+  Source:            buzzer_start (LATCH)
+  Destination:       piezo (LATCH)
+  Source Clock:      buzzer_end_cmp_gt0000 rising
+  Destination Clock: buzzer_end_cmp_gt0000 rising
 
-  Data Path: uhour_2 to uhour_0
+  Data Path: buzzer_start to piezo
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q              7   0.591   0.743  uhour_2 (uhour_2)
-     LUT4:I2->O            2   0.704   0.447  dhour_and0000_SW0 (N661)
-     MUXF5:S->O            4   0.739   0.587  uhour_or00001 (uhour_or0000)
-     FDR:R                     0.911          uhour_0
+     LDP_1:G->Q            4   0.676   0.762  buzzer_start (buzzer_start)
+     LUT4:I0->O            2   0.704   0.000  piezo_mux00001 (piezo__and0001)
+     LDCP_1:D                  0.308          piezo
     ----------------------------------------
-    Total                      4.722ns (2.945ns logic, 1.777ns route)
-                                       (62.4% logic, 37.6% route)
+    Total                      2.450ns (1.688ns logic, 0.762ns route)
+                                       (68.9% logic, 31.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'chrono_min_clk'
+Timing constraint: Default period analysis for Clock 'countdown_set_min_clk'
   Clock period: 3.369ns (frequency: 296.824MHz)
   Total number of paths / destination ports: 41 / 12
 -------------------------------------------------------------------------
 Delay:               3.369ns (Levels of Logic = 1)
-  Source:            chrono_umin2_1 (FF)
-  Destination:       chrono_dmin2_0 (FF)
-  Source Clock:      chrono_min_clk rising
-  Destination Clock: chrono_min_clk rising
+  Source:            countdown_umin_set_1 (FF)
+  Destination:       countdown_dmin_set_0 (FF)
+  Source Clock:      countdown_set_min_clk rising
+  Destination Clock: countdown_set_min_clk rising
 
-  Data Path: chrono_umin2_1 to chrono_dmin2_0
+  Data Path: countdown_umin_set_1 to countdown_dmin_set_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              8   0.591   0.932  chrono_umin2_1 (chrono_umin2_1)
-     LUT4:I0->O            4   0.704   0.587  chrono_dmin2_cmp_eq00011 (chrono_dmin2_cmp_eq0001)
-     FDCE:CE                   0.555          chrono_dmin2_0
+     FDC:C->Q              8   0.591   0.932  countdown_umin_set_1 (countdown_umin_set_1)
+     LUT4:I0->O            4   0.704   0.587  countdown_umin_set_cmp_eq000011 (countdown_umin_set_cmp_eq0000)
+     FDCE:CE                   0.555          countdown_dmin_set_0
     ----------------------------------------
     Total                      3.369ns (1.850ns logic, 1.519ns route)
                                        (54.9% logic, 45.1% route)
 
 =========================================================================
-Timing constraint: Default period analysis for Clock 'chrono_sec_clk'
+Timing constraint: Default period analysis for Clock 'countdown_set_sec_clk'
   Clock period: 3.369ns (frequency: 296.824MHz)
   Total number of paths / destination ports: 41 / 12
 -------------------------------------------------------------------------
 Delay:               3.369ns (Levels of Logic = 1)
-  Source:            chrono_usec2_1 (FF)
-  Destination:       chrono_dsec2_0 (FF)
-  Source Clock:      chrono_sec_clk rising
-  Destination Clock: chrono_sec_clk rising
+  Source:            countdown_usec_set_1 (FF)
+  Destination:       countdown_dsec_set_0 (FF)
+  Source Clock:      countdown_set_sec_clk rising
+  Destination Clock: countdown_set_sec_clk rising
 
-  Data Path: chrono_usec2_1 to chrono_dsec2_0
+  Data Path: countdown_usec_set_1 to countdown_dsec_set_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDC:C->Q              8   0.591   0.932  chrono_usec2_1 (chrono_usec2_1)
-     LUT4:I0->O            4   0.704   0.587  chrono_dsec2_cmp_eq00011 (chrono_dsec2_cmp_eq0001)
-     FDCE:CE                   0.555          chrono_dsec2_0
+     FDC:C->Q              8   0.591   0.932  countdown_usec_set_1 (countdown_usec_set_1)
+     LUT4:I0->O            4   0.704   0.587  countdown_dsec_set_cmp_eq000111 (countdown_dsec_set_cmp_eq0001)
+     FDCE:CE                   0.555          countdown_dsec_set_0
     ----------------------------------------
     Total                      3.369ns (1.850ns logic, 1.519ns route)
                                        (54.9% logic, 45.1% route)
 
 =========================================================================
 Timing constraint: Default period analysis for Clock 'count_15'
-  Clock period: 4.382ns (frequency: 228.206MHz)
+  Clock period: 4.164ns (frequency: 240.154MHz)
   Total number of paths / destination ports: 15 / 6
 -------------------------------------------------------------------------
-Delay:               4.382ns (Levels of Logic = 1)
+Delay:               4.164ns (Levels of Logic = 1)
   Source:            cadran_2 (FF)
   Destination:       cadran_2 (FF)
   Source Clock:      count_15 rising
@@ -637,65 +700,83 @@ Delay:               4.382ns (Levels of Logic = 1)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDR:C->Q             18   0.591   1.243  cadran_2 (cadran_2)
-     LUT3:I0->O           11   0.704   0.933  an_not000111 (cadran_cmp_eq0000)
+     FDR:C->Q             24   0.591   1.427  cadran_2 (cadran_2)
+     LUT3:I0->O            3   0.704   0.531  cadran_cmp_eq00001 (cadran_cmp_eq0000)
      FDR:R                     0.911          cadran_2
     ----------------------------------------
-    Total                      4.382ns (2.206ns logic, 2.176ns route)
-                                       (50.3% logic, 49.7% route)
+    Total                      4.164ns (2.206ns logic, 1.958ns route)
+                                       (53.0% logic, 47.0% route)
 
 =========================================================================
-Timing constraint: Default OFFSET IN BEFORE for Clock 'chrono_toggle_and0000'
-  Total number of paths / destination ports: 2 / 1
+Timing constraint: Default OFFSET IN BEFORE for Clock 'buzzer_end_cmp_gt0000'
+  Total number of paths / destination ports: 1 / 1
 -------------------------------------------------------------------------
-Offset:              3.529ns (Levels of Logic = 2)
-  Source:            button<3> (PAD)
-  Destination:       countdown_toggle_done (LATCH)
-  Destination Clock: chrono_toggle_and0000 rising
+Offset:              2.796ns (Levels of Logic = 2)
+  Source:            switch<2> (PAD)
+  Destination:       piezo (LATCH)
+  Destination Clock: buzzer_end_cmp_gt0000 rising
 
-  Data Path: button<3> to countdown_toggle_done
+  Data Path: switch<2> to piezo
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            39   1.218   1.299  button_3_IBUF (button_3_IBUF)
-     LUT3:I2->O            2   0.704   0.000  chrono_toggle_or00001 (chrono_toggle_or0000)
+     IBUF:I->O             3   1.218   0.566  switch_2_IBUF (switch_2_IBUF)
+     LUT4:I2->O            2   0.704   0.000  piezo_mux00001 (piezo__and0001)
+     LDCP_1:D                  0.308          piezo
+    ----------------------------------------
+    Total                      2.796ns (2.230ns logic, 0.566ns route)
+                                       (79.8% logic, 20.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET IN BEFORE for Clock 'countdown_toggle_done_and0000'
+  Total number of paths / destination ports: 2 / 1
+-------------------------------------------------------------------------
+Offset:              3.670ns (Levels of Logic = 2)
+  Source:            switch<1> (PAD)
+  Destination:       countdown_toggle_done (LATCH)
+  Destination Clock: countdown_toggle_done_and0000 rising
+
+  Data Path: switch<1> to countdown_toggle_done
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     IBUF:I->O            42   1.218   1.440  switch_1_IBUF (switch_1_IBUF)
+     LUT3:I0->O            2   0.704   0.000  countdown_state_or00001 (countdown_state_or0000)
      LD_1:D                    0.308          countdown_toggle_done
     ----------------------------------------
-    Total                      3.529ns (2.230ns logic, 1.299ns route)
-                                       (63.2% logic, 36.8% route)
+    Total                      3.670ns (2.230ns logic, 1.440ns route)
+                                       (60.8% logic, 39.2% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'value_not0001'
-  Total number of paths / destination ports: 88 / 4
+  Total number of paths / destination ports: 52 / 4
 -------------------------------------------------------------------------
-Offset:              11.804ns (Levels of Logic = 9)
-  Source:            switch<1> (PAD)
+Offset:              7.873ns (Levels of Logic = 7)
+  Source:            switch<0> (PAD)
   Destination:       value_0 (LATCH)
   Destination Clock: value_not0001 falling
 
-  Data Path: switch<1> to value_0
+  Data Path: switch<0> to value_0
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            19   1.218   1.164  switch_1_IBUF (bin_1_OBUF)
-     LUT2:I1->O            2   0.704   0.622  value_not000111 (N4)
-     LUT4:I0->O            6   0.704   0.669  value_or00001 (value_or0000)
-     MUXF5:S->O            5   0.739   0.712  value_mux0000<0>31_f5 (N56)
-     LUT4:I1->O            3   0.704   0.610  value_mux0000<0>32 (N111)
-     LUT4:I1->O            1   0.704   0.595  value_mux0000<2>5 (value_mux0000<2>_map3)
-     LUT4:I0->O            2   0.704   0.622  value_mux0000<2>186_SW0 (N678)
-     LUT4:I0->O            1   0.704   0.000  value_mux0000<2>186_F (N716)
-     MUXF5:I0->O           1   0.321   0.000  value_mux0000<2>186 (value_mux0000<2>)
+     IBUF:I->O            28   1.218   1.436  switch_0_IBUF (switch_0_IBUF)
+     LUT4:I0->O            1   0.704   0.455  value_mux0000<2>1332 (value_mux0000<2>1_map69)
+     LUT3:I2->O            1   0.704   0.000  value_mux0000<2>1370_G (N1255)
+     MUXF5:I1->O           1   0.321   0.499  value_mux0000<2>1370 (value_mux0000<2>1_map80)
+     LUT4:I1->O            1   0.704   0.499  value_mux0000<2>1433 (value_mux0000<2>1_map90)
+     LUT3:I1->O            1   0.704   0.000  value_mux0000<2>1479_F (N1256)
+     MUXF5:I0->O           1   0.321   0.000  value_mux0000<2>1479 (value_mux0000<2>)
      LD:D                      0.308          value_2
     ----------------------------------------
-    Total                     11.804ns (6.810ns logic, 4.994ns route)
-                                       (57.7% logic, 42.3% route)
+    Total                      7.873ns (4.984ns logic, 2.889ns route)
+                                       (63.3% logic, 36.7% route)
 
 =========================================================================
 Timing constraint: Default OFFSET IN BEFORE for Clock 'an_not0001'
   Total number of paths / destination ports: 4 / 4
 -------------------------------------------------------------------------
-Offset:              5.002ns (Levels of Logic = 3)
+Offset:              4.940ns (Levels of Logic = 3)
   Source:            switch<1> (PAD)
   Destination:       an_0 (LATCH)
   Destination Clock: an_not0001 falling
@@ -704,13 +785,13 @@ Offset:              5.002ns (Levels of Logic = 3)
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            19   1.218   1.260  switch_1_IBUF (bin_1_OBUF)
-     LUT3:I0->O            5   0.704   0.808  an_and00001 (an_and0000)
-     LUT4:I0->O            1   0.704   0.000  an_mux0000<1>1 (an_mux0000<1>)
-     LD:D                      0.308          an_1
+     IBUF:I->O            42   1.218   1.440  switch_1_IBUF (switch_1_IBUF)
+     LUT3:I0->O            3   0.704   0.566  an_mux0000<2>1_SW0 (N101)
+     LUT4:I2->O            1   0.704   0.000  an_mux0000<0>2 (an_mux0000<0>)
+     LD:D                      0.308          an_0
     ----------------------------------------
-    Total                      5.002ns (2.934ns logic, 2.068ns route)
-                                       (58.7% logic, 41.3% route)
+    Total                      4.940ns (2.934ns logic, 2.006ns route)
+                                       (59.4% logic, 40.6% route)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'buzzer_end_cmp_gt0000'
@@ -751,6 +832,29 @@ Offset:              4.368ns (Levels of Logic = 1)
                                        (90.4% logic, 9.6% route)
 
 =========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'hour_clk'
+  Total number of paths / destination ports: 72 / 8
+-------------------------------------------------------------------------
+Offset:              10.587ns (Levels of Logic = 5)
+  Source:            dhour_0 (FF)
+  Destination:       bin<7> (PAD)
+  Source Clock:      hour_clk rising
+
+  Data Path: dhour_0 to bin<7>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDCE:C->Q            12   0.591   1.136  dhour_0 (dhour_0)
+     LUT3:I0->O            4   0.704   0.591  AP_led_cmp_eq00001 (AP_led_cmp_eq0000)
+     LUT4:I3->O           11   0.704   0.937  AP_uhour_or000011 (N171)
+     LUT4:I3->O            9   0.704   0.824  AP_led_or00001 (AP_led)
+     LUT4:I3->O            1   0.704   0.420  bin<7>1 (bin_7_OBUF)
+     OBUF:I->O                 3.272          bin_7_OBUF (bin<7>)
+    ----------------------------------------
+    Total                     10.587ns (6.679ns logic, 3.908ns route)
+                                       (63.1% logic, 36.9% route)
+
+=========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'value_not0001'
   Total number of paths / destination ports: 28 / 7
 -------------------------------------------------------------------------
@@ -772,30 +876,31 @@ Offset:              5.955ns (Levels of Logic = 2)
 
 =========================================================================
 Timing constraint: Default path analysis
-  Total number of paths / destination ports: 8 / 8
+  Total number of paths / destination ports: 22 / 8
 -------------------------------------------------------------------------
-Delay:               5.575ns (Levels of Logic = 2)
+Delay:               6.958ns (Levels of Logic = 3)
   Source:            switch<1> (PAD)
-  Destination:       bin<1> (PAD)
+  Destination:       bin<3> (PAD)
 
-  Data Path: switch<1> to bin<1>
+  Data Path: switch<1> to bin<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     IBUF:I->O            19   1.218   1.085  switch_1_IBUF (bin_1_OBUF)
-     OBUF:I->O                 3.272          bin_1_OBUF (bin<1>)
+     IBUF:I->O            42   1.218   1.344  switch_1_IBUF (switch_1_IBUF)
+     LUT4:I1->O            1   0.704   0.420  bin<3>1 (bin_3_OBUF)
+     OBUF:I->O                 3.272          bin_3_OBUF (bin<3>)
     ----------------------------------------
-    Total                      5.575ns (4.490ns logic, 1.085ns route)
-                                       (80.5% logic, 19.5% route)
+    Total                      6.958ns (5.194ns logic, 1.764ns route)
+                                       (74.6% logic, 25.4% route)
 
 =========================================================================
-CPU : 5.34 / 5.44 s | Elapsed : 5.00 / 5.00 s
+CPU : 5.02 / 5.12 s | Elapsed : 5.00 / 5.00 s
  
 --> 
 
-Total memory usage is 173628 kilobytes
+Total memory usage is 174268 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   19 (   0 filtered)
-Number of infos    :    3 (   0 filtered)
+Number of warnings :   18 (   0 filtered)
+Number of infos    :    5 (   0 filtered)
 

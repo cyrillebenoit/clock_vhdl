@@ -1,7 +1,7 @@
 Release 9.2i par J.36
 Copyright (c) 1995-2007 Xilinx, Inc.  All rights reserved.
 
-LOUIS::  Sun Mar 13 20:24:51 2016
+LOUIS::  Tue Mar 15 22:00:30 2016
 
 par -w -intstyle ise -ol std -t 1 principal_map.ncd principal.ncd principal.pcf
  
@@ -43,7 +43,7 @@ Design Summary Report:
 
 
    Number of BUFGMUXs                        1 out of 24      4%
-   Number of Slices                        131 out of 960    13%
+   Number of Slices                        161 out of 960    16%
       Number of SLICEMs                      0 out of 480     0%
 
 
@@ -57,7 +57,7 @@ Router effort level (-rl):    Standard
 Starting Placer
 
 Phase 1.1
-Phase 1.1 (Checksum:989a03) REAL time: 1 secs 
+Phase 1.1 (Checksum:989ab7) REAL time: 1 secs 
 
 Phase 2.7
 Phase 2.7 (Checksum:1312cfe) REAL time: 1 secs 
@@ -73,13 +73,13 @@ Phase 5.30
 Phase 5.30 (Checksum:2faf07b) REAL time: 1 secs 
 
 Phase 6.8
-....
-......
-...
-......
-........
+...............
+............
+.........
+............
+..............
 ..
-Phase 6.8 (Checksum:9c862b) REAL time: 2 secs 
+Phase 6.8 (Checksum:9cde45) REAL time: 2 secs 
 
 Phase 7.5
 Phase 7.5 (Checksum:42c1d79) REAL time: 2 secs 
@@ -95,44 +95,52 @@ CPU  time consumed by placer: 2 secs
 Writing design to file principal.ncd
 
 
-Total REAL time to Placer completion: 3 secs 
-Total CPU time to Placer completion: 3 secs 
+Total REAL time to Placer completion: 2 secs 
+Total CPU time to Placer completion: 2 secs 
 
 Starting Router
 
-Phase 1: 969 unrouted;       REAL time: 3 secs 
+Phase 1: 1206 unrouted;       REAL time: 3 secs 
 
-Phase 2: 892 unrouted;       REAL time: 3 secs 
+Phase 2: 1135 unrouted;       REAL time: 3 secs 
 
-Phase 3: 191 unrouted;       REAL time: 3 secs 
+Phase 3: 260 unrouted;       REAL time: 3 secs 
 
-Phase 4: 191 unrouted; (50855)      REAL time: 3 secs 
+Phase 4: 260 unrouted; (49849)      REAL time: 3 secs 
 
-Phase 5: 206 unrouted; (0)      REAL time: 3 secs 
+Phase 5: 290 unrouted; (2)      REAL time: 3 secs 
 
-Phase 6: 0 unrouted; (0)      REAL time: 4 secs 
+Phase 6: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 7: 0 unrouted; (0)      REAL time: 4 secs 
+Phase 7: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 8: 0 unrouted; (0)      REAL time: 4 secs 
+Phase 8: 0 unrouted; (0)      REAL time: 3 secs 
 
-Phase 9: 0 unrouted; (0)      REAL time: 4 secs 
+Phase 9: 0 unrouted; (0)      REAL time: 3 secs 
 
-WARNING:Route:455 - CLK Net:chrono_toggle_and0000 may have excessive skew because 
-      1 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
-WARNING:Route:455 - CLK Net:chrono_toggle may have excessive skew because 
+WARNING:Route:455 - CLK Net:hour_clk may have excessive skew because 
+      2 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:AP_dhour_cmp_eq0001 may have excessive skew because 
       1 CLK pins and 17 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:countdown_state may have excessive skew because 
+      1 CLK pins and 21 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:min_clk may have excessive skew because 
+      5 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:buzzer_toggle may have excessive skew because 
       1 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:countdown_toggle_done_and0000 may have excessive skew because 
+      1 CLK pins and 1 NON_CLK pins failed to route using a CLK template.
+WARNING:Route:455 - CLK Net:sec_clk may have excessive skew because 
+      5 CLK pins and 0 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:clk may have excessive skew because 
-      0 CLK pins and 5 NON_CLK pins failed to route using a CLK template.
+      0 CLK pins and 8 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:buzzer_end_cmp_gt0000 may have excessive skew because 
       0 CLK pins and 2 NON_CLK pins failed to route using a CLK template.
 WARNING:Route:455 - CLK Net:count<15> may have excessive skew because 
       0 CLK pins and 2 NON_CLK pins failed to route using a CLK template.
 
-Total REAL time to Router completion: 4 secs 
-Total CPU time to Router completion: 4 secs 
+Total REAL time to Router completion: 3 secs 
+Total CPU time to Router completion: 3 secs 
 
 Partition Implementation Status
 -------------------------------
@@ -152,38 +160,42 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |          clk1_BUFGP | BUFGMUX_X2Y11| No   |   14 |  0.008     |  0.064      |
 +---------------------+--------------+------+------+------------+-------------+
+|            hour_clk |         Local|      |    4 |  0.877     |  1.440      |
++---------------------+--------------+------+------+------------+-------------+
+| AP_dhour_cmp_eq0001 |         Local|      |   24 |  0.439     |  2.387      |
++---------------------+--------------+------+------+------------+-------------+
+|     countdown_state |         Local|      |   22 |  0.000     |  1.131      |
++---------------------+--------------+------+------+------------+-------------+
+|                 clk |         Local|      |   19 |  0.178     |  2.001      |
++---------------------+--------------+------+------+------------+-------------+
+|             min_clk |         Local|      |    5 |  0.313     |  1.133      |
++---------------------+--------------+------+------+------------+-------------+
+|       buzzer_toggle |         Local|      |    2 |  0.000     |  1.188      |
++---------------------+--------------+------+------+------------+-------------+
 |buzzer_end_cmp_gt000 |              |      |      |            |             |
-|                   0 |         Local|      |    4 |  0.002     |  0.376      |
+|                   0 |         Local|      |    4 |  0.003     |  0.377      |
 +---------------------+--------------+------+------+------------+-------------+
-|    countdown_Minute |         Local|      |    9 |  0.020     |  1.806      |
+|countdown_toggle_don |              |      |      |            |             |
+|           e_and0000 |         Local|      |    2 |  0.000     |  1.290      |
 +---------------------+--------------+------+------+------------+-------------+
-|                 clk |         Local|      |   16 |  0.171     |  2.034      |
+|             sec_clk |         Local|      |    5 |  0.571     |  1.669      |
 +---------------------+--------------+------+------+------------+-------------+
-|       value_not0001 |         Local|      |    4 |  0.076     |  1.853      |
+|countdown_set_sec_cl |              |      |      |            |             |
+|                   k |         Local|      |    4 |  0.000     |  1.249      |
 +---------------------+--------------+------+------+------------+-------------+
-|             min_clk |         Local|      |    5 |  0.004     |  1.159      |
+|       value_not0001 |         Local|      |    4 |  0.016     |  1.423      |
 +---------------------+--------------+------+------+------------+-------------+
-|            hour_clk |         Local|      |    4 |  0.004     |  1.444      |
+|          an_not0001 |         Local|      |    4 |  0.351     |  1.998      |
 +---------------------+--------------+------+------+------------+-------------+
-|           count<15> |         Local|      |    4 |  0.159     |  2.009      |
+|countdown_set_min_cl |              |      |      |            |             |
+|                   k |         Local|      |    4 |  0.028     |  1.476      |
 +---------------------+--------------+------+------+------------+-------------+
-|      chrono_min_clk |         Local|      |    4 |  0.004     |  1.191      |
+|           count<15> |         Local|      |    4 |  0.000     |  1.499      |
 +---------------------+--------------+------+------+------------+-------------+
-|             sec_clk |         Local|      |    5 |  0.071     |  1.732      |
+|countdown_state_or00 |              |      |      |            |             |
+|                  00 |         Local|      |    1 |  0.000     |  0.914      |
 +---------------------+--------------+------+------+------------+-------------+
-|      chrono_sec_clk |         Local|      |    4 |  0.000     |  0.646      |
-+---------------------+--------------+------+------+------------+-------------+
-|chrono_toggle_and000 |              |      |      |            |             |
-|                   0 |         Local|      |    2 |  0.000     |  1.410      |
-+---------------------+--------------+------+------+------------+-------------+
-|chrono_toggle_or0000 |              |      |      |            |             |
-|                     |         Local|      |    1 |  0.000     |  0.610      |
-+---------------------+--------------+------+------+------------+-------------+
-|       chrono_toggle |         Local|      |   18 |  0.000     |  1.001      |
-+---------------------+--------------+------+------+------------+-------------+
-|          an_not0001 |         Local|      |    4 |  0.079     |  1.731      |
-+---------------------+--------------+------+------+------------+-------------+
-|       buzzer_toggle |         Local|      |    2 |  0.000     |  0.973      |
+|   countdown_min_clk |         Local|      |    9 |  0.012     |  1.883      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -197,15 +209,15 @@ the minimum and maximum path delays which includes logic delays.
 
 The NUMBER OF SIGNALS NOT COMPLETELY ROUTED for this design is: 0
 
-   The AVERAGE CONNECTION DELAY for this design is:        0.998
-   The MAXIMUM PIN DELAY IS:                               2.936
-   The AVERAGE CONNECTION DELAY on the 10 WORST NETS is:   2.501
+   The AVERAGE CONNECTION DELAY for this design is:        1.115
+   The MAXIMUM PIN DELAY IS:                               4.974
+   The AVERAGE CONNECTION DELAY on the 10 WORST NETS is:   2.986
 
    Listing Pin Delays by value: (nsec)
 
     d < 1.00   < d < 2.00  < d < 3.00  < d < 4.00  < d < 5.00  d >= 5.00
    ---------   ---------   ---------   ---------   ---------   ---------
-         550         349          59           0           0           0
+         596         491          92          11           5           0
 
 Timing Score: 0
 
@@ -216,29 +228,35 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |  Check  | Worst Case |  Best Case | Timing |   Timing   
                                             |         |    Slack   | Achievable | Errors |    Score   
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.534ns|     N/A|           0
-  1_BUFGP                                   | HOLD    |     1.421ns|            |       0|           0
+  Autotimespec constraint for clock net hou | SETUP   |         N/A|     5.848ns|     N/A|           0
+  r_clk                                     | HOLD    |     1.468ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net cou | SETUP   |         N/A|     5.060ns|     N/A|           0
-  ntdown_Minute                             | HOLD    |     1.293ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.149ns|     N/A|           0
+                                            | HOLD    |     1.113ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.320ns|     N/A|           0
-                                            | HOLD    |     1.234ns|            |       0|           0
+  Autotimespec constraint for clock net min | SETUP   |         N/A|     3.989ns|     N/A|           0
+  _clk                                      | HOLD    |     1.115ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net min | SETUP   |         N/A|     4.729ns|     N/A|           0
-  _clk                                      | HOLD    |     1.228ns|            |       0|           0
+  Autotimespec constraint for clock net buz | SETUP   |         N/A|     3.467ns|     N/A|           0
+  zer_end_cmp_gt0000                        | HOLD    |     2.375ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net hou | SETUP   |         N/A|     4.845ns|     N/A|           0
-  r_clk                                     | HOLD    |     1.287ns|            |       0|           0
+  Autotimespec constraint for clock net sec | SETUP   |         N/A|     4.495ns|     N/A|           0
+  _clk                                      | HOLD    |     0.880ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net cou | SETUP   |         N/A|     4.093ns|     N/A|           0
-  nt<15>                                    | HOLD    |     1.140ns|            |       0|           0
+  Autotimespec constraint for clock net cou | SETUP   |         N/A|     4.170ns|     N/A|           0
+  ntdown_set_sec_clk                        | HOLD    |     1.345ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net sec | SETUP   |         N/A|     5.071ns|     N/A|           0
-  _clk                                      | HOLD    |     1.196ns|            |       0|           0
+  Autotimespec constraint for clock net cou | SETUP   |         N/A|     3.435ns|     N/A|           0
+  ntdown_set_min_clk                        | HOLD    |     1.142ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net chr | SETUP   |         N/A|     3.557ns|     N/A|           0
-  ono_toggle                                | HOLD    |     1.206ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP   |         N/A|     5.807ns|     N/A|           0
+  1_BUFGP                                   | HOLD    |     1.102ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net cou | SETUP   |         N/A|     4.105ns|     N/A|           0
+  nt<15>                                    | HOLD    |     1.344ns|            |       0|           0
+------------------------------------------------------------------------------------------------------
+  Autotimespec constraint for clock net cou | SETUP   |         N/A|     4.980ns|     N/A|           0
+  ntdown_min_clk                            | HOLD    |     1.289ns|            |       0|           0
 ------------------------------------------------------------------------------------------------------
 
 
@@ -251,8 +269,8 @@ Generating Pad Report.
 
 All signals are completely routed.
 
-Total REAL time to PAR completion: 4 secs 
-Total CPU time to PAR completion: 4 secs 
+Total REAL time to PAR completion: 3 secs 
+Total CPU time to PAR completion: 3 secs 
 
 Peak Memory Usage:  145 MB
 
@@ -260,7 +278,7 @@ Placement: Completed - No errors found.
 Routing: Completed - No errors found.
 
 Number of error messages: 0
-Number of warning messages: 6
+Number of warning messages: 10
 Number of info messages: 1
 
 Writing design to file principal.ncd

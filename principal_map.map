@@ -11,7 +11,7 @@ Target Device  : xc3s100e
 Target Package : cp132
 Target Speed   : -4
 Mapper Version : spartan3e -- $Revision: 1.36 $
-Mapped Date    : Sun Mar 13 20:24:48 2016
+Mapped Date    : Tue Mar 15 22:00:27 2016
 
 Mapping design into LUTs...
 Running directed packing...
@@ -23,27 +23,27 @@ Design Summary
 
 Design Summary:
 Number of errors:      0
-Number of warnings:   10
+Number of warnings:   11
 Logic Utilization:
-  Total Number Slice Registers:        99 out of   1,920    5%
+  Total Number Slice Registers:       106 out of   1,920    5%
     Number used as Flip Flops:                    91
-    Number used as Latches:                        8
-  Number of 4 input LUTs:             202 out of   1,920   10%
+    Number used as Latches:                       15
+  Number of 4 input LUTs:             250 out of   1,920   13%
 Logic Distribution:
-  Number of occupied Slices:                          131 out of     960   13%
-    Number of Slices containing only related logic:     131 out of     131  100%
-    Number of Slices containing unrelated logic:          0 out of     131    0%
+  Number of occupied Slices:                          161 out of     960   16%
+    Number of Slices containing only related logic:     161 out of     161  100%
+    Number of Slices containing unrelated logic:          0 out of     161    0%
       *See NOTES below for an explanation of the effects of unrelated logic
-Total Number of 4 input LUTs:            235 out of   1,920   12%
-  Number used as logic:                202
-  Number used as a route-thru:          33
+Total Number of 4 input LUTs:            285 out of   1,920   14%
+  Number used as logic:                250
+  Number used as a route-thru:          35
   Number of bonded IOBs:               33 out of      83   39%
     IOB Latches:                        5
   Number of GCLKs:                     1 out of      24    4%
 
-Total equivalent gate count for design:  2,224
+Total equivalent gate count for design:  2,577
 Additional JTAG gate count for IOBs:  1,584
-Peak Memory Usage:  175 MB
+Peak Memory Usage:  176 MB
 Total REAL time to MAP completion:  1 secs 
 Total CPU time to MAP completion:   1 secs 
 

@@ -1,5 +1,0 @@
-# begin LFP file C:\Users\alain\Desktop\ECE\ING2\Electronique\vhdl\git\principal.lfp
-designfile principal.vhd
-parttype xc3s100e-4-cp132
-bus_delimiter 0;
-set_busdelim_onsave 1;
